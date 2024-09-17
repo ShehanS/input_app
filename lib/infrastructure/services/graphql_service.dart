@@ -6,8 +6,9 @@ import '../../config/app_config.dart';
 @singleton
 class GraphQLService {
   late GraphQLClient _client;
+
   GraphQLService() {
-    HttpLink httpLink = HttpLink(graphql_url);
+    final HttpLink httpLink = HttpLink(graphql_url);
 
     _client = GraphQLClient(
       link: httpLink,

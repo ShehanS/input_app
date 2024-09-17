@@ -9,15 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
+import '../infrastructure/bloc/localization/localization_bloc.dart';
+
 class User extends StatelessWidget {
   const User({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return BlocProvider<MetaDataBloc>(
       create: (ctx) => getIt<MetaDataBloc>(),
       child: Scaffold(
-        appBar:const PreferredSize(preferredSize: Size.fromHeight(kToolbarHeight), child:  CustomAppBar()),
+        appBar:PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child:  CustomAppBar()),
         body: BlocBuilder<MetaDataBloc, MetaDataState>(
           builder: (innerContext, innerState) {
             return Center(

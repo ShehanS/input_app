@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'localization_bloc.dart';
+part of 'application_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,65 +15,65 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LocalizationEvent {
+mixin _$ApplicationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Locale local) changeLocalization,
+    required TResult Function(GlobalKey<ScaffoldState> key) openAppDrawer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Locale local)? changeLocalization,
+    TResult? Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Locale local)? changeLocalization,
+    TResult Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(ChangeLocalization value) changeLocalization,
+    required TResult Function(OpenAppDrawer value) openAppDrawer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(ChangeLocalization value)? changeLocalization,
+    TResult? Function(OpenAppDrawer value)? openAppDrawer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(ChangeLocalization value)? changeLocalization,
+    TResult Function(OpenAppDrawer value)? openAppDrawer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocalizationEventCopyWith<$Res> {
-  factory $LocalizationEventCopyWith(
-          LocalizationEvent value, $Res Function(LocalizationEvent) then) =
-      _$LocalizationEventCopyWithImpl<$Res, LocalizationEvent>;
+abstract class $ApplicationEventCopyWith<$Res> {
+  factory $ApplicationEventCopyWith(
+          ApplicationEvent value, $Res Function(ApplicationEvent) then) =
+      _$ApplicationEventCopyWithImpl<$Res, ApplicationEvent>;
 }
 
 /// @nodoc
-class _$LocalizationEventCopyWithImpl<$Res, $Val extends LocalizationEvent>
-    implements $LocalizationEventCopyWith<$Res> {
-  _$LocalizationEventCopyWithImpl(this._value, this._then);
+class _$ApplicationEventCopyWithImpl<$Res, $Val extends ApplicationEvent>
+    implements $ApplicationEventCopyWith<$Res> {
+  _$ApplicationEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LocalizationEvent
+  /// Create a copy of ApplicationEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -86,13 +86,13 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$LocalizationEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$ApplicationEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of LocalizationEvent
+  /// Create a copy of ApplicationEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -103,7 +103,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'LocalizationEvent.started()';
+    return 'ApplicationEvent.started()';
   }
 
   @override
@@ -119,7 +119,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Locale local) changeLocalization,
+    required TResult Function(GlobalKey<ScaffoldState> key) openAppDrawer,
   }) {
     return started();
   }
@@ -128,7 +128,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Locale local)? changeLocalization,
+    TResult? Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
   }) {
     return started?.call();
   }
@@ -137,7 +137,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Locale local)? changeLocalization,
+    TResult Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -150,7 +150,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(ChangeLocalization value) changeLocalization,
+    required TResult Function(OpenAppDrawer value) openAppDrawer,
   }) {
     return started(this);
   }
@@ -159,7 +159,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(ChangeLocalization value)? changeLocalization,
+    TResult? Function(OpenAppDrawer value)? openAppDrawer,
   }) {
     return started?.call(this);
   }
@@ -168,7 +168,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(ChangeLocalization value)? changeLocalization,
+    TResult Function(OpenAppDrawer value)? openAppDrawer,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -178,103 +178,102 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements LocalizationEvent {
+abstract class _Started implements ApplicationEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeLocalizationImplCopyWith<$Res> {
-  factory _$$ChangeLocalizationImplCopyWith(_$ChangeLocalizationImpl value,
-          $Res Function(_$ChangeLocalizationImpl) then) =
-      __$$ChangeLocalizationImplCopyWithImpl<$Res>;
+abstract class _$$OpenAppDrawerImplCopyWith<$Res> {
+  factory _$$OpenAppDrawerImplCopyWith(
+          _$OpenAppDrawerImpl value, $Res Function(_$OpenAppDrawerImpl) then) =
+      __$$OpenAppDrawerImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Locale local});
+  $Res call({GlobalKey<ScaffoldState> key});
 }
 
 /// @nodoc
-class __$$ChangeLocalizationImplCopyWithImpl<$Res>
-    extends _$LocalizationEventCopyWithImpl<$Res, _$ChangeLocalizationImpl>
-    implements _$$ChangeLocalizationImplCopyWith<$Res> {
-  __$$ChangeLocalizationImplCopyWithImpl(_$ChangeLocalizationImpl _value,
-      $Res Function(_$ChangeLocalizationImpl) _then)
+class __$$OpenAppDrawerImplCopyWithImpl<$Res>
+    extends _$ApplicationEventCopyWithImpl<$Res, _$OpenAppDrawerImpl>
+    implements _$$OpenAppDrawerImplCopyWith<$Res> {
+  __$$OpenAppDrawerImplCopyWithImpl(
+      _$OpenAppDrawerImpl _value, $Res Function(_$OpenAppDrawerImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of LocalizationEvent
+  /// Create a copy of ApplicationEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? local = null,
+    Object? key = null,
   }) {
-    return _then(_$ChangeLocalizationImpl(
-      null == local
-          ? _value.local
-          : local // ignore: cast_nullable_to_non_nullable
-              as Locale,
+    return _then(_$OpenAppDrawerImpl(
+      null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<ScaffoldState>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ChangeLocalizationImpl implements ChangeLocalization {
-  const _$ChangeLocalizationImpl(this.local);
+class _$OpenAppDrawerImpl implements OpenAppDrawer {
+  const _$OpenAppDrawerImpl(this.key);
 
   @override
-  final Locale local;
+  final GlobalKey<ScaffoldState> key;
 
   @override
   String toString() {
-    return 'LocalizationEvent.changeLocalization(local: $local)';
+    return 'ApplicationEvent.openAppDrawer(key: $key)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeLocalizationImpl &&
-            (identical(other.local, local) || other.local == local));
+            other is _$OpenAppDrawerImpl &&
+            (identical(other.key, key) || other.key == key));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, local);
+  int get hashCode => Object.hash(runtimeType, key);
 
-  /// Create a copy of LocalizationEvent
+  /// Create a copy of ApplicationEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeLocalizationImplCopyWith<_$ChangeLocalizationImpl> get copyWith =>
-      __$$ChangeLocalizationImplCopyWithImpl<_$ChangeLocalizationImpl>(
-          this, _$identity);
+  _$$OpenAppDrawerImplCopyWith<_$OpenAppDrawerImpl> get copyWith =>
+      __$$OpenAppDrawerImplCopyWithImpl<_$OpenAppDrawerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Locale local) changeLocalization,
+    required TResult Function(GlobalKey<ScaffoldState> key) openAppDrawer,
   }) {
-    return changeLocalization(local);
+    return openAppDrawer(key);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Locale local)? changeLocalization,
+    TResult? Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
   }) {
-    return changeLocalization?.call(local);
+    return openAppDrawer?.call(key);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Locale local)? changeLocalization,
+    TResult Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
     required TResult orElse(),
   }) {
-    if (changeLocalization != null) {
-      return changeLocalization(local);
+    if (openAppDrawer != null) {
+      return openAppDrawer(key);
     }
     return orElse();
   }
@@ -283,158 +282,158 @@ class _$ChangeLocalizationImpl implements ChangeLocalization {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(ChangeLocalization value) changeLocalization,
+    required TResult Function(OpenAppDrawer value) openAppDrawer,
   }) {
-    return changeLocalization(this);
+    return openAppDrawer(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(ChangeLocalization value)? changeLocalization,
+    TResult? Function(OpenAppDrawer value)? openAppDrawer,
   }) {
-    return changeLocalization?.call(this);
+    return openAppDrawer?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(ChangeLocalization value)? changeLocalization,
+    TResult Function(OpenAppDrawer value)? openAppDrawer,
     required TResult orElse(),
   }) {
-    if (changeLocalization != null) {
-      return changeLocalization(this);
+    if (openAppDrawer != null) {
+      return openAppDrawer(this);
     }
     return orElse();
   }
 }
 
-abstract class ChangeLocalization implements LocalizationEvent {
-  const factory ChangeLocalization(final Locale local) =
-      _$ChangeLocalizationImpl;
+abstract class OpenAppDrawer implements ApplicationEvent {
+  const factory OpenAppDrawer(final GlobalKey<ScaffoldState> key) =
+      _$OpenAppDrawerImpl;
 
-  Locale get local;
+  GlobalKey<ScaffoldState> get key;
 
-  /// Create a copy of LocalizationEvent
+  /// Create a copy of ApplicationEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChangeLocalizationImplCopyWith<_$ChangeLocalizationImpl> get copyWith =>
+  _$$OpenAppDrawerImplCopyWith<_$OpenAppDrawerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$LocalizationState {
-  Locale get local => throw _privateConstructorUsedError;
+mixin _$ApplicationState {
+  bool get isOpenDrawer => throw _privateConstructorUsedError;
 
-  /// Create a copy of LocalizationState
+  /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LocalizationStateCopyWith<LocalizationState> get copyWith =>
+  $ApplicationStateCopyWith<ApplicationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocalizationStateCopyWith<$Res> {
-  factory $LocalizationStateCopyWith(
-          LocalizationState value, $Res Function(LocalizationState) then) =
-      _$LocalizationStateCopyWithImpl<$Res, LocalizationState>;
+abstract class $ApplicationStateCopyWith<$Res> {
+  factory $ApplicationStateCopyWith(
+          ApplicationState value, $Res Function(ApplicationState) then) =
+      _$ApplicationStateCopyWithImpl<$Res, ApplicationState>;
   @useResult
-  $Res call({Locale local});
+  $Res call({bool isOpenDrawer});
 }
 
 /// @nodoc
-class _$LocalizationStateCopyWithImpl<$Res, $Val extends LocalizationState>
-    implements $LocalizationStateCopyWith<$Res> {
-  _$LocalizationStateCopyWithImpl(this._value, this._then);
+class _$ApplicationStateCopyWithImpl<$Res, $Val extends ApplicationState>
+    implements $ApplicationStateCopyWith<$Res> {
+  _$ApplicationStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LocalizationState
+  /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? local = null,
+    Object? isOpenDrawer = null,
   }) {
     return _then(_value.copyWith(
-      local: null == local
-          ? _value.local
-          : local // ignore: cast_nullable_to_non_nullable
-              as Locale,
+      isOpenDrawer: null == isOpenDrawer
+          ? _value.isOpenDrawer
+          : isOpenDrawer // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$LocalizationStateImplCopyWith<$Res>
-    implements $LocalizationStateCopyWith<$Res> {
-  factory _$$LocalizationStateImplCopyWith(_$LocalizationStateImpl value,
-          $Res Function(_$LocalizationStateImpl) then) =
-      __$$LocalizationStateImplCopyWithImpl<$Res>;
+abstract class _$$ApplicationStateImplCopyWith<$Res>
+    implements $ApplicationStateCopyWith<$Res> {
+  factory _$$ApplicationStateImplCopyWith(_$ApplicationStateImpl value,
+          $Res Function(_$ApplicationStateImpl) then) =
+      __$$ApplicationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Locale local});
+  $Res call({bool isOpenDrawer});
 }
 
 /// @nodoc
-class __$$LocalizationStateImplCopyWithImpl<$Res>
-    extends _$LocalizationStateCopyWithImpl<$Res, _$LocalizationStateImpl>
-    implements _$$LocalizationStateImplCopyWith<$Res> {
-  __$$LocalizationStateImplCopyWithImpl(_$LocalizationStateImpl _value,
-      $Res Function(_$LocalizationStateImpl) _then)
+class __$$ApplicationStateImplCopyWithImpl<$Res>
+    extends _$ApplicationStateCopyWithImpl<$Res, _$ApplicationStateImpl>
+    implements _$$ApplicationStateImplCopyWith<$Res> {
+  __$$ApplicationStateImplCopyWithImpl(_$ApplicationStateImpl _value,
+      $Res Function(_$ApplicationStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of LocalizationState
+  /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? local = null,
+    Object? isOpenDrawer = null,
   }) {
-    return _then(_$LocalizationStateImpl(
-      local: null == local
-          ? _value.local
-          : local // ignore: cast_nullable_to_non_nullable
-              as Locale,
+    return _then(_$ApplicationStateImpl(
+      isOpenDrawer: null == isOpenDrawer
+          ? _value.isOpenDrawer
+          : isOpenDrawer // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LocalizationStateImpl extends _LocalizationState {
-  _$LocalizationStateImpl({required this.local}) : super._();
+class _$ApplicationStateImpl extends _ApplicationState {
+  _$ApplicationStateImpl({required this.isOpenDrawer}) : super._();
 
   @override
-  final Locale local;
+  final bool isOpenDrawer;
 
-  /// Create a copy of LocalizationState
+  /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LocalizationStateImplCopyWith<_$LocalizationStateImpl> get copyWith =>
-      __$$LocalizationStateImplCopyWithImpl<_$LocalizationStateImpl>(
+  _$$ApplicationStateImplCopyWith<_$ApplicationStateImpl> get copyWith =>
+      __$$ApplicationStateImplCopyWithImpl<_$ApplicationStateImpl>(
           this, _$identity);
 }
 
-abstract class _LocalizationState extends LocalizationState {
-  factory _LocalizationState({required final Locale local}) =
-      _$LocalizationStateImpl;
-  _LocalizationState._() : super._();
+abstract class _ApplicationState extends ApplicationState {
+  factory _ApplicationState({required final bool isOpenDrawer}) =
+      _$ApplicationStateImpl;
+  _ApplicationState._() : super._();
 
   @override
-  Locale get local;
+  bool get isOpenDrawer;
 
-  /// Create a copy of LocalizationState
+  /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LocalizationStateImplCopyWith<_$LocalizationStateImpl> get copyWith =>
+  _$$ApplicationStateImplCopyWith<_$ApplicationStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
