@@ -21,7 +21,7 @@ AppConfigEntity _$AppConfigEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AppConfigEntity {
   String get configName => throw _privateConstructorUsedError;
-  ClientInfo get client => throw _privateConstructorUsedError;
+  ClientInfoEntity get client => throw _privateConstructorUsedError;
   dynamic get masterData => throw _privateConstructorUsedError;
   dynamic get config => throw _privateConstructorUsedError;
 
@@ -43,11 +43,11 @@ abstract class $AppConfigEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {String configName,
-      ClientInfo client,
+      ClientInfoEntity client,
       dynamic masterData,
       dynamic config});
 
-  $ClientInfoCopyWith<$Res> get client;
+  $ClientInfoEntityCopyWith<$Res> get client;
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ class _$AppConfigEntityCopyWithImpl<$Res, $Val extends AppConfigEntity>
       client: null == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
-              as ClientInfo,
+              as ClientInfoEntity,
       masterData: freezed == masterData
           ? _value.masterData
           : masterData // ignore: cast_nullable_to_non_nullable
@@ -94,8 +94,8 @@ class _$AppConfigEntityCopyWithImpl<$Res, $Val extends AppConfigEntity>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ClientInfoCopyWith<$Res> get client {
-    return $ClientInfoCopyWith<$Res>(_value.client, (value) {
+  $ClientInfoEntityCopyWith<$Res> get client {
+    return $ClientInfoEntityCopyWith<$Res>(_value.client, (value) {
       return _then(_value.copyWith(client: value) as $Val);
     });
   }
@@ -111,12 +111,12 @@ abstract class _$$AppConfigEntityImplCopyWith<$Res>
   @useResult
   $Res call(
       {String configName,
-      ClientInfo client,
+      ClientInfoEntity client,
       dynamic masterData,
       dynamic config});
 
   @override
-  $ClientInfoCopyWith<$Res> get client;
+  $ClientInfoEntityCopyWith<$Res> get client;
 }
 
 /// @nodoc
@@ -145,7 +145,7 @@ class __$$AppConfigEntityImplCopyWithImpl<$Res>
       client: null == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
-              as ClientInfo,
+              as ClientInfoEntity,
       masterData: freezed == masterData
           ? _value.masterData
           : masterData // ignore: cast_nullable_to_non_nullable
@@ -173,7 +173,7 @@ class _$AppConfigEntityImpl implements _AppConfigEntity {
   @override
   final String configName;
   @override
-  final ClientInfo client;
+  final ClientInfoEntity client;
   @override
   final dynamic masterData;
   @override
@@ -226,7 +226,7 @@ class _$AppConfigEntityImpl implements _AppConfigEntity {
 abstract class _AppConfigEntity implements AppConfigEntity {
   factory _AppConfigEntity(
       {required final String configName,
-      required final ClientInfo client,
+      required final ClientInfoEntity client,
       required final dynamic masterData,
       required final dynamic config}) = _$AppConfigEntityImpl;
 
@@ -236,7 +236,7 @@ abstract class _AppConfigEntity implements AppConfigEntity {
   @override
   String get configName;
   @override
-  ClientInfo get client;
+  ClientInfoEntity get client;
   @override
   dynamic get masterData;
   @override
@@ -250,12 +250,12 @@ abstract class _AppConfigEntity implements AppConfigEntity {
       throw _privateConstructorUsedError;
 }
 
-ClientInfo _$ClientInfoFromJson(Map<String, dynamic> json) {
-  return _ClientInfo.fromJson(json);
+ClientInfoEntity _$ClientInfoEntityFromJson(Map<String, dynamic> json) {
+  return _ClientInfoEntity.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ClientInfo {
+mixin _$ClientInfoEntity {
   String get id => throw _privateConstructorUsedError;
   String get clientName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -264,21 +264,21 @@ mixin _$ClientInfo {
   String get imageURL => throw _privateConstructorUsedError;
   String get licenseId => throw _privateConstructorUsedError;
 
-  /// Serializes this ClientInfo to a JSON map.
+  /// Serializes this ClientInfoEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ClientInfo
+  /// Create a copy of ClientInfoEntity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ClientInfoCopyWith<ClientInfo> get copyWith =>
+  $ClientInfoEntityCopyWith<ClientInfoEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ClientInfoCopyWith<$Res> {
-  factory $ClientInfoCopyWith(
-          ClientInfo value, $Res Function(ClientInfo) then) =
-      _$ClientInfoCopyWithImpl<$Res, ClientInfo>;
+abstract class $ClientInfoEntityCopyWith<$Res> {
+  factory $ClientInfoEntityCopyWith(
+          ClientInfoEntity value, $Res Function(ClientInfoEntity) then) =
+      _$ClientInfoEntityCopyWithImpl<$Res, ClientInfoEntity>;
   @useResult
   $Res call(
       {String id,
@@ -291,16 +291,16 @@ abstract class $ClientInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ClientInfoCopyWithImpl<$Res, $Val extends ClientInfo>
-    implements $ClientInfoCopyWith<$Res> {
-  _$ClientInfoCopyWithImpl(this._value, this._then);
+class _$ClientInfoEntityCopyWithImpl<$Res, $Val extends ClientInfoEntity>
+    implements $ClientInfoEntityCopyWith<$Res> {
+  _$ClientInfoEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ClientInfo
+  /// Create a copy of ClientInfoEntity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -347,11 +347,11 @@ class _$ClientInfoCopyWithImpl<$Res, $Val extends ClientInfo>
 }
 
 /// @nodoc
-abstract class _$$ClientInfoImplCopyWith<$Res>
-    implements $ClientInfoCopyWith<$Res> {
-  factory _$$ClientInfoImplCopyWith(
-          _$ClientInfoImpl value, $Res Function(_$ClientInfoImpl) then) =
-      __$$ClientInfoImplCopyWithImpl<$Res>;
+abstract class _$$ClientInfoEntityImplCopyWith<$Res>
+    implements $ClientInfoEntityCopyWith<$Res> {
+  factory _$$ClientInfoEntityImplCopyWith(_$ClientInfoEntityImpl value,
+          $Res Function(_$ClientInfoEntityImpl) then) =
+      __$$ClientInfoEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -365,14 +365,14 @@ abstract class _$$ClientInfoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ClientInfoImplCopyWithImpl<$Res>
-    extends _$ClientInfoCopyWithImpl<$Res, _$ClientInfoImpl>
-    implements _$$ClientInfoImplCopyWith<$Res> {
-  __$$ClientInfoImplCopyWithImpl(
-      _$ClientInfoImpl _value, $Res Function(_$ClientInfoImpl) _then)
+class __$$ClientInfoEntityImplCopyWithImpl<$Res>
+    extends _$ClientInfoEntityCopyWithImpl<$Res, _$ClientInfoEntityImpl>
+    implements _$$ClientInfoEntityImplCopyWith<$Res> {
+  __$$ClientInfoEntityImplCopyWithImpl(_$ClientInfoEntityImpl _value,
+      $Res Function(_$ClientInfoEntityImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ClientInfo
+  /// Create a copy of ClientInfoEntity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -385,7 +385,7 @@ class __$$ClientInfoImplCopyWithImpl<$Res>
     Object? imageURL = null,
     Object? licenseId = null,
   }) {
-    return _then(_$ClientInfoImpl(
+    return _then(_$ClientInfoEntityImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -420,8 +420,8 @@ class __$$ClientInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ClientInfoImpl implements _ClientInfo {
-  _$ClientInfoImpl(
+class _$ClientInfoEntityImpl implements _ClientInfoEntity {
+  _$ClientInfoEntityImpl(
       {required this.id,
       required this.clientName,
       required this.email,
@@ -430,8 +430,8 @@ class _$ClientInfoImpl implements _ClientInfo {
       required this.imageURL,
       required this.licenseId});
 
-  factory _$ClientInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ClientInfoImplFromJson(json);
+  factory _$ClientInfoEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClientInfoEntityImplFromJson(json);
 
   @override
   final String id;
@@ -450,14 +450,14 @@ class _$ClientInfoImpl implements _ClientInfo {
 
   @override
   String toString() {
-    return 'ClientInfo(id: $id, clientName: $clientName, email: $email, country: $country, purchaseDate: $purchaseDate, imageURL: $imageURL, licenseId: $licenseId)';
+    return 'ClientInfoEntity(id: $id, clientName: $clientName, email: $email, country: $country, purchaseDate: $purchaseDate, imageURL: $imageURL, licenseId: $licenseId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ClientInfoImpl &&
+            other is _$ClientInfoEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.clientName, clientName) ||
                 other.clientName == clientName) &&
@@ -476,34 +476,35 @@ class _$ClientInfoImpl implements _ClientInfo {
   int get hashCode => Object.hash(runtimeType, id, clientName, email, country,
       purchaseDate, imageURL, licenseId);
 
-  /// Create a copy of ClientInfo
+  /// Create a copy of ClientInfoEntity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ClientInfoImplCopyWith<_$ClientInfoImpl> get copyWith =>
-      __$$ClientInfoImplCopyWithImpl<_$ClientInfoImpl>(this, _$identity);
+  _$$ClientInfoEntityImplCopyWith<_$ClientInfoEntityImpl> get copyWith =>
+      __$$ClientInfoEntityImplCopyWithImpl<_$ClientInfoEntityImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ClientInfoImplToJson(
+    return _$$ClientInfoEntityImplToJson(
       this,
     );
   }
 }
 
-abstract class _ClientInfo implements ClientInfo {
-  factory _ClientInfo(
+abstract class _ClientInfoEntity implements ClientInfoEntity {
+  factory _ClientInfoEntity(
       {required final String id,
       required final String clientName,
       required final String email,
       required final String country,
       required final String purchaseDate,
       required final String imageURL,
-      required final String licenseId}) = _$ClientInfoImpl;
+      required final String licenseId}) = _$ClientInfoEntityImpl;
 
-  factory _ClientInfo.fromJson(Map<String, dynamic> json) =
-      _$ClientInfoImpl.fromJson;
+  factory _ClientInfoEntity.fromJson(Map<String, dynamic> json) =
+      _$ClientInfoEntityImpl.fromJson;
 
   @override
   String get id;
@@ -520,10 +521,10 @@ abstract class _ClientInfo implements ClientInfo {
   @override
   String get licenseId;
 
-  /// Create a copy of ClientInfo
+  /// Create a copy of ClientInfoEntity
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ClientInfoImplCopyWith<_$ClientInfoImpl> get copyWith =>
+  _$$ClientInfoEntityImplCopyWith<_$ClientInfoEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

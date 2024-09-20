@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:downtime_pro/application/widget/custom_button/list_item_button.dart';
-
+import 'package:auto_route/auto_route.dart';
 import '../../infrastructure/bloc/application/application_bloc.dart';
 import '../../infrastructure/injection/injection.dart';
 import '../widget/custom_app_bar/custom_app_bar.dart';
 
+@RoutePage()
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
 

@@ -6,7 +6,7 @@ part 'app_config_entity.g.dart';
 class AppConfigEntity with _$AppConfigEntity{
   factory AppConfigEntity({
     required String configName,
-    required ClientInfo client,
+    required ClientInfoEntity client,
     required dynamic masterData,
     required dynamic config,
 
@@ -17,8 +17,8 @@ class AppConfigEntity with _$AppConfigEntity{
 
 
 @freezed
-class ClientInfo with _$ClientInfo{
-  factory ClientInfo({
+class ClientInfoEntity with _$ClientInfoEntity{
+  factory ClientInfoEntity({
       required String id,
     required String clientName,
     required String email,
@@ -26,6 +26,6 @@ class ClientInfo with _$ClientInfo{
     required String purchaseDate,
     required String imageURL,
     required String licenseId
-}) = _ClientInfo;
- factory ClientInfo.fromJson(Map<String, dynamic> json) => _$ClientInfoFromJson(json);
+}) = _ClientInfoEntity;
+ factory ClientInfoEntity.fromJson(Map<String, dynamic> json) => _$ClientInfoEntityFromJson(json);
 }

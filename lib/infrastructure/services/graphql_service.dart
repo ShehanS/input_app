@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
-
+import 'package:hive/hive.dart';
 import '../../config/app_config.dart';
 
 @singleton
@@ -17,4 +19,5 @@ class GraphQLService {
   }
 
   GraphQLClient get client => _client;
+
 }

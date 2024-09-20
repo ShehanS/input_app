@@ -10,7 +10,7 @@ _$AppConfigEntityImpl _$$AppConfigEntityImplFromJson(
         Map<String, dynamic> json) =>
     _$AppConfigEntityImpl(
       configName: json['configName'] as String,
-      client: ClientInfo.fromJson(json['client'] as Map<String, dynamic>),
+      client: ClientInfoEntity.fromJson(json['client'] as Map<String, dynamic>),
       masterData: json['masterData'],
       config: json['config'],
     );
@@ -24,8 +24,9 @@ Map<String, dynamic> _$$AppConfigEntityImplToJson(
       'config': instance.config,
     };
 
-_$ClientInfoImpl _$$ClientInfoImplFromJson(Map<String, dynamic> json) =>
-    _$ClientInfoImpl(
+_$ClientInfoEntityImpl _$$ClientInfoEntityImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ClientInfoEntityImpl(
       id: json['id'] as String,
       clientName: json['clientName'] as String,
       email: json['email'] as String,
@@ -35,7 +36,8 @@ _$ClientInfoImpl _$$ClientInfoImplFromJson(Map<String, dynamic> json) =>
       licenseId: json['licenseId'] as String,
     );
 
-Map<String, dynamic> _$$ClientInfoImplToJson(_$ClientInfoImpl instance) =>
+Map<String, dynamic> _$$ClientInfoEntityImplToJson(
+        _$ClientInfoEntityImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'clientName': instance.clientName,

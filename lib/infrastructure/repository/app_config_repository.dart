@@ -35,7 +35,6 @@ class AppDataRepositoryImpl implements AppConfigRepository {
       try {
         final appConfig =
         AppConfigEntity.fromJson(data['fetchConfig'] as Map<String, dynamic>);
-        log(appConfig.toString());
         return right(appConfig);
       } catch (e) {
         log('Error parsing appConfig: $e');
