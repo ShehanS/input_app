@@ -1,9 +1,12 @@
+import 'package:downtime_pro/infrastructure/domain/globle/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:downtime_pro/infrastructure/bloc/app_config/app_config_bloc.dart';
+import '../../infrastructure/const/app_const.dart';
 import '../../infrastructure/const/custom_text.dart';
 import '../../infrastructure/domain/globle/color/globle_colors.dart';
+import '../../infrastructure/services/storage_service.dart';
 import '../widget/dialog/customize_dialog/custom_dialog.dart';
 
 @RoutePage()
@@ -14,7 +17,7 @@ class TokenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController tokenController = TextEditingController();
     final ValueNotifier<bool> isButtonEnabled = ValueNotifier(false);
-
+    final storageService = StorageService();
     return BlocConsumer<AppConfigBloc, AppConfigState>(
       listener: (innerContext, innerState) {
         if (innerState.errorDialogProps != null &&
@@ -172,12 +175,14 @@ class TokenPage extends StatelessWidget {
                                               ),
                                               onPressed: isEnabled
                                                   ? () {
+                                                //innerContext.router.navigate(const LoginRoute());
                                                       innerContext
                                                           .read<AppConfigBloc>()
                                                           .add(GetAppConfig(
                                                               token:
                                                                   tokenController
                                                                       .text));
+                                                    storageService.getValue(APP_CONFIG).then((value) =>print(value));
                                                     }
                                                   : null,
                                             );

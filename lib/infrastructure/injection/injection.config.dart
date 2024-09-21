@@ -19,6 +19,8 @@ import 'package:downtime_pro/infrastructure/bloc/localization/localization_bloc.
 import 'package:downtime_pro/infrastructure/bloc/metadata/meta_data_bloc.dart'
     as _i213;
 import 'package:downtime_pro/infrastructure/bloc/user/user_bloc.dart' as _i754;
+import 'package:downtime_pro/infrastructure/domain/globle/router/config_router.dart'
+    as _i696;
 import 'package:downtime_pro/infrastructure/injection/injection.dart' as _i411;
 import 'package:downtime_pro/infrastructure/repository/app_config_repository.dart'
     as _i786;
@@ -48,6 +50,7 @@ extension GetItInjectableX on _i174.GetIt {
     final localizationModule = _$LocalizationModule();
     gh.factory<_i754.UserBloc>(() => _i754.UserBloc());
     gh.factory<_i42.ApplicationBloc>(() => _i42.ApplicationBloc());
+    gh.factory<_i696.ConfigRouter>(() => _i696.ConfigRouter());
     gh.singleton<_i277.GraphQLService>(() => _i277.GraphQLService());
     gh.singleton<_i598.StorageService>(() => _i598.StorageService());
     gh.singleton<_i882.CounterService>(() => _i882.CounterService());
