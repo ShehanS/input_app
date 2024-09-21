@@ -29,7 +29,7 @@ class CustomAppBar extends StatelessWidget {
         InkWell(
             child: const Text("Line"),
             onTap: () {
-              showCustomDialog(context, 'This is a reusable dialog', 'Close');
+              //showCustomDialog(context, 'This is a reusable dialog', 'Close', ()=>{()=>print("close")});
             }),
         const Padding(
           padding: EdgeInsets.fromLTRB(0, 0, 20, 0),

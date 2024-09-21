@@ -1,0 +1,1 @@
+const String APP_CONFIG = "app_config";

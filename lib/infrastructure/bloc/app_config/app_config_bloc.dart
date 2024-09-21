@@ -9,6 +9,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../const/app_const.dart';
+import '../../domain/globle/model/error_dialog_props.dart';
 import '../../services/graphql_service.dart';
 
 part 'app_config_event.dart';
@@ -28,16 +30,33 @@ class AppConfigBloc extends Bloc<AppConfigEvent, AppConfigState> {
       : super(AppConfigState.initial()) {
     on<AppConfigEvent>((event, emit) {});
     on<GetAppConfig>(_getAppConfig);
+    on<ClearErrorDialogProps>(_clearErrorDialogProps);
   }
 
   void _getAppConfig(GetAppConfig event, Emitter<AppConfigState> emit) async {
     log("Requesting metadata using GraphQL client...");
+    emit(state.copyWith(isLoading: true));
     final result = await appConfigRepository.appConfig(event.token);
     result.fold((l) {
+      emit(state.copyWith(isLoading: false));
       log("Some issue happening");
+      emit(state.copyWith(
+          errorDialogProps: ErrorDialogProps(
+              title: "Sync Issue",
+              message: l.toString(),
+              isOpen: true)));
     }, (r) {
-      storageService.setValue("appConfig", r.toString()).whenComplete(() => log("config has been saved!!"));
+      storageService
+          .setValue(APP_CONFIG, r.toString())
+          .whenComplete(() => log("config has been saved!!"));
+      emit(state.copyWith(isLoading: false));
       emit(state.copyWith(appConfig: r));
     });
+  }
+
+  void _clearErrorDialogProps(
+      ClearErrorDialogProps event, Emitter<AppConfigState> emit) {
+    log("clear error props");
+    emit(state.copyWith(errorDialogProps: ErrorDialogProps(message: "", title: "", isOpen: false)));
   }
 }

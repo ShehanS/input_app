@@ -20,18 +20,21 @@ mixin _$AppConfigEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String token) getAppConfig,
+    required TResult Function() clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String token)? getAppConfig,
+    TResult? Function()? clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String token)? getAppConfig,
+    TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,22 @@ mixin _$AppConfigEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetAppConfig value) getAppConfig,
+    required TResult Function(ClearErrorDialogProps value)
+        clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetAppConfig value)? getAppConfig,
+    TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetAppConfig value)? getAppConfig,
+    TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +127,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String token) getAppConfig,
+    required TResult Function() clearErrorDialogProps,
   }) {
     return started();
   }
@@ -129,6 +137,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String token)? getAppConfig,
+    TResult? Function()? clearErrorDialogProps,
   }) {
     return started?.call();
   }
@@ -138,6 +147,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String token)? getAppConfig,
+    TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -151,6 +161,8 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetAppConfig value) getAppConfig,
+    required TResult Function(ClearErrorDialogProps value)
+        clearErrorDialogProps,
   }) {
     return started(this);
   }
@@ -160,6 +172,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetAppConfig value)? getAppConfig,
+    TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
   }) {
     return started?.call(this);
   }
@@ -169,6 +182,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetAppConfig value)? getAppConfig,
+    TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -252,6 +266,7 @@ class _$GetAppConfigImpl implements GetAppConfig {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String token) getAppConfig,
+    required TResult Function() clearErrorDialogProps,
   }) {
     return getAppConfig(token);
   }
@@ -261,6 +276,7 @@ class _$GetAppConfigImpl implements GetAppConfig {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String token)? getAppConfig,
+    TResult? Function()? clearErrorDialogProps,
   }) {
     return getAppConfig?.call(token);
   }
@@ -270,6 +286,7 @@ class _$GetAppConfigImpl implements GetAppConfig {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String token)? getAppConfig,
+    TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {
     if (getAppConfig != null) {
@@ -283,6 +300,8 @@ class _$GetAppConfigImpl implements GetAppConfig {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetAppConfig value) getAppConfig,
+    required TResult Function(ClearErrorDialogProps value)
+        clearErrorDialogProps,
   }) {
     return getAppConfig(this);
   }
@@ -292,6 +311,7 @@ class _$GetAppConfigImpl implements GetAppConfig {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetAppConfig value)? getAppConfig,
+    TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
   }) {
     return getAppConfig?.call(this);
   }
@@ -301,6 +321,7 @@ class _$GetAppConfigImpl implements GetAppConfig {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetAppConfig value)? getAppConfig,
+    TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
     required TResult orElse(),
   }) {
     if (getAppConfig != null) {
@@ -324,8 +345,124 @@ abstract class GetAppConfig implements AppConfigEvent {
 }
 
 /// @nodoc
+abstract class _$$ClearErrorDialogPropsImplCopyWith<$Res> {
+  factory _$$ClearErrorDialogPropsImplCopyWith(
+          _$ClearErrorDialogPropsImpl value,
+          $Res Function(_$ClearErrorDialogPropsImpl) then) =
+      __$$ClearErrorDialogPropsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearErrorDialogPropsImplCopyWithImpl<$Res>
+    extends _$AppConfigEventCopyWithImpl<$Res, _$ClearErrorDialogPropsImpl>
+    implements _$$ClearErrorDialogPropsImplCopyWith<$Res> {
+  __$$ClearErrorDialogPropsImplCopyWithImpl(_$ClearErrorDialogPropsImpl _value,
+      $Res Function(_$ClearErrorDialogPropsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppConfigEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
+  const _$ClearErrorDialogPropsImpl();
+
+  @override
+  String toString() {
+    return 'AppConfigEvent.clearErrorDialogProps()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClearErrorDialogPropsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String token) getAppConfig,
+    required TResult Function() clearErrorDialogProps,
+  }) {
+    return clearErrorDialogProps();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String token)? getAppConfig,
+    TResult? Function()? clearErrorDialogProps,
+  }) {
+    return clearErrorDialogProps?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String token)? getAppConfig,
+    TResult Function()? clearErrorDialogProps,
+    required TResult orElse(),
+  }) {
+    if (clearErrorDialogProps != null) {
+      return clearErrorDialogProps();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetAppConfig value) getAppConfig,
+    required TResult Function(ClearErrorDialogProps value)
+        clearErrorDialogProps,
+  }) {
+    return clearErrorDialogProps(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetAppConfig value)? getAppConfig,
+    TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
+  }) {
+    return clearErrorDialogProps?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetAppConfig value)? getAppConfig,
+    TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
+    required TResult orElse(),
+  }) {
+    if (clearErrorDialogProps != null) {
+      return clearErrorDialogProps(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearErrorDialogProps implements AppConfigEvent {
+  const factory ClearErrorDialogProps() = _$ClearErrorDialogPropsImpl;
+}
+
+/// @nodoc
 mixin _$AppConfigState {
   dynamic get appConfig => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  ErrorDialogProps? get errorDialogProps => throw _privateConstructorUsedError;
 
   /// Create a copy of AppConfigState
   /// with the given fields replaced by the non-null parameter values.
@@ -340,7 +477,10 @@ abstract class $AppConfigStateCopyWith<$Res> {
           AppConfigState value, $Res Function(AppConfigState) then) =
       _$AppConfigStateCopyWithImpl<$Res, AppConfigState>;
   @useResult
-  $Res call({dynamic appConfig});
+  $Res call(
+      {dynamic appConfig, bool isLoading, ErrorDialogProps? errorDialogProps});
+
+  $ErrorDialogPropsCopyWith<$Res>? get errorDialogProps;
 }
 
 /// @nodoc
@@ -359,13 +499,37 @@ class _$AppConfigStateCopyWithImpl<$Res, $Val extends AppConfigState>
   @override
   $Res call({
     Object? appConfig = freezed,
+    Object? isLoading = null,
+    Object? errorDialogProps = freezed,
   }) {
     return _then(_value.copyWith(
       appConfig: freezed == appConfig
           ? _value.appConfig
           : appConfig // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorDialogProps: freezed == errorDialogProps
+          ? _value.errorDialogProps
+          : errorDialogProps // ignore: cast_nullable_to_non_nullable
+              as ErrorDialogProps?,
     ) as $Val);
+  }
+
+  /// Create a copy of AppConfigState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ErrorDialogPropsCopyWith<$Res>? get errorDialogProps {
+    if (_value.errorDialogProps == null) {
+      return null;
+    }
+
+    return $ErrorDialogPropsCopyWith<$Res>(_value.errorDialogProps!, (value) {
+      return _then(_value.copyWith(errorDialogProps: value) as $Val);
+    });
   }
 }
 
@@ -377,7 +541,11 @@ abstract class _$$AppConfigStateImplCopyWith<$Res>
       __$$AppConfigStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({dynamic appConfig});
+  $Res call(
+      {dynamic appConfig, bool isLoading, ErrorDialogProps? errorDialogProps});
+
+  @override
+  $ErrorDialogPropsCopyWith<$Res>? get errorDialogProps;
 }
 
 /// @nodoc
@@ -394,12 +562,22 @@ class __$$AppConfigStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? appConfig = freezed,
+    Object? isLoading = null,
+    Object? errorDialogProps = freezed,
   }) {
     return _then(_$AppConfigStateImpl(
       appConfig: freezed == appConfig
           ? _value.appConfig
           : appConfig // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorDialogProps: freezed == errorDialogProps
+          ? _value.errorDialogProps
+          : errorDialogProps // ignore: cast_nullable_to_non_nullable
+              as ErrorDialogProps?,
     ));
   }
 }
@@ -407,10 +585,16 @@ class __$$AppConfigStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppConfigStateImpl extends _AppConfigState {
-  _$AppConfigStateImpl({required this.appConfig}) : super._();
+  _$AppConfigStateImpl(
+      {required this.appConfig, required this.isLoading, this.errorDialogProps})
+      : super._();
 
   @override
   final dynamic appConfig;
+  @override
+  final bool isLoading;
+  @override
+  final ErrorDialogProps? errorDialogProps;
 
   /// Create a copy of AppConfigState
   /// with the given fields replaced by the non-null parameter values.
@@ -423,12 +607,18 @@ class _$AppConfigStateImpl extends _AppConfigState {
 }
 
 abstract class _AppConfigState extends AppConfigState {
-  factory _AppConfigState({required final dynamic appConfig}) =
-      _$AppConfigStateImpl;
+  factory _AppConfigState(
+      {required final dynamic appConfig,
+      required final bool isLoading,
+      final ErrorDialogProps? errorDialogProps}) = _$AppConfigStateImpl;
   _AppConfigState._() : super._();
 
   @override
   dynamic get appConfig;
+  @override
+  bool get isLoading;
+  @override
+  ErrorDialogProps? get errorDialogProps;
 
   /// Create a copy of AppConfigState
   /// with the given fields replaced by the non-null parameter values.
