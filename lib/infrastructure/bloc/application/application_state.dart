@@ -8,5 +8,5 @@ class ApplicationState extends Equatable with _$ApplicationState {
       _ApplicationState;
 
   @override
-  List<Object?> get props => [ station];
+  List<Object?> get props => [station];
 }

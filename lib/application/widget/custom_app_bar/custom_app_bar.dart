@@ -22,27 +22,31 @@ class CustomAppBar extends StatelessWidget {
     }
 
     return BlocBuilder<ApplicationBloc, ApplicationState>(
-        builder: (innerContext, innerState) => AppBar(
-              title:
-                  Text(AppLocalizations.of(context).translate('Add Downtime')),
-              leading: Builder(
-                builder: (context) {
-                  return IconButton(
-                    icon: const Icon(Icons.menu),
-                    onPressed: () {},
-                  );
-                },
-              ),
-              actions: <Widget>[
-                InkWell(
-                    child: Text("Station ${innerState.station?.displayName}"),
-                    onTap: () {
-                      openSelectStationDialog();
-                    }),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                )
-              ],
-            ));
+      builder: (innerContext, innerState) {
+        innerContext.read<ApplicationBloc>().add(const SetDefaultStation());
+        return AppBar(
+          title: Text(AppLocalizations.of(context).translate('Add Downtime')),
+          leading: Builder(
+            builder: (context) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {},
+              );
+            },
+          ),
+          actions: <Widget>[
+            InkWell(
+              child: Text("Station ${innerState.station?.displayName}"),
+              onTap: () {
+                openSelectStationDialog();
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

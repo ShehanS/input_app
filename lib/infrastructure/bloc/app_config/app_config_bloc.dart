@@ -29,7 +29,8 @@ class AppConfigBloc extends Bloc<AppConfigEvent, AppConfigState> {
   AppConfigBloc(
       this.appConfigRepository, this.graphqlService, this.storageService)
       : super(AppConfigState.initial()) {
-    on<AppConfigEvent>((event, emit) {});
+    on<AppConfigEvent>((event, emit) {
+    });
     on<GetAppConfig>(_getAppConfig);
     on<ClearErrorDialogProps>(_clearErrorDialogProps);
   }
@@ -49,7 +50,7 @@ class AppConfigBloc extends Bloc<AppConfigEvent, AppConfigState> {
     }, (r) {
       final jsonString = jsonEncode(r);
       storageService
-          .setValue(APP_CONFIG, jsonString)
+          .setValue(AppConstants.APP_CONFIG, jsonString)
           .whenComplete(() => log("config has been saved!!"));
       emit(state.copyWith(isLoading: false));
       emit(state.copyWith(appConfig: r));

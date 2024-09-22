@@ -29,7 +29,7 @@ class _StationSelectorState extends State<StationSelector> {
 
   Future<void> getConfig() async {
     try {
-      final config = await storageService.getValue(APP_CONFIG);
+      final config = await storageService.getValue(AppConstants.APP_CONFIG);
       if (config != null) {
         final jsonConfig = jsonDecode(config);
         final appConfig = AppConfigEntity.fromJson(jsonConfig);

@@ -19,18 +19,21 @@ mixin _$ApplicationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() setDefaultStation,
     required TResult Function(StationModel station) changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? setDefaultStation,
     TResult? Function(StationModel station)? changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? setDefaultStation,
     TResult Function(StationModel station)? changeStation,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,21 @@ mixin _$ApplicationEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(SetDefaultStation value) setDefaultStation,
     required TResult Function(ChangeStation value) changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(SetDefaultStation value)? setDefaultStation,
     TResult? Function(ChangeStation value)? changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(SetDefaultStation value)? setDefaultStation,
     TResult Function(ChangeStation value)? changeStation,
     required TResult orElse(),
   }) =>
@@ -119,6 +125,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() setDefaultStation,
     required TResult Function(StationModel station) changeStation,
   }) {
     return started();
@@ -128,6 +135,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? setDefaultStation,
     TResult? Function(StationModel station)? changeStation,
   }) {
     return started?.call();
@@ -137,6 +145,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? setDefaultStation,
     TResult Function(StationModel station)? changeStation,
     required TResult orElse(),
   }) {
@@ -150,6 +159,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(SetDefaultStation value) setDefaultStation,
     required TResult Function(ChangeStation value) changeStation,
   }) {
     return started(this);
@@ -159,6 +169,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(SetDefaultStation value)? setDefaultStation,
     TResult? Function(ChangeStation value)? changeStation,
   }) {
     return started?.call(this);
@@ -168,6 +179,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(SetDefaultStation value)? setDefaultStation,
     TResult Function(ChangeStation value)? changeStation,
     required TResult orElse(),
   }) {
@@ -180,6 +192,117 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements ApplicationEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$SetDefaultStationImplCopyWith<$Res> {
+  factory _$$SetDefaultStationImplCopyWith(_$SetDefaultStationImpl value,
+          $Res Function(_$SetDefaultStationImpl) then) =
+      __$$SetDefaultStationImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SetDefaultStationImplCopyWithImpl<$Res>
+    extends _$ApplicationEventCopyWithImpl<$Res, _$SetDefaultStationImpl>
+    implements _$$SetDefaultStationImplCopyWith<$Res> {
+  __$$SetDefaultStationImplCopyWithImpl(_$SetDefaultStationImpl _value,
+      $Res Function(_$SetDefaultStationImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ApplicationEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SetDefaultStationImpl implements SetDefaultStation {
+  const _$SetDefaultStationImpl();
+
+  @override
+  String toString() {
+    return 'ApplicationEvent.setDefaultStation()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SetDefaultStationImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() setDefaultStation,
+    required TResult Function(StationModel station) changeStation,
+  }) {
+    return setDefaultStation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? setDefaultStation,
+    TResult? Function(StationModel station)? changeStation,
+  }) {
+    return setDefaultStation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? setDefaultStation,
+    TResult Function(StationModel station)? changeStation,
+    required TResult orElse(),
+  }) {
+    if (setDefaultStation != null) {
+      return setDefaultStation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(SetDefaultStation value) setDefaultStation,
+    required TResult Function(ChangeStation value) changeStation,
+  }) {
+    return setDefaultStation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(SetDefaultStation value)? setDefaultStation,
+    TResult? Function(ChangeStation value)? changeStation,
+  }) {
+    return setDefaultStation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(SetDefaultStation value)? setDefaultStation,
+    TResult Function(ChangeStation value)? changeStation,
+    required TResult orElse(),
+  }) {
+    if (setDefaultStation != null) {
+      return setDefaultStation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetDefaultStation implements ApplicationEvent {
+  const factory SetDefaultStation() = _$SetDefaultStationImpl;
 }
 
 /// @nodoc
@@ -263,6 +386,7 @@ class _$ChangeStationImpl implements ChangeStation {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() setDefaultStation,
     required TResult Function(StationModel station) changeStation,
   }) {
     return changeStation(station);
@@ -272,6 +396,7 @@ class _$ChangeStationImpl implements ChangeStation {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? setDefaultStation,
     TResult? Function(StationModel station)? changeStation,
   }) {
     return changeStation?.call(station);
@@ -281,6 +406,7 @@ class _$ChangeStationImpl implements ChangeStation {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? setDefaultStation,
     TResult Function(StationModel station)? changeStation,
     required TResult orElse(),
   }) {
@@ -294,6 +420,7 @@ class _$ChangeStationImpl implements ChangeStation {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(SetDefaultStation value) setDefaultStation,
     required TResult Function(ChangeStation value) changeStation,
   }) {
     return changeStation(this);
@@ -303,6 +430,7 @@ class _$ChangeStationImpl implements ChangeStation {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(SetDefaultStation value)? setDefaultStation,
     TResult? Function(ChangeStation value)? changeStation,
   }) {
     return changeStation?.call(this);
@@ -312,6 +440,7 @@ class _$ChangeStationImpl implements ChangeStation {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(SetDefaultStation value)? setDefaultStation,
     TResult Function(ChangeStation value)? changeStation,
     required TResult orElse(),
   }) {

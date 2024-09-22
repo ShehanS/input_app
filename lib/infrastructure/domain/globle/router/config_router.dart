@@ -11,7 +11,7 @@ class ConfigRouter extends AutoRouteGuard {
   @override
   Future<void> onNavigation(NavigationResolver resolver, StackRouter router) async {
     try {
-      final config = await storageService.getValue(APP_CONFIG);
+      final config = await storageService.getValue(AppConstants.APP_CONFIG);
       if (config == null) {
         router.navigate(const TokenRoute());
       } else {
