@@ -25,4 +25,5 @@ class AppColors {
   static const Color goldenYellowLight = Color(0xFFFFC633);
 
   static const Color blueGray = Colors.blueGrey;
+  static const lightBlack = Color.fromRGBO(196, 196, 196, 100);
 }

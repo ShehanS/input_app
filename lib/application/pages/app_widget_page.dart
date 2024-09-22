@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
+import 'package:downtime_pro/infrastructure/bloc/operation_data/operation_data_bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +38,8 @@ class AppWidgetPage extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => getIt<LocalizationBloc>()),
           BlocProvider(create: (context) => getIt<AppConfigBloc>()),
-          BlocProvider(create: (context) => getIt<ApplicationBloc>())
+          BlocProvider(create: (context) => getIt<ApplicationBloc>()),
+          BlocProvider(create: (context) => getIt<OperationDataBloc>())
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
             builder: (innerContext, innerState) {

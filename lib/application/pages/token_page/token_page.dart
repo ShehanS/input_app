@@ -24,7 +24,7 @@ class TokenPage extends StatelessWidget {
             innerState.errorDialogProps!.isOpen) {
           showBasicDialog(
             width: 250,
-            height: 80,
+            height: 180,
             context: context,
             title: 'Something happening..',
             content: Row(

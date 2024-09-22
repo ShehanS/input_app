@@ -1,9 +1,7 @@
-import 'dart:collection';
 import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/app_config/entity/app_config_entity.dart';
 import 'package:downtime_pro/infrastructure/repository/app_config_repository.dart';
 import 'package:downtime_pro/infrastructure/services/storage_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -15,9 +13,7 @@ import '../../domain/globle/model/error_dialog_props.dart';
 import '../../services/graphql_service.dart';
 
 part 'app_config_event.dart';
-
 part 'app_config_state.dart';
-
 part 'app_config_bloc.freezed.dart';
 
 @injectable
@@ -40,20 +36,18 @@ class AppConfigBloc extends Bloc<AppConfigEvent, AppConfigState> {
     emit(state.copyWith(isLoading: true));
     final result = await appConfigRepository.appConfig(event.token);
     result.fold((l) {
-      emit(state.copyWith(isLoading: false));
       log("Some issue happening");
       emit(state.copyWith(
           errorDialogProps: ErrorDialogProps(
               title: "Sync Issue",
               message: l,
-              isOpen: true)));
+              isOpen: true), isLoading: false));
     }, (r) {
       final jsonString = jsonEncode(r);
       storageService
           .setValue(AppConstants.APP_CONFIG, jsonString)
           .whenComplete(() => log("config has been saved!!"));
-      emit(state.copyWith(isLoading: false));
-      emit(state.copyWith(appConfig: r));
+      emit(state.copyWith(isLoading: false, appConfig: r));
     });
   }
 

@@ -8,11 +8,11 @@ part 'factory_issue_list_entity.g.dart';
 class FactoryIssueListEntity with _$FactoryIssueListEntity {
   factory FactoryIssueListEntity({
     required String id,
-    required String listType,
-    required String displayName,
-    required String factoryId,
-    required String module,
-    required List<IssueListEntity> issueList,
+     String ? listType,
+     String ? displayName,
+     String ? factoryId,
+     String ? module,
+     List<IssueListEntity> ? issueList,
   }) = _FactoryIssueListEntity;
 
   factory FactoryIssueListEntity.fromJson(Map<String, dynamic> json) =>
@@ -24,12 +24,12 @@ class IssueListEntity with _$IssueListEntity {
   factory IssueListEntity({
     required String categoryType,
     String? name,
-    required int level,
-    required String displayName,
-    String? issueCode,
-    String? issueName,
-    String? description,
-    List<IssueListEntity>? issueList,
+    int ? level,
+    String ? displayName,
+    String ? issueCode,
+    String ? issueName,
+    String ? description,
+    List<IssueListEntity> ? issueList,
   }) = _IssueListEntity;
 
   factory IssueListEntity.fromJson(Map<String, dynamic> json) =>
