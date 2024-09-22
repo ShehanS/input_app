@@ -36,7 +36,9 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
       log("Some issue happening");
       emit(state.copyWith(
           errorDialogProps: ErrorDialogProps(
-              title: "Sync Factory Issue List", message: "Cannot fetch factory issue list", isOpen: true),
+              title: "Sync Factory Issue List",
+              message: "Cannot fetch factory issue list",
+              isOpen: true),
           isLoading: false));
     }, (r) {
       log(r.toString());
