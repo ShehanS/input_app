@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
@@ -43,11 +44,12 @@ class AppConfigBloc extends Bloc<AppConfigEvent, AppConfigState> {
       emit(state.copyWith(
           errorDialogProps: ErrorDialogProps(
               title: "Sync Issue",
-              message: l.toString(),
+              message: l,
               isOpen: true)));
     }, (r) {
+      final jsonString = jsonEncode(r);
       storageService
-          .setValue(APP_CONFIG, r.toString())
+          .setValue(APP_CONFIG, jsonString)
           .whenComplete(() => log("config has been saved!!"));
       emit(state.copyWith(isLoading: false));
       emit(state.copyWith(appConfig: r));

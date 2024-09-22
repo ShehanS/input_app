@@ -49,6 +49,7 @@ dependencies:
   auto_route: ^8.0.0
   flutter_secure_storage: ^4.2.1
   google_fonts: ^6.2.1
+  flutter_splash_screen: ^3.0.0
 
 dev_dependencies:
   flutter_test:

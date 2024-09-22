@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:downtime_pro/infrastructure/bloc/app_config/app_config_bloc.dart';
-import '../../infrastructure/const/app_const.dart';
-import '../../infrastructure/const/custom_text.dart';
-import '../../infrastructure/domain/globle/color/globle_colors.dart';
-import '../../infrastructure/services/storage_service.dart';
-import '../widget/dialog/customize_dialog/custom_dialog.dart';
+import '../../../infrastructure/const/app_const.dart';
+import '../../../infrastructure/const/custom_text.dart';
+import '../../../infrastructure/domain/globle/color/globle_colors.dart';
+import '../../../infrastructure/services/storage_service.dart';
+import '../../widget/customize_dialog/custom_dialog.dart';
 
 @RoutePage()
 class TokenPage extends StatelessWidget {
@@ -22,32 +22,32 @@ class TokenPage extends StatelessWidget {
       listener: (innerContext, innerState) {
         if (innerState.errorDialogProps != null &&
             innerState.errorDialogProps!.isOpen) {
-          showCustomDialog(
-              context,
-              'Something happening..',
-              'Close',
-              SizedBox(
-                width: 250,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/icons/error.png",
-                      width: 50,
-                      height: 50,
-                    ),
-                    CustomText().grey(
-                      txt: innerState.errorDialogProps!.message,
-                      fontSize: 12,
-                    ),
-                  ],
+          showBasicDialog(
+            width: 250,
+            height: 80,
+            context: context,
+            title: 'Something happening..',
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/icons/error.png",
+                  width: 50,
+                  height: 50,
                 ),
-              ),
-              () => {
-                    innerContext
-                        .read<AppConfigBloc>()
-                        .add(const ClearErrorDialogProps())
-                  });
+                const SizedBox(width: 10),
+                Expanded(
+                  child: CustomText().grey(
+                      txt: innerState.errorDialogProps!.message, fontSize: 12),
+                ),
+              ],
+            ),
+            onClose: () {
+              innerContext
+                  .read<AppConfigBloc>()
+                  .add(const ClearErrorDialogProps());
+            },
+          );
         }
       },
       builder: (innerContext, innerState) {
@@ -129,10 +129,10 @@ class TokenPage extends StatelessWidget {
                                           shape: BoxShape.circle,
                                           gradient: LinearGradient(
                                             colors: [
-                                              deepPurpleDark,
-                                              deepPurpleLight,
-                                              boldRed,
-                                              boldRedLight,
+                                              AppColors.deepPurpleDark,
+                                              AppColors.deepPurpleLight,
+                                              AppColors.boldRed,
+                                              AppColors.boldRedLight,
                                             ],
                                             begin: Alignment.topLeft,
                                             end: Alignment.bottomRight,
@@ -175,14 +175,17 @@ class TokenPage extends StatelessWidget {
                                               ),
                                               onPressed: isEnabled
                                                   ? () {
-                                                //innerContext.router.navigate(const LoginRoute());
+                                                      //innerContext.router.navigate(const LoginRoute());
                                                       innerContext
                                                           .read<AppConfigBloc>()
                                                           .add(GetAppConfig(
                                                               token:
                                                                   tokenController
                                                                       .text));
-                                                    storageService.getValue(APP_CONFIG).then((value) =>print(value));
+                                                      storageService
+                                                          .getValue(APP_CONFIG)
+                                                          .then((value) =>
+                                                              print(value));
                                                     }
                                                   : null,
                                             );

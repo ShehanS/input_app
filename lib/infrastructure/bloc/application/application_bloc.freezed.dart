@@ -19,38 +19,38 @@ mixin _$ApplicationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(GlobalKey<ScaffoldState> key) openAppDrawer,
+    required TResult Function(StationModel station) changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
+    TResult? Function(StationModel station)? changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
+    TResult Function(StationModel station)? changeStation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(OpenAppDrawer value) openAppDrawer,
+    required TResult Function(ChangeStation value) changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(OpenAppDrawer value)? openAppDrawer,
+    TResult? Function(ChangeStation value)? changeStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(OpenAppDrawer value)? openAppDrawer,
+    TResult Function(ChangeStation value)? changeStation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +119,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(GlobalKey<ScaffoldState> key) openAppDrawer,
+    required TResult Function(StationModel station) changeStation,
   }) {
     return started();
   }
@@ -128,7 +128,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
+    TResult? Function(StationModel station)? changeStation,
   }) {
     return started?.call();
   }
@@ -137,7 +137,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
+    TResult Function(StationModel station)? changeStation,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -150,7 +150,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(OpenAppDrawer value) openAppDrawer,
+    required TResult Function(ChangeStation value) changeStation,
   }) {
     return started(this);
   }
@@ -159,7 +159,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(OpenAppDrawer value)? openAppDrawer,
+    TResult? Function(ChangeStation value)? changeStation,
   }) {
     return started?.call(this);
   }
@@ -168,7 +168,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(OpenAppDrawer value)? openAppDrawer,
+    TResult Function(ChangeStation value)? changeStation,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,20 +183,22 @@ abstract class _Started implements ApplicationEvent {
 }
 
 /// @nodoc
-abstract class _$$OpenAppDrawerImplCopyWith<$Res> {
-  factory _$$OpenAppDrawerImplCopyWith(
-          _$OpenAppDrawerImpl value, $Res Function(_$OpenAppDrawerImpl) then) =
-      __$$OpenAppDrawerImplCopyWithImpl<$Res>;
+abstract class _$$ChangeStationImplCopyWith<$Res> {
+  factory _$$ChangeStationImplCopyWith(
+          _$ChangeStationImpl value, $Res Function(_$ChangeStationImpl) then) =
+      __$$ChangeStationImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({GlobalKey<ScaffoldState> key});
+  $Res call({StationModel station});
+
+  $StationModelCopyWith<$Res> get station;
 }
 
 /// @nodoc
-class __$$OpenAppDrawerImplCopyWithImpl<$Res>
-    extends _$ApplicationEventCopyWithImpl<$Res, _$OpenAppDrawerImpl>
-    implements _$$OpenAppDrawerImplCopyWith<$Res> {
-  __$$OpenAppDrawerImplCopyWithImpl(
-      _$OpenAppDrawerImpl _value, $Res Function(_$OpenAppDrawerImpl) _then)
+class __$$ChangeStationImplCopyWithImpl<$Res>
+    extends _$ApplicationEventCopyWithImpl<$Res, _$ChangeStationImpl>
+    implements _$$ChangeStationImplCopyWith<$Res> {
+  __$$ChangeStationImplCopyWithImpl(
+      _$ChangeStationImpl _value, $Res Function(_$ChangeStationImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ApplicationEvent
@@ -204,76 +206,86 @@ class __$$OpenAppDrawerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = null,
+    Object? station = null,
   }) {
-    return _then(_$OpenAppDrawerImpl(
-      null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<ScaffoldState>,
+    return _then(_$ChangeStationImpl(
+      null == station
+          ? _value.station
+          : station // ignore: cast_nullable_to_non_nullable
+              as StationModel,
     ));
+  }
+
+  /// Create a copy of ApplicationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StationModelCopyWith<$Res> get station {
+    return $StationModelCopyWith<$Res>(_value.station, (value) {
+      return _then(_value.copyWith(station: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$OpenAppDrawerImpl implements OpenAppDrawer {
-  const _$OpenAppDrawerImpl(this.key);
+class _$ChangeStationImpl implements ChangeStation {
+  const _$ChangeStationImpl(this.station);
 
   @override
-  final GlobalKey<ScaffoldState> key;
+  final StationModel station;
 
   @override
   String toString() {
-    return 'ApplicationEvent.openAppDrawer(key: $key)';
+    return 'ApplicationEvent.changeStation(station: $station)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OpenAppDrawerImpl &&
-            (identical(other.key, key) || other.key == key));
+            other is _$ChangeStationImpl &&
+            (identical(other.station, station) || other.station == station));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, key);
+  int get hashCode => Object.hash(runtimeType, station);
 
   /// Create a copy of ApplicationEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$OpenAppDrawerImplCopyWith<_$OpenAppDrawerImpl> get copyWith =>
-      __$$OpenAppDrawerImplCopyWithImpl<_$OpenAppDrawerImpl>(this, _$identity);
+  _$$ChangeStationImplCopyWith<_$ChangeStationImpl> get copyWith =>
+      __$$ChangeStationImplCopyWithImpl<_$ChangeStationImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(GlobalKey<ScaffoldState> key) openAppDrawer,
+    required TResult Function(StationModel station) changeStation,
   }) {
-    return openAppDrawer(key);
+    return changeStation(station);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
+    TResult? Function(StationModel station)? changeStation,
   }) {
-    return openAppDrawer?.call(key);
+    return changeStation?.call(station);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(GlobalKey<ScaffoldState> key)? openAppDrawer,
+    TResult Function(StationModel station)? changeStation,
     required TResult orElse(),
   }) {
-    if (openAppDrawer != null) {
-      return openAppDrawer(key);
+    if (changeStation != null) {
+      return changeStation(station);
     }
     return orElse();
   }
@@ -282,50 +294,49 @@ class _$OpenAppDrawerImpl implements OpenAppDrawer {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(OpenAppDrawer value) openAppDrawer,
+    required TResult Function(ChangeStation value) changeStation,
   }) {
-    return openAppDrawer(this);
+    return changeStation(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(OpenAppDrawer value)? openAppDrawer,
+    TResult? Function(ChangeStation value)? changeStation,
   }) {
-    return openAppDrawer?.call(this);
+    return changeStation?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(OpenAppDrawer value)? openAppDrawer,
+    TResult Function(ChangeStation value)? changeStation,
     required TResult orElse(),
   }) {
-    if (openAppDrawer != null) {
-      return openAppDrawer(this);
+    if (changeStation != null) {
+      return changeStation(this);
     }
     return orElse();
   }
 }
 
-abstract class OpenAppDrawer implements ApplicationEvent {
-  const factory OpenAppDrawer(final GlobalKey<ScaffoldState> key) =
-      _$OpenAppDrawerImpl;
+abstract class ChangeStation implements ApplicationEvent {
+  const factory ChangeStation(final StationModel station) = _$ChangeStationImpl;
 
-  GlobalKey<ScaffoldState> get key;
+  StationModel get station;
 
   /// Create a copy of ApplicationEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OpenAppDrawerImplCopyWith<_$OpenAppDrawerImpl> get copyWith =>
+  _$$ChangeStationImplCopyWith<_$ChangeStationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$ApplicationState {
-  bool get isOpenDrawer => throw _privateConstructorUsedError;
+  StationModel? get station => throw _privateConstructorUsedError;
 
   /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
@@ -340,7 +351,9 @@ abstract class $ApplicationStateCopyWith<$Res> {
           ApplicationState value, $Res Function(ApplicationState) then) =
       _$ApplicationStateCopyWithImpl<$Res, ApplicationState>;
   @useResult
-  $Res call({bool isOpenDrawer});
+  $Res call({StationModel? station});
+
+  $StationModelCopyWith<$Res>? get station;
 }
 
 /// @nodoc
@@ -358,14 +371,28 @@ class _$ApplicationStateCopyWithImpl<$Res, $Val extends ApplicationState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isOpenDrawer = null,
+    Object? station = freezed,
   }) {
     return _then(_value.copyWith(
-      isOpenDrawer: null == isOpenDrawer
-          ? _value.isOpenDrawer
-          : isOpenDrawer // ignore: cast_nullable_to_non_nullable
-              as bool,
+      station: freezed == station
+          ? _value.station
+          : station // ignore: cast_nullable_to_non_nullable
+              as StationModel?,
     ) as $Val);
+  }
+
+  /// Create a copy of ApplicationState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StationModelCopyWith<$Res>? get station {
+    if (_value.station == null) {
+      return null;
+    }
+
+    return $StationModelCopyWith<$Res>(_value.station!, (value) {
+      return _then(_value.copyWith(station: value) as $Val);
+    });
   }
 }
 
@@ -377,7 +404,10 @@ abstract class _$$ApplicationStateImplCopyWith<$Res>
       __$$ApplicationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isOpenDrawer});
+  $Res call({StationModel? station});
+
+  @override
+  $StationModelCopyWith<$Res>? get station;
 }
 
 /// @nodoc
@@ -393,13 +423,13 @@ class __$$ApplicationStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isOpenDrawer = null,
+    Object? station = freezed,
   }) {
     return _then(_$ApplicationStateImpl(
-      isOpenDrawer: null == isOpenDrawer
-          ? _value.isOpenDrawer
-          : isOpenDrawer // ignore: cast_nullable_to_non_nullable
-              as bool,
+      station: freezed == station
+          ? _value.station
+          : station // ignore: cast_nullable_to_non_nullable
+              as StationModel?,
     ));
   }
 }
@@ -407,10 +437,10 @@ class __$$ApplicationStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ApplicationStateImpl extends _ApplicationState {
-  _$ApplicationStateImpl({required this.isOpenDrawer}) : super._();
+  _$ApplicationStateImpl({this.station}) : super._();
 
   @override
-  final bool isOpenDrawer;
+  final StationModel? station;
 
   /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
@@ -423,12 +453,12 @@ class _$ApplicationStateImpl extends _ApplicationState {
 }
 
 abstract class _ApplicationState extends ApplicationState {
-  factory _ApplicationState({required final bool isOpenDrawer}) =
+  factory _ApplicationState({final StationModel? station}) =
       _$ApplicationStateImpl;
   _ApplicationState._() : super._();
 
   @override
-  bool get isOpenDrawer;
+  StationModel? get station;
 
   /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
