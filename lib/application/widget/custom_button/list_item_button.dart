@@ -6,13 +6,15 @@ class ListItemButton extends StatelessWidget {
   final String? description;
   final String? icon;
   final Color color;
+  final VoidCallback onPressed;
 
   const ListItemButton(
       {Key? key,
       required this.text,
       this.description,
       this.icon,
-      required this.color})
+      required this.color,
+      required this.onPressed})
       : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class ListItemButton extends StatelessWidget {
         height: 80,
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () => print("Button Pressed"),
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.zero,
 

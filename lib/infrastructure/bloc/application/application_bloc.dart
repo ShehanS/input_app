@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:downtime_pro/infrastructure/const/app_const.dart';
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
 import 'package:downtime_pro/infrastructure/services/storage_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     on<ApplicationEvent>((event, emit) {});
     on<ChangeStation>(_changeStation);
     on<SetDefaultStation>(_setDefaultStation);
+    on<SelectDepartment>(_selectDepartment);
   }
 
   void _changeStation(ChangeStation event, Emitter<ApplicationState> emit) {
@@ -33,7 +35,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     storageService
         .setValue(AppConstants.SELECTED_STATION, selectedStationJsonStr)
         .whenComplete(() => log("station change saved!!"));
-    emit(state.copyWith(station: event.station));
+    emit(state.copyWith(station: event.station, deptIssueList: []));
   }
 
   void _setDefaultStation(
@@ -45,4 +47,9 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
       emit(state.copyWith(station: StationModel.fromJson(station)));
     }
   }
+
+  void _selectDepartment(SelectDepartment event, Emitter<ApplicationState> emit){
+    emit(state.copyWith(deptIssueList: event.deptIssueList ?? []));
+  }
+
 }

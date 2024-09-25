@@ -25,7 +25,6 @@ class CustomAppBar extends StatelessWidget {
 
     return BlocBuilder<ApplicationBloc, ApplicationState>(
       builder: (innerContext, innerState) {
-        innerContext.read<ApplicationBloc>().add(const SetDefaultStation());
         return AppBar(
           title: Text(AppLocalizations.of(context).translate('Add Downtime')),
           leading: Builder(

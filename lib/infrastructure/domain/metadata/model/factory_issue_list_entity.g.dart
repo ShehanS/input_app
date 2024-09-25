@@ -15,7 +15,7 @@ _$FactoryIssueListEntityImpl _$$FactoryIssueListEntityImplFromJson(
       factoryId: json['factoryId'] as String?,
       module: json['module'] as String?,
       issueList: (json['issueList'] as List<dynamic>?)
-          ?.map((e) => IssueListEntity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubIssueListEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -30,9 +30,9 @@ Map<String, dynamic> _$$FactoryIssueListEntityImplToJson(
       'issueList': instance.issueList,
     };
 
-_$IssueListEntityImpl _$$IssueListEntityImplFromJson(
+_$SubIssueListEntityImpl _$$SubIssueListEntityImplFromJson(
         Map<String, dynamic> json) =>
-    _$IssueListEntityImpl(
+    _$SubIssueListEntityImpl(
       categoryType: json['categoryType'] as String,
       name: json['name'] as String?,
       level: (json['level'] as num?)?.toInt(),
@@ -41,12 +41,12 @@ _$IssueListEntityImpl _$$IssueListEntityImplFromJson(
       issueName: json['issueName'] as String?,
       description: json['description'] as String?,
       issueList: (json['issueList'] as List<dynamic>?)
-          ?.map((e) => IssueListEntity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubIssueListEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$IssueListEntityImplToJson(
-        _$IssueListEntityImpl instance) =>
+Map<String, dynamic> _$$SubIssueListEntityImplToJson(
+        _$SubIssueListEntityImpl instance) =>
     <String, dynamic>{
       'categoryType': instance.categoryType,
       'name': instance.name,

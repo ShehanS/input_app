@@ -183,7 +183,8 @@ class TokenPage extends StatelessWidget {
                                                                   tokenController
                                                                       .text));
                                                       storageService
-                                                          .getValue(AppConstants.APP_CONFIG)
+                                                          .getValue(AppConstants
+                                                              .APP_CONFIG)
                                                           .then((value) =>
                                                               print(value));
                                                     }

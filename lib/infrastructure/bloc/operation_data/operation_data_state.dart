@@ -6,7 +6,7 @@ class OperationDataState extends Equatable with _$OperationDataState {
 
   factory OperationDataState.initial() => OperationDataState(issueList: [], isLoading: false);
 
-  factory OperationDataState({required List<FactoryIssueListEntity> issueList, required bool isLoading, ErrorDialogProps ? errorDialogProps}) =
+  factory OperationDataState({required List<SubIssueListEntity> issueList, required bool isLoading, ErrorDialogProps ? errorDialogProps}) =
       _OperationDataState;
 
   @override

@@ -28,11 +28,10 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
 
   void _getIssueList(
       GetIssueList event, Emitter<OperationDataState> emit) async {
-    emit(state.copyWith(isLoading: true));
     log("Requesting metadata using GraphQL client...");
+    emit(state.copyWith(isLoading: true));
     final result = await operationDataRepository.issueList(event.orgKey);
     result.fold((l) {
-      emit(state.copyWith(isLoading: false));
       log("Some issue happening");
       emit(state.copyWith(
           errorDialogProps: ErrorDialogProps(
@@ -41,8 +40,18 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
               isOpen: true),
           isLoading: false));
     }, (r) {
-      log(r.toString());
-      emit(state.copyWith(isLoading: false, issueList: r));
+      List<SubIssueListEntity> issueList = [];
+      r.forEach((factoryIssueList) {
+        final subList = factoryIssueList.issueList;
+        if(subList!.isNotEmpty){
+           subList.forEach((issue)=>{
+             issueList.add(issue)
+           });
+        }
+
+      });
+
+      emit(state.copyWith(isLoading: false, issueList: issueList));
     });
   }
 

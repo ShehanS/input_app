@@ -460,8 +460,7 @@ abstract class ClearErrorDialogProps implements OperationDataEvent {
 
 /// @nodoc
 mixin _$OperationDataState {
-  List<FactoryIssueListEntity> get issueList =>
-      throw _privateConstructorUsedError;
+  List<SubIssueListEntity> get issueList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   ErrorDialogProps? get errorDialogProps => throw _privateConstructorUsedError;
 
@@ -479,7 +478,7 @@ abstract class $OperationDataStateCopyWith<$Res> {
       _$OperationDataStateCopyWithImpl<$Res, OperationDataState>;
   @useResult
   $Res call(
-      {List<FactoryIssueListEntity> issueList,
+      {List<SubIssueListEntity> issueList,
       bool isLoading,
       ErrorDialogProps? errorDialogProps});
 
@@ -509,7 +508,7 @@ class _$OperationDataStateCopyWithImpl<$Res, $Val extends OperationDataState>
       issueList: null == issueList
           ? _value.issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<FactoryIssueListEntity>,
+              as List<SubIssueListEntity>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -545,7 +544,7 @@ abstract class _$$OperationDataStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<FactoryIssueListEntity> issueList,
+      {List<SubIssueListEntity> issueList,
       bool isLoading,
       ErrorDialogProps? errorDialogProps});
 
@@ -574,7 +573,7 @@ class __$$OperationDataStateImplCopyWithImpl<$Res>
       issueList: null == issueList
           ? _value._issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<FactoryIssueListEntity>,
+              as List<SubIssueListEntity>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -591,15 +590,15 @@ class __$$OperationDataStateImplCopyWithImpl<$Res>
 
 class _$OperationDataStateImpl extends _OperationDataState {
   _$OperationDataStateImpl(
-      {required final List<FactoryIssueListEntity> issueList,
+      {required final List<SubIssueListEntity> issueList,
       required this.isLoading,
       this.errorDialogProps})
       : _issueList = issueList,
         super._();
 
-  final List<FactoryIssueListEntity> _issueList;
+  final List<SubIssueListEntity> _issueList;
   @override
-  List<FactoryIssueListEntity> get issueList {
+  List<SubIssueListEntity> get issueList {
     if (_issueList is EqualUnmodifiableListView) return _issueList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_issueList);
@@ -622,13 +621,13 @@ class _$OperationDataStateImpl extends _OperationDataState {
 
 abstract class _OperationDataState extends OperationDataState {
   factory _OperationDataState(
-      {required final List<FactoryIssueListEntity> issueList,
+      {required final List<SubIssueListEntity> issueList,
       required final bool isLoading,
       final ErrorDialogProps? errorDialogProps}) = _$OperationDataStateImpl;
   _OperationDataState._() : super._();
 
   @override
-  List<FactoryIssueListEntity> get issueList;
+  List<SubIssueListEntity> get issueList;
   @override
   bool get isLoading;
   @override

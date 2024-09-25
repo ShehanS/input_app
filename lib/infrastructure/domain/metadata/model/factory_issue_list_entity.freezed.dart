@@ -26,7 +26,7 @@ mixin _$FactoryIssueListEntity {
   String? get displayName => throw _privateConstructorUsedError;
   String? get factoryId => throw _privateConstructorUsedError;
   String? get module => throw _privateConstructorUsedError;
-  List<IssueListEntity>? get issueList => throw _privateConstructorUsedError;
+  List<SubIssueListEntity>? get issueList => throw _privateConstructorUsedError;
 
   /// Serializes this FactoryIssueListEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $FactoryIssueListEntityCopyWith<$Res> {
       String? displayName,
       String? factoryId,
       String? module,
-      List<IssueListEntity>? issueList});
+      List<SubIssueListEntity>? issueList});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class _$FactoryIssueListEntityCopyWithImpl<$Res,
       issueList: freezed == issueList
           ? _value.issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<IssueListEntity>?,
+              as List<SubIssueListEntity>?,
     ) as $Val);
   }
 }
@@ -120,7 +120,7 @@ abstract class _$$FactoryIssueListEntityImplCopyWith<$Res>
       String? displayName,
       String? factoryId,
       String? module,
-      List<IssueListEntity>? issueList});
+      List<SubIssueListEntity>? issueList});
 }
 
 /// @nodoc
@@ -169,7 +169,7 @@ class __$$FactoryIssueListEntityImplCopyWithImpl<$Res>
       issueList: freezed == issueList
           ? _value._issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<IssueListEntity>?,
+              as List<SubIssueListEntity>?,
     ));
   }
 }
@@ -183,7 +183,7 @@ class _$FactoryIssueListEntityImpl implements _FactoryIssueListEntity {
       this.displayName,
       this.factoryId,
       this.module,
-      final List<IssueListEntity>? issueList})
+      final List<SubIssueListEntity>? issueList})
       : _issueList = issueList;
 
   factory _$FactoryIssueListEntityImpl.fromJson(Map<String, dynamic> json) =>
@@ -199,9 +199,9 @@ class _$FactoryIssueListEntityImpl implements _FactoryIssueListEntity {
   final String? factoryId;
   @override
   final String? module;
-  final List<IssueListEntity>? _issueList;
+  final List<SubIssueListEntity>? _issueList;
   @override
-  List<IssueListEntity>? get issueList {
+  List<SubIssueListEntity>? get issueList {
     final value = _issueList;
     if (value == null) return null;
     if (_issueList is EqualUnmodifiableListView) return _issueList;
@@ -255,12 +255,13 @@ class _$FactoryIssueListEntityImpl implements _FactoryIssueListEntity {
 
 abstract class _FactoryIssueListEntity implements FactoryIssueListEntity {
   factory _FactoryIssueListEntity(
-      {required final String id,
-      final String? listType,
-      final String? displayName,
-      final String? factoryId,
-      final String? module,
-      final List<IssueListEntity>? issueList}) = _$FactoryIssueListEntityImpl;
+          {required final String id,
+          final String? listType,
+          final String? displayName,
+          final String? factoryId,
+          final String? module,
+          final List<SubIssueListEntity>? issueList}) =
+      _$FactoryIssueListEntityImpl;
 
   factory _FactoryIssueListEntity.fromJson(Map<String, dynamic> json) =
       _$FactoryIssueListEntityImpl.fromJson;
@@ -276,7 +277,7 @@ abstract class _FactoryIssueListEntity implements FactoryIssueListEntity {
   @override
   String? get module;
   @override
-  List<IssueListEntity>? get issueList;
+  List<SubIssueListEntity>? get issueList;
 
   /// Create a copy of FactoryIssueListEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -286,12 +287,12 @@ abstract class _FactoryIssueListEntity implements FactoryIssueListEntity {
       get copyWith => throw _privateConstructorUsedError;
 }
 
-IssueListEntity _$IssueListEntityFromJson(Map<String, dynamic> json) {
-  return _IssueListEntity.fromJson(json);
+SubIssueListEntity _$SubIssueListEntityFromJson(Map<String, dynamic> json) {
+  return _SubIssueListEntity.fromJson(json);
 }
 
 /// @nodoc
-mixin _$IssueListEntity {
+mixin _$SubIssueListEntity {
   String get categoryType => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int? get level => throw _privateConstructorUsedError;
@@ -299,23 +300,23 @@ mixin _$IssueListEntity {
   String? get issueCode => throw _privateConstructorUsedError;
   String? get issueName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<IssueListEntity>? get issueList => throw _privateConstructorUsedError;
+  List<SubIssueListEntity>? get issueList => throw _privateConstructorUsedError;
 
-  /// Serializes this IssueListEntity to a JSON map.
+  /// Serializes this SubIssueListEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of IssueListEntity
+  /// Create a copy of SubIssueListEntity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $IssueListEntityCopyWith<IssueListEntity> get copyWith =>
+  $SubIssueListEntityCopyWith<SubIssueListEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $IssueListEntityCopyWith<$Res> {
-  factory $IssueListEntityCopyWith(
-          IssueListEntity value, $Res Function(IssueListEntity) then) =
-      _$IssueListEntityCopyWithImpl<$Res, IssueListEntity>;
+abstract class $SubIssueListEntityCopyWith<$Res> {
+  factory $SubIssueListEntityCopyWith(
+          SubIssueListEntity value, $Res Function(SubIssueListEntity) then) =
+      _$SubIssueListEntityCopyWithImpl<$Res, SubIssueListEntity>;
   @useResult
   $Res call(
       {String categoryType,
@@ -325,20 +326,20 @@ abstract class $IssueListEntityCopyWith<$Res> {
       String? issueCode,
       String? issueName,
       String? description,
-      List<IssueListEntity>? issueList});
+      List<SubIssueListEntity>? issueList});
 }
 
 /// @nodoc
-class _$IssueListEntityCopyWithImpl<$Res, $Val extends IssueListEntity>
-    implements $IssueListEntityCopyWith<$Res> {
-  _$IssueListEntityCopyWithImpl(this._value, this._then);
+class _$SubIssueListEntityCopyWithImpl<$Res, $Val extends SubIssueListEntity>
+    implements $SubIssueListEntityCopyWith<$Res> {
+  _$SubIssueListEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of IssueListEntity
+  /// Create a copy of SubIssueListEntity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -384,17 +385,17 @@ class _$IssueListEntityCopyWithImpl<$Res, $Val extends IssueListEntity>
       issueList: freezed == issueList
           ? _value.issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<IssueListEntity>?,
+              as List<SubIssueListEntity>?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$IssueListEntityImplCopyWith<$Res>
-    implements $IssueListEntityCopyWith<$Res> {
-  factory _$$IssueListEntityImplCopyWith(_$IssueListEntityImpl value,
-          $Res Function(_$IssueListEntityImpl) then) =
-      __$$IssueListEntityImplCopyWithImpl<$Res>;
+abstract class _$$SubIssueListEntityImplCopyWith<$Res>
+    implements $SubIssueListEntityCopyWith<$Res> {
+  factory _$$SubIssueListEntityImplCopyWith(_$SubIssueListEntityImpl value,
+          $Res Function(_$SubIssueListEntityImpl) then) =
+      __$$SubIssueListEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -405,18 +406,18 @@ abstract class _$$IssueListEntityImplCopyWith<$Res>
       String? issueCode,
       String? issueName,
       String? description,
-      List<IssueListEntity>? issueList});
+      List<SubIssueListEntity>? issueList});
 }
 
 /// @nodoc
-class __$$IssueListEntityImplCopyWithImpl<$Res>
-    extends _$IssueListEntityCopyWithImpl<$Res, _$IssueListEntityImpl>
-    implements _$$IssueListEntityImplCopyWith<$Res> {
-  __$$IssueListEntityImplCopyWithImpl(
-      _$IssueListEntityImpl _value, $Res Function(_$IssueListEntityImpl) _then)
+class __$$SubIssueListEntityImplCopyWithImpl<$Res>
+    extends _$SubIssueListEntityCopyWithImpl<$Res, _$SubIssueListEntityImpl>
+    implements _$$SubIssueListEntityImplCopyWith<$Res> {
+  __$$SubIssueListEntityImplCopyWithImpl(_$SubIssueListEntityImpl _value,
+      $Res Function(_$SubIssueListEntityImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of IssueListEntity
+  /// Create a copy of SubIssueListEntity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -430,7 +431,7 @@ class __$$IssueListEntityImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? issueList = freezed,
   }) {
-    return _then(_$IssueListEntityImpl(
+    return _then(_$SubIssueListEntityImpl(
       categoryType: null == categoryType
           ? _value.categoryType
           : categoryType // ignore: cast_nullable_to_non_nullable
@@ -462,15 +463,15 @@ class __$$IssueListEntityImplCopyWithImpl<$Res>
       issueList: freezed == issueList
           ? _value._issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<IssueListEntity>?,
+              as List<SubIssueListEntity>?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$IssueListEntityImpl implements _IssueListEntity {
-  _$IssueListEntityImpl(
+class _$SubIssueListEntityImpl implements _SubIssueListEntity {
+  _$SubIssueListEntityImpl(
       {required this.categoryType,
       this.name,
       this.level,
@@ -478,11 +479,11 @@ class _$IssueListEntityImpl implements _IssueListEntity {
       this.issueCode,
       this.issueName,
       this.description,
-      final List<IssueListEntity>? issueList})
+      final List<SubIssueListEntity>? issueList})
       : _issueList = issueList;
 
-  factory _$IssueListEntityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$IssueListEntityImplFromJson(json);
+  factory _$SubIssueListEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubIssueListEntityImplFromJson(json);
 
   @override
   final String categoryType;
@@ -498,9 +499,9 @@ class _$IssueListEntityImpl implements _IssueListEntity {
   final String? issueName;
   @override
   final String? description;
-  final List<IssueListEntity>? _issueList;
+  final List<SubIssueListEntity>? _issueList;
   @override
-  List<IssueListEntity>? get issueList {
+  List<SubIssueListEntity>? get issueList {
     final value = _issueList;
     if (value == null) return null;
     if (_issueList is EqualUnmodifiableListView) return _issueList;
@@ -510,14 +511,14 @@ class _$IssueListEntityImpl implements _IssueListEntity {
 
   @override
   String toString() {
-    return 'IssueListEntity(categoryType: $categoryType, name: $name, level: $level, displayName: $displayName, issueCode: $issueCode, issueName: $issueName, description: $description, issueList: $issueList)';
+    return 'SubIssueListEntity(categoryType: $categoryType, name: $name, level: $level, displayName: $displayName, issueCode: $issueCode, issueName: $issueName, description: $description, issueList: $issueList)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IssueListEntityImpl &&
+            other is _$SubIssueListEntityImpl &&
             (identical(other.categoryType, categoryType) ||
                 other.categoryType == categoryType) &&
             (identical(other.name, name) || other.name == name) &&
@@ -547,25 +548,25 @@ class _$IssueListEntityImpl implements _IssueListEntity {
       description,
       const DeepCollectionEquality().hash(_issueList));
 
-  /// Create a copy of IssueListEntity
+  /// Create a copy of SubIssueListEntity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$IssueListEntityImplCopyWith<_$IssueListEntityImpl> get copyWith =>
-      __$$IssueListEntityImplCopyWithImpl<_$IssueListEntityImpl>(
+  _$$SubIssueListEntityImplCopyWith<_$SubIssueListEntityImpl> get copyWith =>
+      __$$SubIssueListEntityImplCopyWithImpl<_$SubIssueListEntityImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$IssueListEntityImplToJson(
+    return _$$SubIssueListEntityImplToJson(
       this,
     );
   }
 }
 
-abstract class _IssueListEntity implements IssueListEntity {
-  factory _IssueListEntity(
+abstract class _SubIssueListEntity implements SubIssueListEntity {
+  factory _SubIssueListEntity(
       {required final String categoryType,
       final String? name,
       final int? level,
@@ -573,10 +574,10 @@ abstract class _IssueListEntity implements IssueListEntity {
       final String? issueCode,
       final String? issueName,
       final String? description,
-      final List<IssueListEntity>? issueList}) = _$IssueListEntityImpl;
+      final List<SubIssueListEntity>? issueList}) = _$SubIssueListEntityImpl;
 
-  factory _IssueListEntity.fromJson(Map<String, dynamic> json) =
-      _$IssueListEntityImpl.fromJson;
+  factory _SubIssueListEntity.fromJson(Map<String, dynamic> json) =
+      _$SubIssueListEntityImpl.fromJson;
 
   @override
   String get categoryType;
@@ -593,12 +594,12 @@ abstract class _IssueListEntity implements IssueListEntity {
   @override
   String? get description;
   @override
-  List<IssueListEntity>? get issueList;
+  List<SubIssueListEntity>? get issueList;
 
-  /// Create a copy of IssueListEntity
+  /// Create a copy of SubIssueListEntity
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$IssueListEntityImplCopyWith<_$IssueListEntityImpl> get copyWith =>
+  _$$SubIssueListEntityImplCopyWith<_$SubIssueListEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

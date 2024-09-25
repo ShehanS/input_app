@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 import '../../../../infrastructure/const/custom_text.dart';
 import '../../../../infrastructure/domain/globle/color/globle_colors.dart';
 
-/// A custom dialog widget with Yes and No buttons.
 class CustomizedDialog extends StatelessWidget {
   final String title;
   final Widget content;
@@ -13,6 +13,7 @@ class CustomizedDialog extends StatelessWidget {
   final String noText;
   final String closeText;
   final bool isYesNoDialog;
+  final bool isButtonVisible;
   final double width;
   final double height;
 
@@ -27,8 +28,9 @@ class CustomizedDialog extends StatelessWidget {
     this.noText = 'No',
     this.closeText = 'Close',
     this.isYesNoDialog = true,
+    this.isButtonVisible = true,
     required this.width,
-    required this.height
+    required this.height,
   }) : super(key: key);
 
   @override
@@ -49,9 +51,10 @@ class CustomizedDialog extends StatelessWidget {
                   child: content,
                 ),
               ),
-              const SizedBox(height: 15),
-              if (isYesNoDialog)
-                Row(
+              if (isButtonVisible) const SizedBox(height: 15),
+              if (isButtonVisible)
+                isYesNoDialog
+                    ? Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
@@ -73,8 +76,7 @@ class CustomizedDialog extends StatelessWidget {
                     ),
                   ],
                 )
-              else
-                ElevatedButton(
+                    : ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                     onClose();
@@ -116,11 +118,13 @@ void showYesNoDialog({
         yesText: yesText,
         noText: noText,
         isYesNoDialog: true,
+        isButtonVisible: true,
       );
     },
   );
 }
 
+/// Shows a basic dialog with only a Close button.
 void showBasicDialog({
   required BuildContext context,
   required String title,
@@ -143,6 +147,33 @@ void showBasicDialog({
         width: width,
         height: height,
         isYesNoDialog: false,
+        isButtonVisible: true,
+      );
+    },
+  );
+}
+
+/// Shows a dialog without any buttons.
+void showDialogWithoutButtons({
+  required BuildContext context,
+  required String title,
+  required Widget content,
+  required double width,
+  required double height,
+}) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return CustomizedDialog(
+        title: title,
+        content: content,
+        onYes: () {},
+        onNo: () {},
+        onClose: () {},
+        width: width,
+        height: height,
+        isYesNoDialog: false,
+        isButtonVisible: false,
       );
     },
   );

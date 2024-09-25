@@ -21,6 +21,8 @@ mixin _$ApplicationEvent {
     required TResult Function() started,
     required TResult Function() setDefaultStation,
     required TResult Function(StationModel station) changeStation,
+    required TResult Function(List<SubIssueListEntity> deptIssueList)
+        selectDepartment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,7 @@ mixin _$ApplicationEvent {
     TResult? Function()? started,
     TResult? Function()? setDefaultStation,
     TResult? Function(StationModel station)? changeStation,
+    TResult? Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +38,7 @@ mixin _$ApplicationEvent {
     TResult Function()? started,
     TResult Function()? setDefaultStation,
     TResult Function(StationModel station)? changeStation,
+    TResult Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +47,7 @@ mixin _$ApplicationEvent {
     required TResult Function(_Started value) started,
     required TResult Function(SetDefaultStation value) setDefaultStation,
     required TResult Function(ChangeStation value) changeStation,
+    required TResult Function(SelectDepartment value) selectDepartment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$ApplicationEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(SetDefaultStation value)? setDefaultStation,
     TResult? Function(ChangeStation value)? changeStation,
+    TResult? Function(SelectDepartment value)? selectDepartment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$ApplicationEvent {
     TResult Function(_Started value)? started,
     TResult Function(SetDefaultStation value)? setDefaultStation,
     TResult Function(ChangeStation value)? changeStation,
+    TResult Function(SelectDepartment value)? selectDepartment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +134,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function() setDefaultStation,
     required TResult Function(StationModel station) changeStation,
+    required TResult Function(List<SubIssueListEntity> deptIssueList)
+        selectDepartment,
   }) {
     return started();
   }
@@ -137,6 +146,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function()? setDefaultStation,
     TResult? Function(StationModel station)? changeStation,
+    TResult? Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
   }) {
     return started?.call();
   }
@@ -147,6 +157,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function()? setDefaultStation,
     TResult Function(StationModel station)? changeStation,
+    TResult Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -161,6 +172,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(SetDefaultStation value) setDefaultStation,
     required TResult Function(ChangeStation value) changeStation,
+    required TResult Function(SelectDepartment value) selectDepartment,
   }) {
     return started(this);
   }
@@ -171,6 +183,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(SetDefaultStation value)? setDefaultStation,
     TResult? Function(ChangeStation value)? changeStation,
+    TResult? Function(SelectDepartment value)? selectDepartment,
   }) {
     return started?.call(this);
   }
@@ -181,6 +194,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(SetDefaultStation value)? setDefaultStation,
     TResult Function(ChangeStation value)? changeStation,
+    TResult Function(SelectDepartment value)? selectDepartment,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -238,6 +252,8 @@ class _$SetDefaultStationImpl implements SetDefaultStation {
     required TResult Function() started,
     required TResult Function() setDefaultStation,
     required TResult Function(StationModel station) changeStation,
+    required TResult Function(List<SubIssueListEntity> deptIssueList)
+        selectDepartment,
   }) {
     return setDefaultStation();
   }
@@ -248,6 +264,7 @@ class _$SetDefaultStationImpl implements SetDefaultStation {
     TResult? Function()? started,
     TResult? Function()? setDefaultStation,
     TResult? Function(StationModel station)? changeStation,
+    TResult? Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
   }) {
     return setDefaultStation?.call();
   }
@@ -258,6 +275,7 @@ class _$SetDefaultStationImpl implements SetDefaultStation {
     TResult Function()? started,
     TResult Function()? setDefaultStation,
     TResult Function(StationModel station)? changeStation,
+    TResult Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
     required TResult orElse(),
   }) {
     if (setDefaultStation != null) {
@@ -272,6 +290,7 @@ class _$SetDefaultStationImpl implements SetDefaultStation {
     required TResult Function(_Started value) started,
     required TResult Function(SetDefaultStation value) setDefaultStation,
     required TResult Function(ChangeStation value) changeStation,
+    required TResult Function(SelectDepartment value) selectDepartment,
   }) {
     return setDefaultStation(this);
   }
@@ -282,6 +301,7 @@ class _$SetDefaultStationImpl implements SetDefaultStation {
     TResult? Function(_Started value)? started,
     TResult? Function(SetDefaultStation value)? setDefaultStation,
     TResult? Function(ChangeStation value)? changeStation,
+    TResult? Function(SelectDepartment value)? selectDepartment,
   }) {
     return setDefaultStation?.call(this);
   }
@@ -292,6 +312,7 @@ class _$SetDefaultStationImpl implements SetDefaultStation {
     TResult Function(_Started value)? started,
     TResult Function(SetDefaultStation value)? setDefaultStation,
     TResult Function(ChangeStation value)? changeStation,
+    TResult Function(SelectDepartment value)? selectDepartment,
     required TResult orElse(),
   }) {
     if (setDefaultStation != null) {
@@ -388,6 +409,8 @@ class _$ChangeStationImpl implements ChangeStation {
     required TResult Function() started,
     required TResult Function() setDefaultStation,
     required TResult Function(StationModel station) changeStation,
+    required TResult Function(List<SubIssueListEntity> deptIssueList)
+        selectDepartment,
   }) {
     return changeStation(station);
   }
@@ -398,6 +421,7 @@ class _$ChangeStationImpl implements ChangeStation {
     TResult? Function()? started,
     TResult? Function()? setDefaultStation,
     TResult? Function(StationModel station)? changeStation,
+    TResult? Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
   }) {
     return changeStation?.call(station);
   }
@@ -408,6 +432,7 @@ class _$ChangeStationImpl implements ChangeStation {
     TResult Function()? started,
     TResult Function()? setDefaultStation,
     TResult Function(StationModel station)? changeStation,
+    TResult Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
     required TResult orElse(),
   }) {
     if (changeStation != null) {
@@ -422,6 +447,7 @@ class _$ChangeStationImpl implements ChangeStation {
     required TResult Function(_Started value) started,
     required TResult Function(SetDefaultStation value) setDefaultStation,
     required TResult Function(ChangeStation value) changeStation,
+    required TResult Function(SelectDepartment value) selectDepartment,
   }) {
     return changeStation(this);
   }
@@ -432,6 +458,7 @@ class _$ChangeStationImpl implements ChangeStation {
     TResult? Function(_Started value)? started,
     TResult? Function(SetDefaultStation value)? setDefaultStation,
     TResult? Function(ChangeStation value)? changeStation,
+    TResult? Function(SelectDepartment value)? selectDepartment,
   }) {
     return changeStation?.call(this);
   }
@@ -442,6 +469,7 @@ class _$ChangeStationImpl implements ChangeStation {
     TResult Function(_Started value)? started,
     TResult Function(SetDefaultStation value)? setDefaultStation,
     TResult Function(ChangeStation value)? changeStation,
+    TResult Function(SelectDepartment value)? selectDepartment,
     required TResult orElse(),
   }) {
     if (changeStation != null) {
@@ -464,8 +492,173 @@ abstract class ChangeStation implements ApplicationEvent {
 }
 
 /// @nodoc
+abstract class _$$SelectDepartmentImplCopyWith<$Res> {
+  factory _$$SelectDepartmentImplCopyWith(_$SelectDepartmentImpl value,
+          $Res Function(_$SelectDepartmentImpl) then) =
+      __$$SelectDepartmentImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<SubIssueListEntity> deptIssueList});
+}
+
+/// @nodoc
+class __$$SelectDepartmentImplCopyWithImpl<$Res>
+    extends _$ApplicationEventCopyWithImpl<$Res, _$SelectDepartmentImpl>
+    implements _$$SelectDepartmentImplCopyWith<$Res> {
+  __$$SelectDepartmentImplCopyWithImpl(_$SelectDepartmentImpl _value,
+      $Res Function(_$SelectDepartmentImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ApplicationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? deptIssueList = null,
+  }) {
+    return _then(_$SelectDepartmentImpl(
+      null == deptIssueList
+          ? _value._deptIssueList
+          : deptIssueList // ignore: cast_nullable_to_non_nullable
+              as List<SubIssueListEntity>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectDepartmentImpl implements SelectDepartment {
+  const _$SelectDepartmentImpl(final List<SubIssueListEntity> deptIssueList)
+      : _deptIssueList = deptIssueList;
+
+  final List<SubIssueListEntity> _deptIssueList;
+  @override
+  List<SubIssueListEntity> get deptIssueList {
+    if (_deptIssueList is EqualUnmodifiableListView) return _deptIssueList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_deptIssueList);
+  }
+
+  @override
+  String toString() {
+    return 'ApplicationEvent.selectDepartment(deptIssueList: $deptIssueList)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectDepartmentImpl &&
+            const DeepCollectionEquality()
+                .equals(other._deptIssueList, _deptIssueList));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_deptIssueList));
+
+  /// Create a copy of ApplicationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectDepartmentImplCopyWith<_$SelectDepartmentImpl> get copyWith =>
+      __$$SelectDepartmentImplCopyWithImpl<_$SelectDepartmentImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() setDefaultStation,
+    required TResult Function(StationModel station) changeStation,
+    required TResult Function(List<SubIssueListEntity> deptIssueList)
+        selectDepartment,
+  }) {
+    return selectDepartment(deptIssueList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? setDefaultStation,
+    TResult? Function(StationModel station)? changeStation,
+    TResult? Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
+  }) {
+    return selectDepartment?.call(deptIssueList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? setDefaultStation,
+    TResult Function(StationModel station)? changeStation,
+    TResult Function(List<SubIssueListEntity> deptIssueList)? selectDepartment,
+    required TResult orElse(),
+  }) {
+    if (selectDepartment != null) {
+      return selectDepartment(deptIssueList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(SetDefaultStation value) setDefaultStation,
+    required TResult Function(ChangeStation value) changeStation,
+    required TResult Function(SelectDepartment value) selectDepartment,
+  }) {
+    return selectDepartment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(SetDefaultStation value)? setDefaultStation,
+    TResult? Function(ChangeStation value)? changeStation,
+    TResult? Function(SelectDepartment value)? selectDepartment,
+  }) {
+    return selectDepartment?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(SetDefaultStation value)? setDefaultStation,
+    TResult Function(ChangeStation value)? changeStation,
+    TResult Function(SelectDepartment value)? selectDepartment,
+    required TResult orElse(),
+  }) {
+    if (selectDepartment != null) {
+      return selectDepartment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectDepartment implements ApplicationEvent {
+  const factory SelectDepartment(final List<SubIssueListEntity> deptIssueList) =
+      _$SelectDepartmentImpl;
+
+  List<SubIssueListEntity> get deptIssueList;
+
+  /// Create a copy of ApplicationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectDepartmentImplCopyWith<_$SelectDepartmentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ApplicationState {
   StationModel? get station => throw _privateConstructorUsedError;
+  List<SubIssueListEntity>? get deptIssueList =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
@@ -480,7 +673,7 @@ abstract class $ApplicationStateCopyWith<$Res> {
           ApplicationState value, $Res Function(ApplicationState) then) =
       _$ApplicationStateCopyWithImpl<$Res, ApplicationState>;
   @useResult
-  $Res call({StationModel? station});
+  $Res call({StationModel? station, List<SubIssueListEntity>? deptIssueList});
 
   $StationModelCopyWith<$Res>? get station;
 }
@@ -501,12 +694,17 @@ class _$ApplicationStateCopyWithImpl<$Res, $Val extends ApplicationState>
   @override
   $Res call({
     Object? station = freezed,
+    Object? deptIssueList = freezed,
   }) {
     return _then(_value.copyWith(
       station: freezed == station
           ? _value.station
           : station // ignore: cast_nullable_to_non_nullable
               as StationModel?,
+      deptIssueList: freezed == deptIssueList
+          ? _value.deptIssueList
+          : deptIssueList // ignore: cast_nullable_to_non_nullable
+              as List<SubIssueListEntity>?,
     ) as $Val);
   }
 
@@ -533,7 +731,7 @@ abstract class _$$ApplicationStateImplCopyWith<$Res>
       __$$ApplicationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StationModel? station});
+  $Res call({StationModel? station, List<SubIssueListEntity>? deptIssueList});
 
   @override
   $StationModelCopyWith<$Res>? get station;
@@ -553,12 +751,17 @@ class __$$ApplicationStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? station = freezed,
+    Object? deptIssueList = freezed,
   }) {
     return _then(_$ApplicationStateImpl(
       station: freezed == station
           ? _value.station
           : station // ignore: cast_nullable_to_non_nullable
               as StationModel?,
+      deptIssueList: freezed == deptIssueList
+          ? _value._deptIssueList
+          : deptIssueList // ignore: cast_nullable_to_non_nullable
+              as List<SubIssueListEntity>?,
     ));
   }
 }
@@ -566,10 +769,22 @@ class __$$ApplicationStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ApplicationStateImpl extends _ApplicationState {
-  _$ApplicationStateImpl({this.station}) : super._();
+  _$ApplicationStateImpl(
+      {this.station, final List<SubIssueListEntity>? deptIssueList})
+      : _deptIssueList = deptIssueList,
+        super._();
 
   @override
   final StationModel? station;
+  final List<SubIssueListEntity>? _deptIssueList;
+  @override
+  List<SubIssueListEntity>? get deptIssueList {
+    final value = _deptIssueList;
+    if (value == null) return null;
+    if (_deptIssueList is EqualUnmodifiableListView) return _deptIssueList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
@@ -582,12 +797,15 @@ class _$ApplicationStateImpl extends _ApplicationState {
 }
 
 abstract class _ApplicationState extends ApplicationState {
-  factory _ApplicationState({final StationModel? station}) =
-      _$ApplicationStateImpl;
+  factory _ApplicationState(
+      {final StationModel? station,
+      final List<SubIssueListEntity>? deptIssueList}) = _$ApplicationStateImpl;
   _ApplicationState._() : super._();
 
   @override
   StationModel? get station;
+  @override
+  List<SubIssueListEntity>? get deptIssueList;
 
   /// Create a copy of ApplicationState
   /// with the given fields replaced by the non-null parameter values.
