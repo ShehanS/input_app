@@ -5,6 +5,7 @@ import 'package:downtime_pro/infrastructure/domain/issue_list/entity/issue_list_
 import 'package:downtime_pro/infrastructure/repository/operation_data_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
 import '../../domain/globle/model/error_dialog_props.dart';
 import '../../domain/metadata/model/factory_issue_list_entity.dart';
@@ -30,7 +31,7 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
       GetIssueList event, Emitter<OperationDataState> emit) async {
     log("Requesting metadata using GraphQL client...");
     emit(state.copyWith(isLoading: true));
-    final result = await operationDataRepository.issueList(event.orgKey);
+    final result = await operationDataRepository.issueList(event.orgKey, event.fetchPolicy);
     result.fold((l) {
       log("Some issue happening");
       emit(state.copyWith(

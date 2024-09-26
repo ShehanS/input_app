@@ -4,6 +4,7 @@ import 'package:downtime_pro/infrastructure/bloc/operation_data/operation_data_b
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../../infrastructure/bloc/application/application_bloc.dart';
 import '../../../infrastructure/const/custom_text.dart';
@@ -15,7 +16,6 @@ class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final bool hasDialogBeenShown;
     WidgetsBinding.instance.addPostFrameCallback((_) {
      context.read<ApplicationBloc>().add(const SetDefaultStation());
     });
@@ -91,7 +91,7 @@ class LandingPage extends StatelessWidget {
                                   (BuildContext ctx, ApplicationState state) {
                                 outerContext.read<OperationDataBloc>().add(
                                     GetIssueList(
-                                        orgKey: state.station!.orgKey));
+                                        orgKey: state.station!.orgKey, fetchPolicy: FetchPolicy.networkOnly));
                               },
                             ),
 

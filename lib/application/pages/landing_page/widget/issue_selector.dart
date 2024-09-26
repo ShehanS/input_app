@@ -1,6 +1,9 @@
 import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
+import 'package:downtime_pro/infrastructure/domain/globle/color/globle_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../infrastructure/const/custom_text.dart';
 
 class IssueSelector extends StatelessWidget {
   const IssueSelector({Key? key}) : super(key: key);
@@ -10,14 +13,85 @@ class IssueSelector extends StatelessWidget {
     return BlocBuilder<ApplicationBloc, ApplicationState>(
       builder: (innerContext, innerState) {
         return Wrap(
+          alignment: WrapAlignment.start,
           children: innerState.deptIssueList!.map((issue) {
             return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Chip(
-                label: Text(issue.displayName ?? 'No Name'),
-                backgroundColor: Colors.teal,
-              ),
-            );
+                padding: const EdgeInsets.all(5.0),
+                child: GestureDetector(
+                    onTap: () {
+                      print(innerState.color);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                      width: 250,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: innerState.color != null
+                              ? [
+                                  AppColors.deepPurple,
+                                  Color(int.parse(innerState.color as String)),
+                                ]
+                              : [
+                                  AppColors.blueGray,
+                                  AppColors.blueGray,
+                                ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(35),
+                        // Circular edges
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            offset: const Offset(0, 3),
+                            blurRadius: 8,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.add_circle_outline,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                          ),
+                          const SizedBox(width: 15),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomText().dynamicTxt(
+                                txt: issue.displayName ?? "Button",
+                                // Default fallback text
+                                color: Colors.white,
+                                // Text color to white
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText().dynamicTxt(
+                                txt:
+                                    "${issue.categoryType} | ${issue.issueCode}" ??
+                                        "Description",
+                                color: Colors.white70,
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )));
           }).toList(),
         );
       },

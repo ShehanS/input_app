@@ -26,6 +26,10 @@ mixin _$FactoryIssueListEntity {
   String? get displayName => throw _privateConstructorUsedError;
   String? get factoryId => throw _privateConstructorUsedError;
   String? get module => throw _privateConstructorUsedError;
+  String? get department => throw _privateConstructorUsedError;
+  String? get departmentId => throw _privateConstructorUsedError;
+  String? get imageSrc => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
   List<SubIssueListEntity>? get issueList => throw _privateConstructorUsedError;
 
   /// Serializes this FactoryIssueListEntity to a JSON map.
@@ -50,6 +54,10 @@ abstract class $FactoryIssueListEntityCopyWith<$Res> {
       String? displayName,
       String? factoryId,
       String? module,
+      String? department,
+      String? departmentId,
+      String? imageSrc,
+      String? color,
       List<SubIssueListEntity>? issueList});
 }
 
@@ -74,6 +82,10 @@ class _$FactoryIssueListEntityCopyWithImpl<$Res,
     Object? displayName = freezed,
     Object? factoryId = freezed,
     Object? module = freezed,
+    Object? department = freezed,
+    Object? departmentId = freezed,
+    Object? imageSrc = freezed,
+    Object? color = freezed,
     Object? issueList = freezed,
   }) {
     return _then(_value.copyWith(
@@ -96,6 +108,22 @@ class _$FactoryIssueListEntityCopyWithImpl<$Res,
       module: freezed == module
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
+              as String?,
+      department: freezed == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String?,
+      departmentId: freezed == departmentId
+          ? _value.departmentId
+          : departmentId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageSrc: freezed == imageSrc
+          ? _value.imageSrc
+          : imageSrc // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String?,
       issueList: freezed == issueList
           ? _value.issueList
@@ -120,6 +148,10 @@ abstract class _$$FactoryIssueListEntityImplCopyWith<$Res>
       String? displayName,
       String? factoryId,
       String? module,
+      String? department,
+      String? departmentId,
+      String? imageSrc,
+      String? color,
       List<SubIssueListEntity>? issueList});
 }
 
@@ -143,6 +175,10 @@ class __$$FactoryIssueListEntityImplCopyWithImpl<$Res>
     Object? displayName = freezed,
     Object? factoryId = freezed,
     Object? module = freezed,
+    Object? department = freezed,
+    Object? departmentId = freezed,
+    Object? imageSrc = freezed,
+    Object? color = freezed,
     Object? issueList = freezed,
   }) {
     return _then(_$FactoryIssueListEntityImpl(
@@ -166,6 +202,22 @@ class __$$FactoryIssueListEntityImplCopyWithImpl<$Res>
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
               as String?,
+      department: freezed == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String?,
+      departmentId: freezed == departmentId
+          ? _value.departmentId
+          : departmentId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageSrc: freezed == imageSrc
+          ? _value.imageSrc
+          : imageSrc // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
       issueList: freezed == issueList
           ? _value._issueList
           : issueList // ignore: cast_nullable_to_non_nullable
@@ -183,6 +235,10 @@ class _$FactoryIssueListEntityImpl implements _FactoryIssueListEntity {
       this.displayName,
       this.factoryId,
       this.module,
+      this.department,
+      this.departmentId,
+      this.imageSrc,
+      this.color,
       final List<SubIssueListEntity>? issueList})
       : _issueList = issueList;
 
@@ -199,6 +255,14 @@ class _$FactoryIssueListEntityImpl implements _FactoryIssueListEntity {
   final String? factoryId;
   @override
   final String? module;
+  @override
+  final String? department;
+  @override
+  final String? departmentId;
+  @override
+  final String? imageSrc;
+  @override
+  final String? color;
   final List<SubIssueListEntity>? _issueList;
   @override
   List<SubIssueListEntity>? get issueList {
@@ -211,7 +275,7 @@ class _$FactoryIssueListEntityImpl implements _FactoryIssueListEntity {
 
   @override
   String toString() {
-    return 'FactoryIssueListEntity(id: $id, listType: $listType, displayName: $displayName, factoryId: $factoryId, module: $module, issueList: $issueList)';
+    return 'FactoryIssueListEntity(id: $id, listType: $listType, displayName: $displayName, factoryId: $factoryId, module: $module, department: $department, departmentId: $departmentId, imageSrc: $imageSrc, color: $color, issueList: $issueList)';
   }
 
   @override
@@ -227,14 +291,31 @@ class _$FactoryIssueListEntityImpl implements _FactoryIssueListEntity {
             (identical(other.factoryId, factoryId) ||
                 other.factoryId == factoryId) &&
             (identical(other.module, module) || other.module == module) &&
+            (identical(other.department, department) ||
+                other.department == department) &&
+            (identical(other.departmentId, departmentId) ||
+                other.departmentId == departmentId) &&
+            (identical(other.imageSrc, imageSrc) ||
+                other.imageSrc == imageSrc) &&
+            (identical(other.color, color) || other.color == color) &&
             const DeepCollectionEquality()
                 .equals(other._issueList, _issueList));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, listType, displayName,
-      factoryId, module, const DeepCollectionEquality().hash(_issueList));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      listType,
+      displayName,
+      factoryId,
+      module,
+      department,
+      departmentId,
+      imageSrc,
+      color,
+      const DeepCollectionEquality().hash(_issueList));
 
   /// Create a copy of FactoryIssueListEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -260,6 +341,10 @@ abstract class _FactoryIssueListEntity implements FactoryIssueListEntity {
           final String? displayName,
           final String? factoryId,
           final String? module,
+          final String? department,
+          final String? departmentId,
+          final String? imageSrc,
+          final String? color,
           final List<SubIssueListEntity>? issueList}) =
       _$FactoryIssueListEntityImpl;
 
@@ -276,6 +361,14 @@ abstract class _FactoryIssueListEntity implements FactoryIssueListEntity {
   String? get factoryId;
   @override
   String? get module;
+  @override
+  String? get department;
+  @override
+  String? get departmentId;
+  @override
+  String? get imageSrc;
+  @override
+  String? get color;
   @override
   List<SubIssueListEntity>? get issueList;
 
@@ -295,11 +388,15 @@ SubIssueListEntity _$SubIssueListEntityFromJson(Map<String, dynamic> json) {
 mixin _$SubIssueListEntity {
   String get categoryType => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
   int? get level => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get issueCode => throw _privateConstructorUsedError;
   String? get issueName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  String? get department => throw _privateConstructorUsedError;
+  String? get departmentId => throw _privateConstructorUsedError;
+  String? get imageSrc => throw _privateConstructorUsedError;
   List<SubIssueListEntity>? get issueList => throw _privateConstructorUsedError;
 
   /// Serializes this SubIssueListEntity to a JSON map.
@@ -321,11 +418,15 @@ abstract class $SubIssueListEntityCopyWith<$Res> {
   $Res call(
       {String categoryType,
       String? name,
+      String? color,
       int? level,
       String? displayName,
       String? issueCode,
       String? issueName,
       String? description,
+      String? department,
+      String? departmentId,
+      String? imageSrc,
       List<SubIssueListEntity>? issueList});
 }
 
@@ -346,11 +447,15 @@ class _$SubIssueListEntityCopyWithImpl<$Res, $Val extends SubIssueListEntity>
   $Res call({
     Object? categoryType = null,
     Object? name = freezed,
+    Object? color = freezed,
     Object? level = freezed,
     Object? displayName = freezed,
     Object? issueCode = freezed,
     Object? issueName = freezed,
     Object? description = freezed,
+    Object? department = freezed,
+    Object? departmentId = freezed,
+    Object? imageSrc = freezed,
     Object? issueList = freezed,
   }) {
     return _then(_value.copyWith(
@@ -361,6 +466,10 @@ class _$SubIssueListEntityCopyWithImpl<$Res, $Val extends SubIssueListEntity>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String?,
       level: freezed == level
           ? _value.level
@@ -381,6 +490,18 @@ class _$SubIssueListEntityCopyWithImpl<$Res, $Val extends SubIssueListEntity>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      department: freezed == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String?,
+      departmentId: freezed == departmentId
+          ? _value.departmentId
+          : departmentId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageSrc: freezed == imageSrc
+          ? _value.imageSrc
+          : imageSrc // ignore: cast_nullable_to_non_nullable
               as String?,
       issueList: freezed == issueList
           ? _value.issueList
@@ -401,11 +522,15 @@ abstract class _$$SubIssueListEntityImplCopyWith<$Res>
   $Res call(
       {String categoryType,
       String? name,
+      String? color,
       int? level,
       String? displayName,
       String? issueCode,
       String? issueName,
       String? description,
+      String? department,
+      String? departmentId,
+      String? imageSrc,
       List<SubIssueListEntity>? issueList});
 }
 
@@ -424,11 +549,15 @@ class __$$SubIssueListEntityImplCopyWithImpl<$Res>
   $Res call({
     Object? categoryType = null,
     Object? name = freezed,
+    Object? color = freezed,
     Object? level = freezed,
     Object? displayName = freezed,
     Object? issueCode = freezed,
     Object? issueName = freezed,
     Object? description = freezed,
+    Object? department = freezed,
+    Object? departmentId = freezed,
+    Object? imageSrc = freezed,
     Object? issueList = freezed,
   }) {
     return _then(_$SubIssueListEntityImpl(
@@ -439,6 +568,10 @@ class __$$SubIssueListEntityImplCopyWithImpl<$Res>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String?,
       level: freezed == level
           ? _value.level
@@ -460,6 +593,18 @@ class __$$SubIssueListEntityImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      department: freezed == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String?,
+      departmentId: freezed == departmentId
+          ? _value.departmentId
+          : departmentId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageSrc: freezed == imageSrc
+          ? _value.imageSrc
+          : imageSrc // ignore: cast_nullable_to_non_nullable
+              as String?,
       issueList: freezed == issueList
           ? _value._issueList
           : issueList // ignore: cast_nullable_to_non_nullable
@@ -474,11 +619,15 @@ class _$SubIssueListEntityImpl implements _SubIssueListEntity {
   _$SubIssueListEntityImpl(
       {required this.categoryType,
       this.name,
+      this.color,
       this.level,
       this.displayName,
       this.issueCode,
       this.issueName,
       this.description,
+      this.department,
+      this.departmentId,
+      this.imageSrc,
       final List<SubIssueListEntity>? issueList})
       : _issueList = issueList;
 
@@ -490,6 +639,8 @@ class _$SubIssueListEntityImpl implements _SubIssueListEntity {
   @override
   final String? name;
   @override
+  final String? color;
+  @override
   final int? level;
   @override
   final String? displayName;
@@ -499,6 +650,12 @@ class _$SubIssueListEntityImpl implements _SubIssueListEntity {
   final String? issueName;
   @override
   final String? description;
+  @override
+  final String? department;
+  @override
+  final String? departmentId;
+  @override
+  final String? imageSrc;
   final List<SubIssueListEntity>? _issueList;
   @override
   List<SubIssueListEntity>? get issueList {
@@ -511,7 +668,7 @@ class _$SubIssueListEntityImpl implements _SubIssueListEntity {
 
   @override
   String toString() {
-    return 'SubIssueListEntity(categoryType: $categoryType, name: $name, level: $level, displayName: $displayName, issueCode: $issueCode, issueName: $issueName, description: $description, issueList: $issueList)';
+    return 'SubIssueListEntity(categoryType: $categoryType, name: $name, color: $color, level: $level, displayName: $displayName, issueCode: $issueCode, issueName: $issueName, description: $description, department: $department, departmentId: $departmentId, imageSrc: $imageSrc, issueList: $issueList)';
   }
 
   @override
@@ -522,6 +679,7 @@ class _$SubIssueListEntityImpl implements _SubIssueListEntity {
             (identical(other.categoryType, categoryType) ||
                 other.categoryType == categoryType) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.color, color) || other.color == color) &&
             (identical(other.level, level) || other.level == level) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -531,6 +689,12 @@ class _$SubIssueListEntityImpl implements _SubIssueListEntity {
                 other.issueName == issueName) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.department, department) ||
+                other.department == department) &&
+            (identical(other.departmentId, departmentId) ||
+                other.departmentId == departmentId) &&
+            (identical(other.imageSrc, imageSrc) ||
+                other.imageSrc == imageSrc) &&
             const DeepCollectionEquality()
                 .equals(other._issueList, _issueList));
   }
@@ -541,11 +705,15 @@ class _$SubIssueListEntityImpl implements _SubIssueListEntity {
       runtimeType,
       categoryType,
       name,
+      color,
       level,
       displayName,
       issueCode,
       issueName,
       description,
+      department,
+      departmentId,
+      imageSrc,
       const DeepCollectionEquality().hash(_issueList));
 
   /// Create a copy of SubIssueListEntity
@@ -569,11 +737,15 @@ abstract class _SubIssueListEntity implements SubIssueListEntity {
   factory _SubIssueListEntity(
       {required final String categoryType,
       final String? name,
+      final String? color,
       final int? level,
       final String? displayName,
       final String? issueCode,
       final String? issueName,
       final String? description,
+      final String? department,
+      final String? departmentId,
+      final String? imageSrc,
       final List<SubIssueListEntity>? issueList}) = _$SubIssueListEntityImpl;
 
   factory _SubIssueListEntity.fromJson(Map<String, dynamic> json) =
@@ -584,6 +756,8 @@ abstract class _SubIssueListEntity implements SubIssueListEntity {
   @override
   String? get name;
   @override
+  String? get color;
+  @override
   int? get level;
   @override
   String? get displayName;
@@ -593,6 +767,12 @@ abstract class _SubIssueListEntity implements SubIssueListEntity {
   String? get issueName;
   @override
   String? get description;
+  @override
+  String? get department;
+  @override
+  String? get departmentId;
+  @override
+  String? get imageSrc;
   @override
   List<SubIssueListEntity>? get issueList;
 

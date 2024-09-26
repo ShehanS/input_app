@@ -19,21 +19,22 @@ mixin _$OperationDataEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String orgKey) getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getIssueList,
     required TResult Function() clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String orgKey)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult? Function()? clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String orgKey)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) =>
@@ -126,7 +127,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String orgKey) getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getIssueList,
     required TResult Function() clearErrorDialogProps,
   }) {
     return started();
@@ -136,7 +138,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String orgKey)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult? Function()? clearErrorDialogProps,
   }) {
     return started?.call();
@@ -146,7 +148,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String orgKey)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {
@@ -202,7 +204,7 @@ abstract class _$$GetIssueListImplCopyWith<$Res> {
           _$GetIssueListImpl value, $Res Function(_$GetIssueListImpl) then) =
       __$$GetIssueListImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String orgKey});
+  $Res call({String orgKey, FetchPolicy fetchPolicy});
 }
 
 /// @nodoc
@@ -219,12 +221,17 @@ class __$$GetIssueListImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? orgKey = null,
+    Object? fetchPolicy = null,
   }) {
     return _then(_$GetIssueListImpl(
       orgKey: null == orgKey
           ? _value.orgKey
           : orgKey // ignore: cast_nullable_to_non_nullable
               as String,
+      fetchPolicy: null == fetchPolicy
+          ? _value.fetchPolicy
+          : fetchPolicy // ignore: cast_nullable_to_non_nullable
+              as FetchPolicy,
     ));
   }
 }
@@ -232,14 +239,16 @@ class __$$GetIssueListImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetIssueListImpl implements GetIssueList {
-  const _$GetIssueListImpl({required this.orgKey});
+  const _$GetIssueListImpl({required this.orgKey, required this.fetchPolicy});
 
   @override
   final String orgKey;
+  @override
+  final FetchPolicy fetchPolicy;
 
   @override
   String toString() {
-    return 'OperationDataEvent.getIssueList(orgKey: $orgKey)';
+    return 'OperationDataEvent.getIssueList(orgKey: $orgKey, fetchPolicy: $fetchPolicy)';
   }
 
   @override
@@ -247,11 +256,13 @@ class _$GetIssueListImpl implements GetIssueList {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetIssueListImpl &&
-            (identical(other.orgKey, orgKey) || other.orgKey == orgKey));
+            (identical(other.orgKey, orgKey) || other.orgKey == orgKey) &&
+            (identical(other.fetchPolicy, fetchPolicy) ||
+                other.fetchPolicy == fetchPolicy));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, orgKey);
+  int get hashCode => Object.hash(runtimeType, orgKey, fetchPolicy);
 
   /// Create a copy of OperationDataEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -265,32 +276,33 @@ class _$GetIssueListImpl implements GetIssueList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String orgKey) getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getIssueList,
     required TResult Function() clearErrorDialogProps,
   }) {
-    return getIssueList(orgKey);
+    return getIssueList(orgKey, fetchPolicy);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String orgKey)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult? Function()? clearErrorDialogProps,
   }) {
-    return getIssueList?.call(orgKey);
+    return getIssueList?.call(orgKey, fetchPolicy);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String orgKey)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {
     if (getIssueList != null) {
-      return getIssueList(orgKey);
+      return getIssueList(orgKey, fetchPolicy);
     }
     return orElse();
   }
@@ -332,10 +344,12 @@ class _$GetIssueListImpl implements GetIssueList {
 }
 
 abstract class GetIssueList implements OperationDataEvent {
-  const factory GetIssueList({required final String orgKey}) =
-      _$GetIssueListImpl;
+  const factory GetIssueList(
+      {required final String orgKey,
+      required final FetchPolicy fetchPolicy}) = _$GetIssueListImpl;
 
   String get orgKey;
+  FetchPolicy get fetchPolicy;
 
   /// Create a copy of OperationDataEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -388,7 +402,8 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String orgKey) getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getIssueList,
     required TResult Function() clearErrorDialogProps,
   }) {
     return clearErrorDialogProps();
@@ -398,7 +413,7 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String orgKey)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult? Function()? clearErrorDialogProps,
   }) {
     return clearErrorDialogProps?.call();
@@ -408,7 +423,7 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String orgKey)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {

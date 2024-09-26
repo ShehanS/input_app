@@ -10,7 +10,8 @@ import '../services/graphql_service.dart';
 import '../domain/globle/model/error_response.dart';
 
 abstract class OperationDataRepository {
-  Future<Either<dynamic, List<FactoryIssueListEntity>>> issueList(String orgKey);
+  Future<Either<dynamic, List<FactoryIssueListEntity>>> issueList(
+      String orgKey, FetchPolicy fetchPolicy);
 }
 
 @LazySingleton(as: OperationDataRepository)
@@ -21,12 +22,12 @@ class OperationDataImpl implements OperationDataRepository {
 
   @override
   Future<Either<dynamic, List<FactoryIssueListEntity>>> issueList(
-      String orgKey) async {
+      String orgKey, FetchPolicy fetchPolicy) async {
     final client = _graphQLService.client;
     final QueryOptions options = QueryOptions(
-      document: gql(getIssueList),
-      variables: {'orgKey': orgKey},
-    );
+        document: gql(getIssueList),
+        variables: {'orgKey': orgKey},
+        fetchPolicy: fetchPolicy);
     final result = await client.query(options);
     final exception = result.exception;
 
@@ -46,8 +47,10 @@ class OperationDataImpl implements OperationDataRepository {
     final data = result.data;
     if (data != null) {
       try {
-        final List<dynamic> issuesList = data['fetchIssueList'] as List<dynamic>;
-        final List<FactoryIssueListEntity> issueEntities = issuesList.map((issue) {
+        final List<dynamic> issuesList =
+            data['fetchIssueList'] as List<dynamic>;
+        final List<FactoryIssueListEntity> issueEntities =
+            issuesList.map((issue) {
           return FactoryIssueListEntity.fromJson(issue as Map<String, dynamic>);
         }).toList();
         return right(issueEntities);

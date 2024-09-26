@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/bloc/operation_data/operation_data_bloc.dart';
+import '../../../../infrastructure/domain/globle/color/globle_colors.dart';
 import '../../../widget/custom_button/list_item_button.dart';
 
 class SideNav extends StatelessWidget {
@@ -11,29 +12,6 @@ class SideNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Color> colors = [
-      Colors.teal,
-      Colors.blue,
-      Colors.red,
-      Colors.green,
-      Colors.orange,
-      Colors.purple,
-      Colors.yellow,
-      Colors.cyan,
-      Colors.indigo,
-      Colors.brown,
-    ];
-
-    final List<Map<String, dynamic>> buttonsData = List.generate(
-      10,
-      (index) => {
-        'text': 'Button ${index + 1}',
-        'description': 'Description for button ${index + 1}',
-        'icon': 'assets/icons/icon${index + 1}.svg',
-        'color': colors[index],
-      },
-    );
-
     return Expanded(
       flex: 3,
       child: BlocBuilder<ApplicationBloc, ApplicationState>(
@@ -68,12 +46,17 @@ class SideNav extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 5.0),
                             child: ListItemButton(
-                              text: buttonData.displayName ?? 'No Text',
-                              description: "",
+                              deptIssue: buttonData,
                               icon: "",
-                              color: Colors.black38,
+                              startColor:
+                                  Color(int.parse(buttonData.color.toString())),
+                              endColor: AppColors.deepPurple,
                               onPressed: () {
-                               innerContext.read<ApplicationBloc>().add(SelectDepartment(innerState.issueList[index].issueList as List<SubIssueListEntity>));
+                                innerContext.read<ApplicationBloc>().add(
+                                    SelectDepartment(
+                                        innerState.issueList[index].issueList
+                                            as List<SubIssueListEntity>,
+                                        buttonData.color as String));
                               },
                             ),
                           );

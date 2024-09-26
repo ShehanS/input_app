@@ -49,7 +49,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
   }
 
   void _selectDepartment(SelectDepartment event, Emitter<ApplicationState> emit){
-    emit(state.copyWith(deptIssueList: event.deptIssueList ?? []));
+    emit(state.copyWith(deptIssueList: event.deptIssueList ?? [], color: event.color));
   }
 
 }

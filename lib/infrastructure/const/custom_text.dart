@@ -6,8 +6,9 @@ enum PrimaryColorEnum { primaryBase, primary1, primary5 }
 enum NeutralColorEnum { neutral1, primary5 }
 
 class CustomText {
-  Text h1({required String txt, double fontSize = 20, bool bold = false, TextAlign textAlign = TextAlign.left, Color color = Colors.black}) {
+  Text h1({required String txt, double fontSize = 20, bool bold = false, TextAlign textAlign = TextAlign.left, Color color = Colors.black, TextOverflow overflow = TextOverflow.ellipsis }) {
     return Text(
+      overflow: TextOverflow.ellipsis,
       txt,
       style: GoogleFonts.ubuntu(color: color, fontSize: fontSize, fontWeight: bold ? FontWeight.bold : FontWeight.normal),
       textAlign: textAlign,

@@ -10,6 +10,10 @@ class FactoryIssueListEntity with _$FactoryIssueListEntity {
     String? displayName,
     String? factoryId,
     String? module,
+    String? department,
+    String? departmentId,
+    String? imageSrc,
+    String? color,
     List<SubIssueListEntity>? issueList,
   }) = _FactoryIssueListEntity;
 
@@ -22,11 +26,15 @@ class SubIssueListEntity with _$SubIssueListEntity {
   factory SubIssueListEntity({
     required String categoryType,
     String? name,
+    String? color,
     int? level,
     String? displayName,
     String? issueCode,
     String? issueName,
     String? description,
+    String? department,
+    String? departmentId,
+    String? imageSrc,
     List<SubIssueListEntity>? issueList,
   }) = _SubIssueListEntity;
 
