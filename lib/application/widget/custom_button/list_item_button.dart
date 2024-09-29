@@ -56,9 +56,16 @@ class ListItemButton extends StatelessWidget {
                   Container(
                     width: 60,
                     height: double.infinity,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          offset: const Offset(0, 3),
+                          blurRadius: 8,
+                        ),
+                      ],
                       color: Colors.white24,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         bottomLeft: Radius.circular(20),
                       ),
@@ -87,8 +94,7 @@ class ListItemButton extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                         CustomText().dynamicTxt(
-                          txt:
-                              "${deptIssue.department}",
+                          txt: "${deptIssue.department}",
                           color: Colors.white70,
                           fontSize: 12,
                           fontWeight: FontWeight.normal,

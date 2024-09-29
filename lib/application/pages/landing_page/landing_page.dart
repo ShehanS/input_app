@@ -66,7 +66,7 @@ class LandingPage extends StatelessWidget {
                       flex: 9,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.black26,
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Column(
@@ -91,7 +91,7 @@ class LandingPage extends StatelessWidget {
                                   (BuildContext ctx, ApplicationState state) {
                                 outerContext.read<OperationDataBloc>().add(
                                     GetIssueList(
-                                        orgKey: state.station!.orgKey, fetchPolicy: FetchPolicy.networkOnly));
+                                        orgKey: state.station!.orgKey, fetchPolicy: FetchPolicy.cacheAndNetwork));
                               },
                             ),
 

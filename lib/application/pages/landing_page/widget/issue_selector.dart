@@ -1,9 +1,12 @@
+import 'package:downtime_pro/application/pages/landing_page/widget/error_selector.dart';
+import 'package:downtime_pro/application/widget/customize_dialog/custom_dialog.dart';
 import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
 import 'package:downtime_pro/infrastructure/domain/globle/color/globle_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/const/custom_text.dart';
+import '../../../../infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
 
 class IssueSelector extends StatelessWidget {
   const IssueSelector({Key? key}) : super(key: key);
@@ -19,11 +22,19 @@ class IssueSelector extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: GestureDetector(
                     onTap: () {
-                      print(innerState.color);
+                      showErrorSelectorDialog(
+                          context: context,
+                          title: issue.displayName ?? "Unknown",
+                          issueList: issue.issueList as List<SubIssueListEntity>,
+                          onClose: () {
+                            Navigator.of(context).pop();
+                          },
+                          width: double.infinity,
+                          height: double.infinity);
                     },
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                      width: 250,
+                      width: double.infinity,
                       height: 70,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(

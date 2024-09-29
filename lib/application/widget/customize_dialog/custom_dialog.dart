@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
 import '../../../../infrastructure/const/custom_text.dart';
 import '../../../../infrastructure/domain/globle/color/globle_colors.dart';
 
