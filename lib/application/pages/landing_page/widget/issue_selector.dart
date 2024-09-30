@@ -1,5 +1,4 @@
-import 'package:downtime_pro/application/pages/landing_page/widget/error_selector.dart';
-import 'package:downtime_pro/application/widget/customize_dialog/custom_dialog.dart';
+import 'package:downtime_pro/application/pages/landing_page/widget/sub_issue_selector.dart';
 import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
 import 'package:downtime_pro/infrastructure/domain/globle/color/globle_colors.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +6,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/const/custom_text.dart';
 import '../../../../infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
+import 'issue_apply_dialog.dart';
 
 class IssueSelector extends StatelessWidget {
   const IssueSelector({Key? key}) : super(key: key);
+
+  bool checkAllSubIssues(dynamic issue) {
+    for (var subIssue in issue.issueList ?? []) {
+      if (subIssue.issueList == null || subIssue.issueList!.isEmpty) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +31,37 @@ class IssueSelector extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: GestureDetector(
                     onTap: () {
-                      showErrorSelectorDialog(
-                          context: context,
-                          title: issue.displayName ?? "Unknown",
-                          issueList: issue.issueList as List<SubIssueListEntity>,
-                          onClose: () {
-                            Navigator.of(context).pop();
-                          },
-                          width: double.infinity,
-                          height: double.infinity);
+                      if (issue.issueList!.isEmpty) {
+                        showIssueApplyDialog(
+                            context: context,
+                            title: "Add Machine ${issue.displayName ?? ""}",
+                            content: Text("kjh"),
+                            width: double.infinity,
+                            height: double.infinity,
+                            issue: issue);
+                      } else {
+                        bool result = checkAllSubIssues(issue);
+                        if (result) {
+                          showErrorSelectorDialog(
+                              context: context,
+                              title: issue.displayName ?? "Unknown",
+                              issueList:
+                                  issue.issueList as List<SubIssueListEntity>,
+                              onClose: () {
+                                Navigator.of(context).pop();
+                              },
+                              width: double.infinity,
+                              height: double.infinity);
+                        } else {
+                          showIssueApplyDialog(
+                              context: context,
+                              title: "Add Machine ${issue.displayName ?? ""}",
+                              content: Text("kjh"),
+                              width: double.infinity,
+                              height: double.infinity,
+                              issue: issue);
+                        }
+                      }
                     },
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
@@ -71,11 +102,17 @@ class IssueSelector extends StatelessWidget {
                               color: Colors.white.withOpacity(0.2),
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(
-                              Icons.add_circle_outline,
-                              color: Colors.white,
-                              size: 24,
-                            ),
+                            child: issue.issueList!.isNotEmpty
+                                ? const Icon(
+                                    Icons.add_circle_outline,
+                                    color: Colors.white,
+                                    size: 24,
+                                  )
+                                : const Icon(
+                                    Icons.error,
+                                    color: Colors.white,
+                                    size: 24,
+                                  ),
                           ),
                           const SizedBox(width: 15),
                           Column(

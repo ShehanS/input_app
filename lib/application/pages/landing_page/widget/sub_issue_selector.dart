@@ -1,7 +1,10 @@
+import 'package:downtime_pro/application/widget/customize_dialog/custom_dialog.dart';
 import 'package:downtime_pro/infrastructure/const/custom_text.dart';
 import 'package:downtime_pro/infrastructure/domain/globle/color/globle_colors.dart';
 import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
 import 'package:flutter/material.dart';
+
+import 'issue_apply_dialog.dart';
 
 class ErrorSelector extends StatefulWidget {
   final List<SubIssueListEntity> issueList;
@@ -24,6 +27,15 @@ class ErrorSelector extends StatefulWidget {
 }
 
 class _ErrorSelectorState extends State<ErrorSelector> {
+  bool checkAllSubIssues(dynamic issue) {
+    for (var subIssue in issue.issueList ?? []) {
+      if (subIssue.issueList == null || subIssue.issueList!.isEmpty) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -67,12 +79,11 @@ class _ErrorSelectorState extends State<ErrorSelector> {
                               .toList(),
                         ),
                         Expanded(
-                          child: TabBarView(
-                            children: widget.issueList
-                                .map((issue) => _buildIssueContent(issue))
-                                .toList(),
-                          ),
-                        ),
+                            child: TabBarView(
+                          children: widget.issueList
+                              .map((issue) => _buildIssueContent(issue))
+                              .toList(),
+                        )),
                       ],
                     ),
                   ),
@@ -112,8 +123,17 @@ class _ErrorSelectorState extends State<ErrorSelector> {
                   spacing: 10,
                   alignment: WrapAlignment.center,
                   children: issue.issueList!
-                      .map((error) => (GestureDetector(
-                            onTap: () {},
+                      .map((issue) => (GestureDetector(
+                            onTap: () {
+                              showIssueApplyDialog(
+                                  context: context,
+                                  title:
+                                      "Add Machine ${issue.displayName ?? ""}",
+                                  content: Text("kjh"),
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  issue: issue);
+                            },
                             child: Container(
                               padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                               width: 250,
@@ -149,7 +169,8 @@ class _ErrorSelectorState extends State<ErrorSelector> {
                                   const SizedBox(width: 15),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       CustomText().dynamicTxt(
                                         txt: issue.displayName ?? "Button",
@@ -158,7 +179,8 @@ class _ErrorSelectorState extends State<ErrorSelector> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                       CustomText().dynamicTxt(
-                                        txt: "${issue.categoryType} | ${issue.issueCode}",
+                                        txt:
+                                            "${issue.categoryType} | ${issue.issueCode}",
                                         color: Colors.white70,
                                         fontSize: 12,
                                         fontWeight: FontWeight.normal,
