@@ -27,7 +27,7 @@ class ErrorSelector extends StatefulWidget {
 }
 
 class _ErrorSelectorState extends State<ErrorSelector> {
-  bool checkAllSubIssues(dynamic issue) {
+  bool checkAllSubIssues(SubIssueListEntity issue) {
     for (var subIssue in issue.issueList ?? []) {
       if (subIssue.issueList == null || subIssue.issueList!.isEmpty) {
         return false;
@@ -55,13 +55,14 @@ class _ErrorSelectorState extends State<ErrorSelector> {
                       onPressed: widget.onClose,
                       icon: Container(
                         decoration: const BoxDecoration(
-                            color: AppColors.deepPurple,
-                            shape: BoxShape.circle),
+                          color: AppColors.deepPurple,
+                          shape: BoxShape.circle,
+                        ),
                         child: const Icon(Icons.arrow_back,
                             color: Colors.white, size: 50),
                       ),
                     ),
-                    CustomText().grey(txt: widget.title)
+                    CustomText().grey(txt: widget.title),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -79,11 +80,12 @@ class _ErrorSelectorState extends State<ErrorSelector> {
                               .toList(),
                         ),
                         Expanded(
-                            child: TabBarView(
-                          children: widget.issueList
-                              .map((issue) => _buildIssueContent(issue))
-                              .toList(),
-                        )),
+                          child: TabBarView(
+                            children: widget.issueList
+                                .map((issue) => _buildIssueContent(issue))
+                                .toList(),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -102,96 +104,118 @@ class _ErrorSelectorState extends State<ErrorSelector> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomText().dynamicTxt(
-              txt: 'Category: ${issue.categoryType ?? "N/A"}',
-              color: AppColors.deepPurple,
-              fontSize: 14),
-          if (issue.department != null)
-            CustomText().dynamicTxt(
-                txt: 'Department: ${issue.department}',
-                color: AppColors.deepPurple,
-                fontSize: 14),
-          if (issue.issueList != null && issue.issueList!.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: CustomText().grey(txt: "Errors", fontSize: 16),
+          Container(
+            padding: const EdgeInsets.all(5),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.white,
+                    AppColors.blueGray,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText().dynamicTxt(
+                  txt: 'Category: ${issue.categoryType ?? "N/A"}',
+                  color: AppColors.deepPurple,
+                  fontSize: 14,
+                ),
+                if (issue.department != null)
+                  CustomText().dynamicTxt(
+                    txt: 'Department: ${issue.department}',
+                    color: AppColors.deepPurple,
+                    fontSize: 14,
+                  ),
+              ],
             ),
+          ),
+          if (issue.issueList != null && issue.issueList!.isNotEmpty)
+            const Divider(),
+          const Padding(
+            padding: EdgeInsets.only(top: 10.0),
+          ),
           if (issue.issueList != null)
             SizedBox(
               width: double.infinity,
               child: Wrap(
-                  spacing: 10,
-                  alignment: WrapAlignment.center,
-                  children: issue.issueList!
-                      .map((issue) => (GestureDetector(
-                            onTap: () {
-                              showIssueApplyDialog(
-                                  context: context,
-                                  title:
-                                      "Add Machine ${issue.displayName ?? ""}",
-                                  content: Text("kjh"),
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  issue: issue);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                              width: 250,
-                              height: 70,
-                              decoration: BoxDecoration(
-                                color: AppColors.boldRed,
-                                borderRadius: BorderRadius.circular(35),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.2),
-                                    offset: const Offset(0, 3),
-                                    blurRadius: 8,
-                                  ),
-                                ],
+                spacing: 10,
+                alignment: WrapAlignment.center,
+                children: issue.issueList!
+                    .map(
+                      (subIssue) => GestureDetector(
+                        onTap: () {
+                          showIssueApplyDialog(
+                            context: context,
+                            title: "Add Machine ${subIssue.displayName ?? ""}",
+                            width: double.infinity,
+                            height: double.infinity,
+                            issue: subIssue,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                          width: 250,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            color: AppColors.boldRed,
+                            borderRadius: BorderRadius.circular(35),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 3),
+                                blurRadius: 8,
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withOpacity(0.2),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Icons.error,
+                                  color: Colors.white,
+                                  size: 24,
+                                ),
+                              ),
+                              const SizedBox(width: 15),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.2),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: const Icon(
-                                      Icons.error,
-                                      color: Colors.white,
-                                      size: 24,
-                                    ),
+                                  CustomText().dynamicTxt(
+                                    txt: subIssue.displayName ?? "Button",
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  const SizedBox(width: 15),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      CustomText().dynamicTxt(
-                                        txt: issue.displayName ?? "Button",
-                                        color: Colors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      CustomText().dynamicTxt(
-                                        txt:
-                                            "${issue.categoryType} | ${issue.issueCode}",
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ],
+                                  CustomText().dynamicTxt(
+                                    txt:
+                                        "${subIssue.categoryType} | ${subIssue.issueCode}",
+                                    color: Colors.white70,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal,
                                   ),
                                 ],
                               ),
-                            ),
-                          )))
-                      .toList()),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
             )
         ],
       ),
@@ -206,7 +230,6 @@ void showErrorSelectorDialog({
   required VoidCallback onClose,
   required double width,
   required double height,
-  String closeText = 'Close',
 }) {
   showDialog(
     context: context,

@@ -35,7 +35,6 @@ class IssueSelector extends StatelessWidget {
                         showIssueApplyDialog(
                             context: context,
                             title: "Add Machine ${issue.displayName ?? ""}",
-                            content: Text("kjh"),
                             width: double.infinity,
                             height: double.infinity,
                             issue: issue);
@@ -56,7 +55,6 @@ class IssueSelector extends StatelessWidget {
                           showIssueApplyDialog(
                               context: context,
                               title: "Add Machine ${issue.displayName ?? ""}",
-                              content: Text("kjh"),
                               width: double.infinity,
                               height: double.infinity,
                               issue: issue);
