@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
     return BlocBuilder<ApplicationBloc, ApplicationState>(
       builder: (innerContext, innerState) {
         return AppBar(
-          title: Text(AppLocalizations.of(context).translate('Add Downtime')),
+          title: CustomText().h1(txt: AppLocalizations.of(context).translate('Add Downtime'), color: AppColors.deepPurple),
           leading: Builder(
             builder: (context) {
               return IconButton(
@@ -44,7 +44,7 @@ class CustomAppBar extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(5)),
-                    border: Border.all(color: AppColors.blueGray, width: 1)
+                    border: Border.all(color: AppColors.outlineBorderColor, width: 0.3)
                   ),
                   child: Row(
                     children: [

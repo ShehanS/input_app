@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Prevents instantiation of the class
   AppColors._();
 
   // Deep Purple
@@ -25,5 +24,8 @@ class AppColors {
   static const Color goldenYellowLight = Color(0xFFFFC633);
 
   static const Color blueGray = Colors.blueGrey;
-  static const lightBlack = Color.fromRGBO(196, 196, 196, 100);
+  static const Color lightBlack = Color.fromRGBO(196, 196, 196, 100);
+  static const Color lightGray = Color(0XFFE7E7E7);
+  static const Color white = Color(0XFFFFFFFF);
+  static const Color outlineBorderColor = Colors.blueGrey;
 }
