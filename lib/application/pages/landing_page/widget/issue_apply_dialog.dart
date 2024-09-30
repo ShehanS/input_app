@@ -54,7 +54,29 @@ class ErrorApplyDialog extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              content,
+             SizedBox(
+               width: double.infinity,
+               child:  Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
+                 mainAxisAlignment: MainAxisAlignment.start,
+                 children: [
+                   CustomText().dynamicTxt(
+                       txt: 'Category: ${issue.categoryType ?? "N/A"}',
+                       color: AppColors.deepPurple,
+                       fontSize: 14),
+                   if (issue.department != null)
+                     CustomText().dynamicTxt(
+                         txt: 'Department: ${issue.department}',
+                         color: AppColors.deepPurple,
+                         fontSize: 14),
+                   if (issue.issueList != null && issue.issueList!.isNotEmpty)
+                     Padding(
+                       padding: const EdgeInsets.only(top: 10.0),
+                       child: CustomText().grey(txt: "Errors", fontSize: 16),
+                     ),
+                 ],
+               ),
+             )
             ],
           ),
         ),
