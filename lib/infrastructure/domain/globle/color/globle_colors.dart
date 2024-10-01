@@ -23,9 +23,15 @@ class AppColors {
   static const Color goldenYellowDark = Color(0xFFCC8500);
   static const Color goldenYellowLight = Color(0xFFFFC633);
 
+  // New colors from the screenshot
+  static const Color mintGreen = Color(0xFF00FFCC); // Adjusted for the leaves
+  static const Color lightGreen = Color(0xFF99FF99); // Lighter part of the leaves
+  static const Color tealBlue = Color(0xFF66CCCC); // Background gradient
+  static const Color lightGray = Color(0xFFE7E7E7); // Background of the text
+  static const Color white = Color(0XFFFFFFFF); // Text and highlights
+  static const Color darkGray = Color(0xFF333333); // Text elements (black/gray)
+
   static const Color blueGray = Colors.blueGrey;
   static const Color lightBlack = Color.fromRGBO(196, 196, 196, 100);
-  static const Color lightGray = Color(0XFFE7E7E7);
-  static const Color white = Color(0XFFFFFFFF);
   static const Color outlineBorderColor = Colors.blueGrey;
 }

@@ -27,6 +27,7 @@ class SideNav extends StatelessWidget {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
+
                   border: Border.all(
                       color: AppColors.outlineBorderColor, width: 0.3),
                   borderRadius: BorderRadius.circular(12),

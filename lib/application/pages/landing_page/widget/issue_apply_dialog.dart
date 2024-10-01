@@ -84,40 +84,125 @@ class ErrorApplyDialog extends StatelessWidget {
               ),
               const Divider(),
               const SizedBox(height: 50),
-              Container(
-                decoration: BoxDecoration(
-                  // borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  // border: Border.all(color: AppColors.deepPurple, width: 2),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        CustomText()
-                            .grey(txt: "Select machine/ module", fontSize: 15),
-                        DropdownButton<String>(
-                          hint: CustomText()
-                              .grey(txt: "Not select", fontSize: 15),
-                          elevation: 16,
-                          style: const TextStyle(color: Colors.deepPurple),
-                          underline: const SizedBox(),
-                          onChanged: (String? newValue) {},
-                          items: items
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child:
-                                  CustomText().grey(txt: value, fontSize: 15),
-                            );
-                          }).toList(),
-                        ),
-                      ],
-                    ),
-
-                  ],
-                ),
-              )
+              issue.issueList!.isNotEmpty
+                  ? SizedBox(
+                      child: SizedBox(
+                      width: double.infinity,
+                      child: Wrap(
+                        spacing: 10,
+                        alignment: WrapAlignment.center,
+                        children: issue.issueList!
+                            .map(
+                              (subIssue) => GestureDetector(
+                                onTap: () {
+                                  showIssueApplyDialog(
+                                    context: context,
+                                    title:
+                                        "Add Machine ${subIssue.displayName ?? ""}",
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    issue: subIssue,
+                                  );
+                                },
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                                  width: 250,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.boldRed,
+                                    borderRadius: BorderRadius.circular(35),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.2),
+                                        offset: const Offset(0, 3),
+                                        blurRadius: 8,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 40,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.2),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: const Icon(
+                                          Icons.error,
+                                          color: Colors.white,
+                                          size: 24,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 15),
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          CustomText().dynamicTxt(
+                                            txt: subIssue.displayName ??
+                                                "Button",
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          CustomText().dynamicTxt(
+                                            txt:
+                                                "${subIssue.categoryType} | ${subIssue.issueCode}",
+                                            color: Colors.white70,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ))
+                  : Container(
+                      decoration: const BoxDecoration(
+                          // borderRadius: const BorderRadius.all(Radius.circular(10)),
+                          // border: Border.all(color: AppColors.deepPurple, width: 2),
+                          ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              CustomText().grey(
+                                  txt: "Select machine/ module", fontSize: 15),
+                              DropdownButton<String>(
+                                hint: CustomText()
+                                    .grey(txt: "Not select", fontSize: 15),
+                                elevation: 16,
+                                style:
+                                    const TextStyle(color: Colors.deepPurple),
+                                underline: const SizedBox(),
+                                onChanged: (String? newValue) {},
+                                items: items.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: CustomText()
+                                        .grey(txt: value, fontSize: 15),
+                                  );
+                                }).toList(),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
             ],
           ),
         ),
