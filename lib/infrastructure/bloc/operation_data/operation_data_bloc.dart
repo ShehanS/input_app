@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/issue_list/entity/issue_list_entity.dart';
+import 'package:downtime_pro/infrastructure/domain/resource/model/factory_resource_entity.dart';
 import 'package:downtime_pro/infrastructure/repository/operation_data_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -25,13 +25,15 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
     on<OperationDataEvent>((event, emit) {});
     on<GetIssueList>(_getIssueList);
     on<ClearErrorDialogProps>(_clearErrorDialogProps);
+    on<GetFactoryResource>(_getFactoryResource);
   }
 
   void _getIssueList(
       GetIssueList event, Emitter<OperationDataState> emit) async {
     log("Requesting metadata using GraphQL client...");
     emit(state.copyWith(isLoading: true));
-    final result = await operationDataRepository.issueList(event.orgKey, event.fetchPolicy);
+    final result = await operationDataRepository.fetchFactoryIssueList(
+        event.orgKey, event.fetchPolicy);
     result.fold((l) {
       log("Some issue happening");
       emit(state.copyWith(
@@ -44,15 +46,40 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
       List<SubIssueListEntity> issueList = [];
       r.forEach((factoryIssueList) {
         final subList = factoryIssueList.issueList;
-        if(subList!.isNotEmpty){
-           subList.forEach((issue)=>{
-             issueList.add(issue)
-           });
+        if (subList!.isNotEmpty) {
+          subList.forEach((issue) => {issueList.add(issue)});
         }
-
       });
 
       emit(state.copyWith(isLoading: false, issueList: issueList));
+    });
+  }
+
+  Future<void> _getFactoryResource(
+      GetFactoryResource event, Emitter<OperationDataState> emit) async {
+    log("Requesting factory resource using GraphQL client...");
+    emit(state.copyWith(isLoading: true));
+    final result = await operationDataRepository.fetchFactoryResource(
+        event.orgKey, event.fetchPolicy);
+    result.fold((l) {
+      log("Some issue happening");
+      emit(state.copyWith(
+          errorDialogProps: ErrorDialogProps(
+              title: "Sync Factory Resources",
+              message: "Cannot fetch factory resources",
+              isOpen: true),
+          isLoading: false));
+    }, (r) {
+      List<ResourceEntity> resourcesList = [];
+      r.forEach((factoryResource) {
+        final resources = factoryResource.resources;
+        if (resources!.isNotEmpty) {
+          resources.forEach((resource) => {resourcesList.add(resource)});
+        }
+      });
+
+      emit(state.copyWith(
+          isLoading: false, resources: resourcesList));
     });
   }
 

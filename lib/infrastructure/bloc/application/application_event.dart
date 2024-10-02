@@ -6,4 +6,5 @@ class ApplicationEvent with _$ApplicationEvent {
   const factory ApplicationEvent.setDefaultStation() = SetDefaultStation;
   const factory ApplicationEvent.changeStation(StationModel station) = ChangeStation;
   const factory ApplicationEvent.selectDepartment(List<SubIssueListEntity> deptIssueList, String color) = SelectDepartment;
+  const factory ApplicationEvent.selectResource(ResourceEntity resource) = SelectResource;
 }

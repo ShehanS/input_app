@@ -11,6 +11,7 @@ import 'dart:developer';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/globle/model/station_model.dart';
+import '../../domain/resource/model/factory_resource_entity.dart';
 
 part 'application_event.dart';
 
@@ -27,6 +28,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     on<ChangeStation>(_changeStation);
     on<SetDefaultStation>(_setDefaultStation);
     on<SelectDepartment>(_selectDepartment);
+    on<SelectResource>(_selectResource);
   }
 
   void _changeStation(ChangeStation event, Emitter<ApplicationState> emit) {
@@ -48,6 +50,10 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     }
   }
 
+  void _selectResource(SelectResource event,  Emitter<ApplicationState> emit){
+    log("change resource ==>${event.resource.resourceName}");
+    emit(state.copyWith(resource: event.resource));
+  }
   void _selectDepartment(SelectDepartment event, Emitter<ApplicationState> emit){
     emit(state.copyWith(deptIssueList: event.deptIssueList ?? [], color: event.color));
   }

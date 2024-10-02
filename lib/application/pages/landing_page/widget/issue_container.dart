@@ -46,6 +46,10 @@ class IssueContainer extends StatelessWidget {
                   outerContext.read<OperationDataBloc>().add(GetIssueList(
                       orgKey: state.station!.orgKey,
                       fetchPolicy: FetchPolicy.cacheAndNetwork));
+                  outerContext.read<OperationDataBloc>().add(GetFactoryResource(
+                      orgKey: state.station!.orgKey,
+                      fetchPolicy: FetchPolicy.cacheAndNetwork));
+
                 },
               ),
             ],

@@ -21,6 +21,8 @@ mixin _$OperationDataEvent {
     required TResult Function() started,
     required TResult Function(String orgKey, FetchPolicy fetchPolicy)
         getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getFactoryResource,
     required TResult Function() clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,6 +30,8 @@ mixin _$OperationDataEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult? Function()? clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,6 +39,8 @@ mixin _$OperationDataEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) =>
@@ -43,6 +49,7 @@ mixin _$OperationDataEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetIssueList value) getIssueList,
+    required TResult Function(GetFactoryResource value) getFactoryResource,
     required TResult Function(ClearErrorDialogProps value)
         clearErrorDialogProps,
   }) =>
@@ -51,6 +58,7 @@ mixin _$OperationDataEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetIssueList value)? getIssueList,
+    TResult? Function(GetFactoryResource value)? getFactoryResource,
     TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +66,7 @@ mixin _$OperationDataEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetIssueList value)? getIssueList,
+    TResult Function(GetFactoryResource value)? getFactoryResource,
     TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
     required TResult orElse(),
   }) =>
@@ -129,6 +138,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(String orgKey, FetchPolicy fetchPolicy)
         getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getFactoryResource,
     required TResult Function() clearErrorDialogProps,
   }) {
     return started();
@@ -139,6 +150,8 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult? Function()? clearErrorDialogProps,
   }) {
     return started?.call();
@@ -149,6 +162,8 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {
@@ -163,6 +178,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetIssueList value) getIssueList,
+    required TResult Function(GetFactoryResource value) getFactoryResource,
     required TResult Function(ClearErrorDialogProps value)
         clearErrorDialogProps,
   }) {
@@ -174,6 +190,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetIssueList value)? getIssueList,
+    TResult? Function(GetFactoryResource value)? getFactoryResource,
     TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
   }) {
     return started?.call(this);
@@ -184,6 +201,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetIssueList value)? getIssueList,
+    TResult Function(GetFactoryResource value)? getFactoryResource,
     TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
     required TResult orElse(),
   }) {
@@ -278,6 +296,8 @@ class _$GetIssueListImpl implements GetIssueList {
     required TResult Function() started,
     required TResult Function(String orgKey, FetchPolicy fetchPolicy)
         getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getFactoryResource,
     required TResult Function() clearErrorDialogProps,
   }) {
     return getIssueList(orgKey, fetchPolicy);
@@ -288,6 +308,8 @@ class _$GetIssueListImpl implements GetIssueList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult? Function()? clearErrorDialogProps,
   }) {
     return getIssueList?.call(orgKey, fetchPolicy);
@@ -298,6 +320,8 @@ class _$GetIssueListImpl implements GetIssueList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {
@@ -312,6 +336,7 @@ class _$GetIssueListImpl implements GetIssueList {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetIssueList value) getIssueList,
+    required TResult Function(GetFactoryResource value) getFactoryResource,
     required TResult Function(ClearErrorDialogProps value)
         clearErrorDialogProps,
   }) {
@@ -323,6 +348,7 @@ class _$GetIssueListImpl implements GetIssueList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetIssueList value)? getIssueList,
+    TResult? Function(GetFactoryResource value)? getFactoryResource,
     TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
   }) {
     return getIssueList?.call(this);
@@ -333,6 +359,7 @@ class _$GetIssueListImpl implements GetIssueList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetIssueList value)? getIssueList,
+    TResult Function(GetFactoryResource value)? getFactoryResource,
     TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
     required TResult orElse(),
   }) {
@@ -355,6 +382,177 @@ abstract class GetIssueList implements OperationDataEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetIssueListImplCopyWith<_$GetIssueListImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetFactoryResourceImplCopyWith<$Res> {
+  factory _$$GetFactoryResourceImplCopyWith(_$GetFactoryResourceImpl value,
+          $Res Function(_$GetFactoryResourceImpl) then) =
+      __$$GetFactoryResourceImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String orgKey, FetchPolicy fetchPolicy});
+}
+
+/// @nodoc
+class __$$GetFactoryResourceImplCopyWithImpl<$Res>
+    extends _$OperationDataEventCopyWithImpl<$Res, _$GetFactoryResourceImpl>
+    implements _$$GetFactoryResourceImplCopyWith<$Res> {
+  __$$GetFactoryResourceImplCopyWithImpl(_$GetFactoryResourceImpl _value,
+      $Res Function(_$GetFactoryResourceImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OperationDataEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? orgKey = null,
+    Object? fetchPolicy = null,
+  }) {
+    return _then(_$GetFactoryResourceImpl(
+      orgKey: null == orgKey
+          ? _value.orgKey
+          : orgKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      fetchPolicy: null == fetchPolicy
+          ? _value.fetchPolicy
+          : fetchPolicy // ignore: cast_nullable_to_non_nullable
+              as FetchPolicy,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetFactoryResourceImpl implements GetFactoryResource {
+  const _$GetFactoryResourceImpl(
+      {required this.orgKey, required this.fetchPolicy});
+
+  @override
+  final String orgKey;
+  @override
+  final FetchPolicy fetchPolicy;
+
+  @override
+  String toString() {
+    return 'OperationDataEvent.getFactoryResource(orgKey: $orgKey, fetchPolicy: $fetchPolicy)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetFactoryResourceImpl &&
+            (identical(other.orgKey, orgKey) || other.orgKey == orgKey) &&
+            (identical(other.fetchPolicy, fetchPolicy) ||
+                other.fetchPolicy == fetchPolicy));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, orgKey, fetchPolicy);
+
+  /// Create a copy of OperationDataEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetFactoryResourceImplCopyWith<_$GetFactoryResourceImpl> get copyWith =>
+      __$$GetFactoryResourceImplCopyWithImpl<_$GetFactoryResourceImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getFactoryResource,
+    required TResult Function() clearErrorDialogProps,
+  }) {
+    return getFactoryResource(orgKey, fetchPolicy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
+    TResult? Function()? clearErrorDialogProps,
+  }) {
+    return getFactoryResource?.call(orgKey, fetchPolicy);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
+    TResult Function()? clearErrorDialogProps,
+    required TResult orElse(),
+  }) {
+    if (getFactoryResource != null) {
+      return getFactoryResource(orgKey, fetchPolicy);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetIssueList value) getIssueList,
+    required TResult Function(GetFactoryResource value) getFactoryResource,
+    required TResult Function(ClearErrorDialogProps value)
+        clearErrorDialogProps,
+  }) {
+    return getFactoryResource(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetIssueList value)? getIssueList,
+    TResult? Function(GetFactoryResource value)? getFactoryResource,
+    TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
+  }) {
+    return getFactoryResource?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetIssueList value)? getIssueList,
+    TResult Function(GetFactoryResource value)? getFactoryResource,
+    TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
+    required TResult orElse(),
+  }) {
+    if (getFactoryResource != null) {
+      return getFactoryResource(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetFactoryResource implements OperationDataEvent {
+  const factory GetFactoryResource(
+      {required final String orgKey,
+      required final FetchPolicy fetchPolicy}) = _$GetFactoryResourceImpl;
+
+  String get orgKey;
+  FetchPolicy get fetchPolicy;
+
+  /// Create a copy of OperationDataEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetFactoryResourceImplCopyWith<_$GetFactoryResourceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -404,6 +602,8 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
     required TResult Function() started,
     required TResult Function(String orgKey, FetchPolicy fetchPolicy)
         getIssueList,
+    required TResult Function(String orgKey, FetchPolicy fetchPolicy)
+        getFactoryResource,
     required TResult Function() clearErrorDialogProps,
   }) {
     return clearErrorDialogProps();
@@ -414,6 +614,8 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult? Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult? Function()? clearErrorDialogProps,
   }) {
     return clearErrorDialogProps?.call();
@@ -424,6 +626,8 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String orgKey, FetchPolicy fetchPolicy)? getIssueList,
+    TResult Function(String orgKey, FetchPolicy fetchPolicy)?
+        getFactoryResource,
     TResult Function()? clearErrorDialogProps,
     required TResult orElse(),
   }) {
@@ -438,6 +642,7 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetIssueList value) getIssueList,
+    required TResult Function(GetFactoryResource value) getFactoryResource,
     required TResult Function(ClearErrorDialogProps value)
         clearErrorDialogProps,
   }) {
@@ -449,6 +654,7 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetIssueList value)? getIssueList,
+    TResult? Function(GetFactoryResource value)? getFactoryResource,
     TResult? Function(ClearErrorDialogProps value)? clearErrorDialogProps,
   }) {
     return clearErrorDialogProps?.call(this);
@@ -459,6 +665,7 @@ class _$ClearErrorDialogPropsImpl implements ClearErrorDialogProps {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetIssueList value)? getIssueList,
+    TResult Function(GetFactoryResource value)? getFactoryResource,
     TResult Function(ClearErrorDialogProps value)? clearErrorDialogProps,
     required TResult orElse(),
   }) {
@@ -478,6 +685,7 @@ mixin _$OperationDataState {
   List<SubIssueListEntity> get issueList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   ErrorDialogProps? get errorDialogProps => throw _privateConstructorUsedError;
+  List<ResourceEntity>? get resources => throw _privateConstructorUsedError;
 
   /// Create a copy of OperationDataState
   /// with the given fields replaced by the non-null parameter values.
@@ -495,7 +703,8 @@ abstract class $OperationDataStateCopyWith<$Res> {
   $Res call(
       {List<SubIssueListEntity> issueList,
       bool isLoading,
-      ErrorDialogProps? errorDialogProps});
+      ErrorDialogProps? errorDialogProps,
+      List<ResourceEntity>? resources});
 
   $ErrorDialogPropsCopyWith<$Res>? get errorDialogProps;
 }
@@ -518,6 +727,7 @@ class _$OperationDataStateCopyWithImpl<$Res, $Val extends OperationDataState>
     Object? issueList = null,
     Object? isLoading = null,
     Object? errorDialogProps = freezed,
+    Object? resources = freezed,
   }) {
     return _then(_value.copyWith(
       issueList: null == issueList
@@ -532,6 +742,10 @@ class _$OperationDataStateCopyWithImpl<$Res, $Val extends OperationDataState>
           ? _value.errorDialogProps
           : errorDialogProps // ignore: cast_nullable_to_non_nullable
               as ErrorDialogProps?,
+      resources: freezed == resources
+          ? _value.resources
+          : resources // ignore: cast_nullable_to_non_nullable
+              as List<ResourceEntity>?,
     ) as $Val);
   }
 
@@ -561,7 +775,8 @@ abstract class _$$OperationDataStateImplCopyWith<$Res>
   $Res call(
       {List<SubIssueListEntity> issueList,
       bool isLoading,
-      ErrorDialogProps? errorDialogProps});
+      ErrorDialogProps? errorDialogProps,
+      List<ResourceEntity>? resources});
 
   @override
   $ErrorDialogPropsCopyWith<$Res>? get errorDialogProps;
@@ -583,6 +798,7 @@ class __$$OperationDataStateImplCopyWithImpl<$Res>
     Object? issueList = null,
     Object? isLoading = null,
     Object? errorDialogProps = freezed,
+    Object? resources = freezed,
   }) {
     return _then(_$OperationDataStateImpl(
       issueList: null == issueList
@@ -597,6 +813,10 @@ class __$$OperationDataStateImplCopyWithImpl<$Res>
           ? _value.errorDialogProps
           : errorDialogProps // ignore: cast_nullable_to_non_nullable
               as ErrorDialogProps?,
+      resources: freezed == resources
+          ? _value._resources
+          : resources // ignore: cast_nullable_to_non_nullable
+              as List<ResourceEntity>?,
     ));
   }
 }
@@ -607,8 +827,10 @@ class _$OperationDataStateImpl extends _OperationDataState {
   _$OperationDataStateImpl(
       {required final List<SubIssueListEntity> issueList,
       required this.isLoading,
-      this.errorDialogProps})
+      this.errorDialogProps,
+      required final List<ResourceEntity>? resources})
       : _issueList = issueList,
+        _resources = resources,
         super._();
 
   final List<SubIssueListEntity> _issueList;
@@ -623,6 +845,15 @@ class _$OperationDataStateImpl extends _OperationDataState {
   final bool isLoading;
   @override
   final ErrorDialogProps? errorDialogProps;
+  final List<ResourceEntity>? _resources;
+  @override
+  List<ResourceEntity>? get resources {
+    final value = _resources;
+    if (value == null) return null;
+    if (_resources is EqualUnmodifiableListView) return _resources;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// Create a copy of OperationDataState
   /// with the given fields replaced by the non-null parameter values.
@@ -636,9 +867,11 @@ class _$OperationDataStateImpl extends _OperationDataState {
 
 abstract class _OperationDataState extends OperationDataState {
   factory _OperationDataState(
-      {required final List<SubIssueListEntity> issueList,
-      required final bool isLoading,
-      final ErrorDialogProps? errorDialogProps}) = _$OperationDataStateImpl;
+          {required final List<SubIssueListEntity> issueList,
+          required final bool isLoading,
+          final ErrorDialogProps? errorDialogProps,
+          required final List<ResourceEntity>? resources}) =
+      _$OperationDataStateImpl;
   _OperationDataState._() : super._();
 
   @override
@@ -647,6 +880,8 @@ abstract class _OperationDataState extends OperationDataState {
   bool get isLoading;
   @override
   ErrorDialogProps? get errorDialogProps;
+  @override
+  List<ResourceEntity>? get resources;
 
   /// Create a copy of OperationDataState
   /// with the given fields replaced by the non-null parameter values.

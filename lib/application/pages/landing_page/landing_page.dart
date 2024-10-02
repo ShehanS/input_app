@@ -16,60 +16,65 @@ import '../../widget/customize_dialog/custom_dialog.dart';
 @RoutePage()
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-     context.read<ApplicationBloc>().add(const SetDefaultStation());
+      context.read<ApplicationBloc>().add(const SetDefaultStation());
     });
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(),
       ),
-      body: BlocConsumer<OperationDataBloc, OperationDataState>(
+      body: BlocConsumer<ApplicationBloc, ApplicationState>(
           listener: (outerContext, outerState) {
-            if (outerState.errorDialogProps != null &&
-                outerState.errorDialogProps!.isOpen) {
-              showBasicDialog(
-                width: 250,
-                height: 180,
-                context: context,
-                title: 'Something happening..',
-                content: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/icons/error.png",
-                      width: 50,
-                      height: 50,
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: CustomText().grey(
-                          txt: outerState.errorDialogProps!.message,
-                          fontSize: 12),
-                    ),
-                  ],
-                ),
-                onClose: () {
-                  outerContext
-                      .read<OperationDataBloc>()
-                      .add(const ClearErrorDialogProps());
-                },
-              );
-            }
+            print(outerState.station!.displayName);
           },
-          builder: (outerContext, outerState) => Container(
-                margin: const EdgeInsets.all(15),
-                child: const Row(
-                  children: [
-                    SideNav(),
-                    SizedBox(width: 10),
-                    IssueContainer()
-                    ,
-                  ],
-                ),
-              )),
+          builder: (outerContext, outerState) =>
+              BlocConsumer<OperationDataBloc, OperationDataState>(
+                  listener: (outerContext, outerState) {
+                    if (outerState.errorDialogProps != null &&
+                        outerState.errorDialogProps!.isOpen) {
+                      showBasicDialog(
+                        width: 250,
+                        height: 180,
+                        context: context,
+                        title: 'Something happening..',
+                        content: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/icons/error.png",
+                              width: 50,
+                              height: 50,
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: CustomText().grey(
+                                  txt: outerState.errorDialogProps!.message,
+                                  fontSize: 12),
+                            ),
+                          ],
+                        ),
+                        onClose: () {
+                          outerContext
+                              .read<OperationDataBloc>()
+                              .add(const ClearErrorDialogProps());
+                        },
+                      );
+                    }
+                  },
+                  builder: (outerContext, outerState) => Container(
+                        margin: const EdgeInsets.all(15),
+                        child: const Row(
+                          children: [
+                            SideNav(),
+                            SizedBox(width: 10),
+                            IssueContainer(),
+                          ],
+                        ),
+                      ))),
     );
   }
 }
