@@ -19,19 +19,19 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(UserModel user) createUser,
+    required TResult Function(User user) createUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(UserModel user)? createUser,
+    TResult? Function(User user)? createUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(UserModel user)? createUser,
+    TResult Function(User user)? createUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,7 +118,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(UserModel user) createUser,
+    required TResult Function(User user) createUser,
   }) {
     return started();
   }
@@ -127,7 +127,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(UserModel user)? createUser,
+    TResult? Function(User user)? createUser,
   }) {
     return started?.call();
   }
@@ -136,7 +136,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(UserModel user)? createUser,
+    TResult Function(User user)? createUser,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -187,9 +187,9 @@ abstract class _$$CreateUserImplCopyWith<$Res> {
           _$CreateUserImpl value, $Res Function(_$CreateUserImpl) then) =
       __$$CreateUserImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel user});
+  $Res call({User user});
 
-  $UserModelCopyWith<$Res> get user;
+  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -211,7 +211,7 @@ class __$$CreateUserImplCopyWithImpl<$Res>
       null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as User,
     ));
   }
 
@@ -219,8 +219,8 @@ class __$$CreateUserImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -232,7 +232,7 @@ class _$CreateUserImpl implements CreateUser {
   const _$CreateUserImpl(this.user);
 
   @override
-  final UserModel user;
+  final User user;
 
   @override
   String toString() {
@@ -262,7 +262,7 @@ class _$CreateUserImpl implements CreateUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(UserModel user) createUser,
+    required TResult Function(User user) createUser,
   }) {
     return createUser(user);
   }
@@ -271,7 +271,7 @@ class _$CreateUserImpl implements CreateUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(UserModel user)? createUser,
+    TResult? Function(User user)? createUser,
   }) {
     return createUser?.call(user);
   }
@@ -280,7 +280,7 @@ class _$CreateUserImpl implements CreateUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(UserModel user)? createUser,
+    TResult Function(User user)? createUser,
     required TResult orElse(),
   }) {
     if (createUser != null) {
@@ -322,9 +322,9 @@ class _$CreateUserImpl implements CreateUser {
 }
 
 abstract class CreateUser implements UserEvent {
-  const factory CreateUser(final UserModel user) = _$CreateUserImpl;
+  const factory CreateUser(final User user) = _$CreateUserImpl;
 
-  UserModel get user;
+  User get user;
 
   /// Create a copy of UserEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -335,7 +335,7 @@ abstract class CreateUser implements UserEvent {
 
 /// @nodoc
 mixin _$UserState {
-  UserModel? get user => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
 
   /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
@@ -349,9 +349,9 @@ abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
-  $Res call({UserModel? user});
+  $Res call({User? user});
 
-  $UserModelCopyWith<$Res>? get user;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -375,7 +375,7 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel?,
+              as User?,
     ) as $Val);
   }
 
@@ -383,12 +383,12 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res>? get user {
+  $UserCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
 
-    return $UserModelCopyWith<$Res>(_value.user!, (value) {
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value) as $Val);
     });
   }
@@ -402,10 +402,10 @@ abstract class _$$UserStateImplCopyWith<$Res>
       __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserModel? user});
+  $Res call({User? user});
 
   @override
-  $UserModelCopyWith<$Res>? get user;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -427,7 +427,7 @@ class __$$UserStateImplCopyWithImpl<$Res>
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel?,
+              as User?,
     ));
   }
 }
@@ -438,7 +438,7 @@ class _$UserStateImpl extends _UserState {
   _$UserStateImpl({this.user}) : super._();
 
   @override
-  final UserModel? user;
+  final User? user;
 
   /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
@@ -450,11 +450,11 @@ class _$UserStateImpl extends _UserState {
 }
 
 abstract class _UserState extends UserState {
-  factory _UserState({final UserModel? user}) = _$UserStateImpl;
+  factory _UserState({final User? user}) = _$UserStateImpl;
   _UserState._() : super._();
 
   @override
-  UserModel? get user;
+  User? get user;
 
   /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.

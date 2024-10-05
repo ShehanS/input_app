@@ -1,14 +1,13 @@
-import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../infrastructure/const/custom_text.dart';
-import '../../../../infrastructure/domain/globle/color/globle_colors.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/domain/global//color/globle_colors.dart';
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
 
 class SubList extends StatelessWidget {
-  final SubIssueListEntity subIssueListEntity;
-  late List<SubIssueListEntity> subIssueListEntitys = [];
+  final SubIssueList subIssue;
+  late List<SubIssueList> subIssueList = [];
 
-  SubList({Key? key, required this.subIssueListEntity}) : super(key: key);
+  SubList({Key? key, required this.subIssue}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +17,12 @@ class SubList extends StatelessWidget {
           Wrap(
             alignment: WrapAlignment.start,
             direction: Axis.horizontal,
-            children: subIssueListEntity.issueList!.map((issue) {
+            children: subIssue.issueList!.map((issue) {
               return Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: GestureDetector(
                   onTap: () {
-                    subIssueListEntitys = issue.issueList!;
+                    subIssueList = issue.issueList!;
                   },
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
@@ -87,7 +86,7 @@ class SubList extends StatelessWidget {
           SizedBox(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                final issue = subIssueListEntitys[index];
+                final issue = subIssueList[index];
                 print("kkk");
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -95,7 +94,7 @@ class SubList extends StatelessWidget {
                 );
               },
               shrinkWrap: true,
-              itemCount: subIssueListEntity.issueList?.length ?? 0,
+              itemCount: subIssue.issueList?.length ?? 0,
             ),
           ),
         ],

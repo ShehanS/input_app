@@ -1,14 +1,15 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/resource/model/factory_resource_entity.dart';
 import 'package:downtime_pro/infrastructure/repository/operation_data_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
-import '../../domain/globle/model/error_dialog_props.dart';
-import '../../domain/metadata/model/factory_issue_list_entity.dart';
+import 'package:downtime_pro/infrastructure/domain/global/model/error_dialog_props.dart';
+
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
+
+import 'package:downtime_pro/infrastructure/domain/resource/model/factory_resource.dart';
 
 part 'operation_data_event.dart';
 
@@ -43,7 +44,7 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
               isOpen: true),
           isLoading: false));
     }, (r) {
-      List<SubIssueListEntity> issueList = [];
+      List<SubIssueList> issueList = [];
       r.forEach((factoryIssueList) {
         final subList = factoryIssueList.issueList;
         if (subList!.isNotEmpty) {
@@ -70,7 +71,7 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
               isOpen: true),
           isLoading: false));
     }, (r) {
-      List<ResourceEntity> resourcesList = [];
+      List<Resource> resourcesList = [];
       r.forEach((factoryResource) {
         final resources = factoryResource.resources;
         if (resources!.isNotEmpty) {
@@ -78,8 +79,7 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
         }
       });
 
-      emit(state.copyWith(
-          isLoading: false, resources: resourcesList));
+      emit(state.copyWith(isLoading: false, resources: resourcesList));
     });
   }
 

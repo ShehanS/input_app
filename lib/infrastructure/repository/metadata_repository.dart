@@ -2,12 +2,11 @@ import 'package:downtime_pro/infrastructure/services/graphql_service.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
-import '../graphql/factory_issue_list_query.dart';
-import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
-import 'dart:developer';
+import 'package:downtime_pro/infrastructure/graphql/factory_issue_list_query.dart';
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
 
 abstract class MetaDataRepository {
-  Future<Either<Unit, List<FactoryIssueListEntity>>> factoryIssueList(
+  Future<Either<Unit, List<FactoryIssueList>>> factoryIssueList(
       String factoryId, String module);
 }
 
@@ -18,7 +17,7 @@ class MetaDataRepositoryImpl implements MetaDataRepository {
   MetaDataRepositoryImpl(this._graphQLService);
 
   @override
-  Future<Either<Unit, List<FactoryIssueListEntity>>> factoryIssueList(
+  Future<Either<Unit, List<FactoryIssueList>>> factoryIssueList(
       String factoryId, String module) async {
     final client = _graphQLService.client;
     final QueryOptions option = QueryOptions(
@@ -31,8 +30,7 @@ class MetaDataRepositoryImpl implements MetaDataRepository {
       if (data != null) {
         try {
           final issueList = data
-              .map((d) =>
-                  FactoryIssueListEntity.fromJson(d as Map<String, dynamic>))
+              .map((d) => FactoryIssueList.fromJson(d as Map<String, dynamic>))
               .toList();
           return right(issueList);
         } catch (e) {

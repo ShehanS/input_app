@@ -6,7 +6,7 @@ class MetaDataState extends Equatable with _$MetaDataState {
 
   factory MetaDataState.initial() => MetaDataState(factoryIssueList: null);
 
-  factory MetaDataState({List<FactoryIssueListEntity>? factoryIssueList}) =
+  factory MetaDataState({List<FactoryIssueList>? factoryIssueList}) =
       _MetaDataState;
 
   @override

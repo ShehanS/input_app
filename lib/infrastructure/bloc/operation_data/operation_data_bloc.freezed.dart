@@ -682,10 +682,10 @@ abstract class ClearErrorDialogProps implements OperationDataEvent {
 
 /// @nodoc
 mixin _$OperationDataState {
-  List<SubIssueListEntity> get issueList => throw _privateConstructorUsedError;
+  List<SubIssueList> get issueList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   ErrorDialogProps? get errorDialogProps => throw _privateConstructorUsedError;
-  List<ResourceEntity>? get resources => throw _privateConstructorUsedError;
+  List<Resource>? get resources => throw _privateConstructorUsedError;
 
   /// Create a copy of OperationDataState
   /// with the given fields replaced by the non-null parameter values.
@@ -701,10 +701,10 @@ abstract class $OperationDataStateCopyWith<$Res> {
       _$OperationDataStateCopyWithImpl<$Res, OperationDataState>;
   @useResult
   $Res call(
-      {List<SubIssueListEntity> issueList,
+      {List<SubIssueList> issueList,
       bool isLoading,
       ErrorDialogProps? errorDialogProps,
-      List<ResourceEntity>? resources});
+      List<Resource>? resources});
 
   $ErrorDialogPropsCopyWith<$Res>? get errorDialogProps;
 }
@@ -733,7 +733,7 @@ class _$OperationDataStateCopyWithImpl<$Res, $Val extends OperationDataState>
       issueList: null == issueList
           ? _value.issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<SubIssueListEntity>,
+              as List<SubIssueList>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -745,7 +745,7 @@ class _$OperationDataStateCopyWithImpl<$Res, $Val extends OperationDataState>
       resources: freezed == resources
           ? _value.resources
           : resources // ignore: cast_nullable_to_non_nullable
-              as List<ResourceEntity>?,
+              as List<Resource>?,
     ) as $Val);
   }
 
@@ -773,10 +773,10 @@ abstract class _$$OperationDataStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<SubIssueListEntity> issueList,
+      {List<SubIssueList> issueList,
       bool isLoading,
       ErrorDialogProps? errorDialogProps,
-      List<ResourceEntity>? resources});
+      List<Resource>? resources});
 
   @override
   $ErrorDialogPropsCopyWith<$Res>? get errorDialogProps;
@@ -804,7 +804,7 @@ class __$$OperationDataStateImplCopyWithImpl<$Res>
       issueList: null == issueList
           ? _value._issueList
           : issueList // ignore: cast_nullable_to_non_nullable
-              as List<SubIssueListEntity>,
+              as List<SubIssueList>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -816,7 +816,7 @@ class __$$OperationDataStateImplCopyWithImpl<$Res>
       resources: freezed == resources
           ? _value._resources
           : resources // ignore: cast_nullable_to_non_nullable
-              as List<ResourceEntity>?,
+              as List<Resource>?,
     ));
   }
 }
@@ -825,17 +825,17 @@ class __$$OperationDataStateImplCopyWithImpl<$Res>
 
 class _$OperationDataStateImpl extends _OperationDataState {
   _$OperationDataStateImpl(
-      {required final List<SubIssueListEntity> issueList,
+      {required final List<SubIssueList> issueList,
       required this.isLoading,
       this.errorDialogProps,
-      required final List<ResourceEntity>? resources})
+      required final List<Resource>? resources})
       : _issueList = issueList,
         _resources = resources,
         super._();
 
-  final List<SubIssueListEntity> _issueList;
+  final List<SubIssueList> _issueList;
   @override
-  List<SubIssueListEntity> get issueList {
+  List<SubIssueList> get issueList {
     if (_issueList is EqualUnmodifiableListView) return _issueList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_issueList);
@@ -845,9 +845,9 @@ class _$OperationDataStateImpl extends _OperationDataState {
   final bool isLoading;
   @override
   final ErrorDialogProps? errorDialogProps;
-  final List<ResourceEntity>? _resources;
+  final List<Resource>? _resources;
   @override
-  List<ResourceEntity>? get resources {
+  List<Resource>? get resources {
     final value = _resources;
     if (value == null) return null;
     if (_resources is EqualUnmodifiableListView) return _resources;
@@ -867,21 +867,20 @@ class _$OperationDataStateImpl extends _OperationDataState {
 
 abstract class _OperationDataState extends OperationDataState {
   factory _OperationDataState(
-          {required final List<SubIssueListEntity> issueList,
-          required final bool isLoading,
-          final ErrorDialogProps? errorDialogProps,
-          required final List<ResourceEntity>? resources}) =
-      _$OperationDataStateImpl;
+      {required final List<SubIssueList> issueList,
+      required final bool isLoading,
+      final ErrorDialogProps? errorDialogProps,
+      required final List<Resource>? resources}) = _$OperationDataStateImpl;
   _OperationDataState._() : super._();
 
   @override
-  List<SubIssueListEntity> get issueList;
+  List<SubIssueList> get issueList;
   @override
   bool get isLoading;
   @override
   ErrorDialogProps? get errorDialogProps;
   @override
-  List<ResourceEntity>? get resources;
+  List<Resource>? get resources;
 
   /// Create a copy of OperationDataState
   /// with the given fields replaced by the non-null parameter values.

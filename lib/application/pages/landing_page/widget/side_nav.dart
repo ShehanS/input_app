@@ -1,12 +1,13 @@
 import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../infrastructure/bloc/operation_data/operation_data_bloc.dart';
-import '../../../../infrastructure/const/custom_text.dart';
-import '../../../../infrastructure/domain/globle/color/globle_colors.dart';
-import '../../../widget/custom_button/list_item_button.dart';
+import 'package:downtime_pro/infrastructure/bloc/operation_data/operation_data_bloc.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/domain/global//color/globle_colors.dart';
+import 'package:downtime_pro/application/widget/custom_button/list_item_button.dart';
+
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
 
 class SideNav extends StatelessWidget {
   const SideNav({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class SideNav extends StatelessWidget {
                                           SelectDepartment(
                                               innerState.issueList[index]
                                                       .issueList
-                                                  as List<SubIssueListEntity>,
+                                                  as List<SubIssueList>,
                                               buttonData.color as String));
                                     },
                                   ),

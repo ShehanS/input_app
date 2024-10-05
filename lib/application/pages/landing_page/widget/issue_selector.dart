@@ -1,11 +1,11 @@
 import 'package:downtime_pro/application/pages/landing_page/widget/sub_issue_selector.dart';
 import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/globle/color/globle_colors.dart';
+import 'package:downtime_pro/infrastructure/domain/global//color/globle_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../infrastructure/const/custom_text.dart';
-import '../../../../infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
 import 'issue_apply_dialog.dart';
 
 class IssueSelector extends StatelessWidget {
@@ -45,7 +45,7 @@ class IssueSelector extends StatelessWidget {
                               context: context,
                               title: issue.displayName ?? "Unknown",
                               issueList:
-                                  issue.issueList as List<SubIssueListEntity>,
+                                  issue.issueList as List<SubIssueList>,
                               onClose: () {
                                 Navigator.of(context).pop();
                               },

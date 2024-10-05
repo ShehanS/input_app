@@ -1,13 +1,12 @@
-import 'package:downtime_pro/infrastructure/domain/globle/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:downtime_pro/infrastructure/bloc/app_config/app_config_bloc.dart';
-import '../../../infrastructure/const/app_const.dart';
-import '../../../infrastructure/const/custom_text.dart';
-import '../../../infrastructure/domain/globle/color/globle_colors.dart';
-import '../../../infrastructure/services/storage_service.dart';
-import '../../widget/customize_dialog/custom_dialog.dart';
+import 'package:downtime_pro/infrastructure/const/app_const.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/domain/global//color/globle_colors.dart';
+import 'package:downtime_pro/infrastructure/services/storage_service.dart';
+import 'package:downtime_pro/application/widget/customize_dialog/custom_dialog.dart';
 
 @RoutePage()
 class TokenPage extends StatelessWidget {

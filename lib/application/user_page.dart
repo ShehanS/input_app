@@ -2,7 +2,7 @@ import 'package:downtime_pro/application/widget/custom_app_bar/custom_app_bar.da
 import 'package:downtime_pro/infrastructure/bloc/metadata/meta_data_bloc.dart';
 import 'package:downtime_pro/infrastructure/services/graphql_service.dart';
 import 'package:downtime_pro/infrastructure/bloc/user/user_bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/user/model/user_model.dart';
+import 'package:downtime_pro/infrastructure/domain/user/model/user.dart';
 import 'package:downtime_pro/infrastructure/injection/injection.dart';
 
 import 'package:flutter/material.dart';

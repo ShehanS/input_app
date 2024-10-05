@@ -3,27 +3,27 @@ import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.da
 import 'package:downtime_pro/infrastructure/bloc/operation_data/operation_data_bloc.dart';
 import 'package:downtime_pro/infrastructure/const/app_const.dart';
 import 'package:downtime_pro/infrastructure/const/custom_text.dart';
-import 'package:downtime_pro/infrastructure/domain/app_config/entity/app_config_entity.dart';
-import 'package:downtime_pro/infrastructure/domain/globle/color/globle_colors.dart';
-import 'package:downtime_pro/infrastructure/domain/globle/model/station_model.dart';
+import 'package:downtime_pro/infrastructure/domain/global//color/globle_colors.dart';
 import 'package:downtime_pro/infrastructure/services/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../widget/customize_dialog/custom_dialog.dart';
+import 'package:downtime_pro/application/widget/customize_dialog/custom_dialog.dart';
+import 'package:downtime_pro/infrastructure/domain/global/model/station.dart';
+import 'package:downtime_pro/infrastructure/domain/app_config/model/app_config.dart';
 
 class StationSelector extends StatelessWidget {
   final storageService = StorageService();
 
   StationSelector({Key? key}) : super(key: key);
 
-  Future<List<StationModel>> getConfig() async {
+  Future<List<Station>> getConfig() async {
     try {
       final config = await storageService.getValue(AppConstants.APP_CONFIG);
       if (config != null) {
         final jsonConfig = jsonDecode(config);
-        final appConfig = AppConfigEntity.fromJson(jsonConfig);
+        final appConfig = AppConfig.fromJson(jsonConfig);
         return (appConfig.masterData as List<dynamic>)
-            .map((item) => StationModel.fromJson(item))
+            .map((item) => Station.fromJson(item))
             .toList();
       }
     } catch (e) {
@@ -34,7 +34,7 @@ class StationSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<StationModel>>(
+    return FutureBuilder<List<Station>>(
         future: getConfig(),
         builder: (context, snapshot) {
           final stations = snapshot.data!;
@@ -77,8 +77,8 @@ class StationSelector extends StatelessWidget {
                     },
                     builder: (innerContext1, innerState1) => Column(
                           children: [
-                            for (StationModel station in stations)
-                              RadioListTile<StationModel>(
+                            for (Station station in stations)
+                              RadioListTile<Station>(
                                 key: ValueKey(station.id),
                                 title: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +93,7 @@ class StationSelector extends StatelessWidget {
                                 ),
                                 value: station,
                                 groupValue: innerState.station,
-                                onChanged: (StationModel? newValue) {
+                                onChanged: (Station? newValue) {
                                   showYesNoDialog(
                                     width: 300,
                                     height: 150,

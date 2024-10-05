@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/user/model/user_model.dart';
+import 'package:downtime_pro/infrastructure/domain/user/model/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

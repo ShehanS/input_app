@@ -339,7 +339,7 @@ abstract class GetFactoryIssueList implements MetaDataEvent {
 
 /// @nodoc
 mixin _$MetaDataState {
-  List<FactoryIssueListEntity>? get factoryIssueList =>
+  List<FactoryIssueList>? get factoryIssueList =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of MetaDataState
@@ -355,7 +355,7 @@ abstract class $MetaDataStateCopyWith<$Res> {
           MetaDataState value, $Res Function(MetaDataState) then) =
       _$MetaDataStateCopyWithImpl<$Res, MetaDataState>;
   @useResult
-  $Res call({List<FactoryIssueListEntity>? factoryIssueList});
+  $Res call({List<FactoryIssueList>? factoryIssueList});
 }
 
 /// @nodoc
@@ -379,7 +379,7 @@ class _$MetaDataStateCopyWithImpl<$Res, $Val extends MetaDataState>
       factoryIssueList: freezed == factoryIssueList
           ? _value.factoryIssueList
           : factoryIssueList // ignore: cast_nullable_to_non_nullable
-              as List<FactoryIssueListEntity>?,
+              as List<FactoryIssueList>?,
     ) as $Val);
   }
 }
@@ -392,7 +392,7 @@ abstract class _$$MetaDataStateImplCopyWith<$Res>
       __$$MetaDataStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FactoryIssueListEntity>? factoryIssueList});
+  $Res call({List<FactoryIssueList>? factoryIssueList});
 }
 
 /// @nodoc
@@ -414,7 +414,7 @@ class __$$MetaDataStateImplCopyWithImpl<$Res>
       factoryIssueList: freezed == factoryIssueList
           ? _value._factoryIssueList
           : factoryIssueList // ignore: cast_nullable_to_non_nullable
-              as List<FactoryIssueListEntity>?,
+              as List<FactoryIssueList>?,
     ));
   }
 }
@@ -422,13 +422,13 @@ class __$$MetaDataStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MetaDataStateImpl extends _MetaDataState {
-  _$MetaDataStateImpl({final List<FactoryIssueListEntity>? factoryIssueList})
+  _$MetaDataStateImpl({final List<FactoryIssueList>? factoryIssueList})
       : _factoryIssueList = factoryIssueList,
         super._();
 
-  final List<FactoryIssueListEntity>? _factoryIssueList;
+  final List<FactoryIssueList>? _factoryIssueList;
   @override
-  List<FactoryIssueListEntity>? get factoryIssueList {
+  List<FactoryIssueList>? get factoryIssueList {
     final value = _factoryIssueList;
     if (value == null) return null;
     if (_factoryIssueList is EqualUnmodifiableListView)
@@ -447,13 +447,12 @@ class _$MetaDataStateImpl extends _MetaDataState {
 }
 
 abstract class _MetaDataState extends MetaDataState {
-  factory _MetaDataState(
-          {final List<FactoryIssueListEntity>? factoryIssueList}) =
+  factory _MetaDataState({final List<FactoryIssueList>? factoryIssueList}) =
       _$MetaDataStateImpl;
   _MetaDataState._() : super._();
 
   @override
-  List<FactoryIssueListEntity>? get factoryIssueList;
+  List<FactoryIssueList>? get factoryIssueList;
 
   /// Create a copy of MetaDataState
   /// with the given fields replaced by the non-null parameter values.

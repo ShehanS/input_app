@@ -1,15 +1,12 @@
 import 'package:downtime_pro/application/pages/landing_page/widget/issue_container.dart';
-import 'package:downtime_pro/application/pages/landing_page/widget/issue_selector.dart';
 import 'package:downtime_pro/application/pages/landing_page/widget/side_nav.dart';
 import 'package:downtime_pro/infrastructure/bloc/operation_data/operation_data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../../infrastructure/bloc/application/application_bloc.dart';
 import '../../../infrastructure/const/custom_text.dart';
-import '../../../infrastructure/domain/globle/color/globle_colors.dart';
 import '../../widget/custom_app_bar/custom_app_bar.dart';
 import '../../widget/customize_dialog/custom_dialog.dart';
 

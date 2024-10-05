@@ -7,11 +7,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 
-import '../../infrastructure/bloc/app_config/app_config_bloc.dart';
-import '../../infrastructure/bloc/localization/localization_bloc.dart';
-import '../../infrastructure/domain/globle/router/app_router.dart';
-import '../../infrastructure/injection/injection.dart';
-import '../../infrastructure/services/localization_service.dart';
+import 'package:downtime_pro/infrastructure/bloc/app_config/app_config_bloc.dart';
+import 'package:downtime_pro/infrastructure/bloc/localization/localization_bloc.dart';
+import 'package:downtime_pro/infrastructure/domain/global/router/app_router.dart';
+import 'package:downtime_pro/infrastructure/injection/injection.dart';
+import 'package:downtime_pro/infrastructure/services/localization_service.dart';
 
 @RoutePage()
 class AppWidgetPage extends StatelessWidget {

@@ -1,13 +1,12 @@
-import 'package:downtime_pro/application/widget/customize_dialog/custom_dialog.dart';
 import 'package:downtime_pro/infrastructure/const/custom_text.dart';
-import 'package:downtime_pro/infrastructure/domain/globle/color/globle_colors.dart';
-import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
+import 'package:downtime_pro/infrastructure/domain/global//color/globle_colors.dart';
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
 import 'package:flutter/material.dart';
 
 import 'issue_apply_dialog.dart';
 
 class ErrorSelector extends StatefulWidget {
-  final List<SubIssueListEntity> issueList;
+  final List<SubIssueList> issueList;
   final String title;
   final VoidCallback onClose;
   final double width;
@@ -27,7 +26,7 @@ class ErrorSelector extends StatefulWidget {
 }
 
 class _ErrorSelectorState extends State<ErrorSelector> {
-  bool checkAllSubIssues(SubIssueListEntity issue) {
+  bool checkAllSubIssues(SubIssueList issue) {
     for (var subIssue in issue.issueList ?? []) {
       if (subIssue.issueList == null || subIssue.issueList!.isEmpty) {
         return false;
@@ -273,7 +272,7 @@ class _ErrorSelectorState extends State<ErrorSelector> {
 void showErrorSelectorDialog({
   required BuildContext context,
   required String title,
-  required List<SubIssueListEntity> issueList,
+  required List<SubIssueList> issueList,
   required VoidCallback onClose,
   required double width,
   required double height,

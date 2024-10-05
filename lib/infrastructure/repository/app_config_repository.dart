@@ -1,17 +1,15 @@
-import 'dart:collection';
 
-import 'package:downtime_pro/infrastructure/domain/app_config/entity/app_config_entity.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
-
-import '../domain/globle/model/error_response.dart';
-import '../graphql/app_config.query.dart';
-import '../services/graphql_service.dart';
+import 'package:downtime_pro/infrastructure/domain/app_config/model/app_config.dart';
+import 'package:downtime_pro/infrastructure/domain/global/model/error_response.dart';
+import 'package:downtime_pro/infrastructure/graphql/app_config.query.dart';
+import 'package:downtime_pro/infrastructure/services/graphql_service.dart';
 import 'dart:developer';
 
 abstract class AppConfigRepository {
-  Future<Either<dynamic, AppConfigEntity>> appConfig(String token);
+  Future<Either<dynamic, AppConfig>> appConfig(String token);
 }
 
 @LazySingleton(as: AppConfigRepository)
@@ -21,7 +19,7 @@ class AppDataRepositoryImpl implements AppConfigRepository {
   AppDataRepositoryImpl(this._graphQLService);
 
   @override
-  Future<Either<dynamic, AppConfigEntity>> appConfig(String token) async {
+  Future<Either<dynamic, AppConfig>> appConfig(String token) async {
     final client = _graphQLService.client;
     final QueryOptions options = QueryOptions(
       document: gql(appConfigQuery),
@@ -47,7 +45,7 @@ class AppDataRepositoryImpl implements AppConfigRepository {
     final data = result.data;
     if (data != null) {
       try {
-        final appConfig = AppConfigEntity.fromJson(
+        final appConfig = AppConfig.fromJson(
             data['fetchConfig'] as Map<String, dynamic>);
         return right(appConfig);
       } catch (e) {

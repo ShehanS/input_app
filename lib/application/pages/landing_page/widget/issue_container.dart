@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-
-import '../../../../infrastructure/bloc/application/application_bloc.dart';
-import '../../../../infrastructure/bloc/operation_data/operation_data_bloc.dart';
-import '../../../../infrastructure/const/custom_text.dart';
-import '../../../../infrastructure/domain/globle/color/globle_colors.dart';
+import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
+import 'package:downtime_pro/infrastructure/bloc/operation_data/operation_data_bloc.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/domain/global/color/globle_colors.dart';
 import 'issue_selector.dart';
 
 class IssueContainer extends StatelessWidget {
@@ -26,7 +25,11 @@ class IssueContainer extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CustomText().dynamicTxt(txt: "Issues", color: AppColors.blueGray, fontSize: 18, fontWeight: FontWeight.bold),
+              CustomText().dynamicTxt(
+                  txt: "Issues",
+                  color: AppColors.blueGray,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
               const Divider(),
               Container(
                 padding: const EdgeInsets.all(16.0),
@@ -49,7 +52,6 @@ class IssueContainer extends StatelessWidget {
                   outerContext.read<OperationDataBloc>().add(GetFactoryResource(
                       orgKey: state.station!.orgKey,
                       fetchPolicy: FetchPolicy.cacheAndNetwork));
-
                 },
               ),
             ],

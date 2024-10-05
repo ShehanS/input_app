@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../infrastructure/const/custom_text.dart';
-import '../../../../infrastructure/domain/globle/color/globle_colors.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/domain/global//color/globle_colors.dart';
 
 class CustomizedDialog extends StatelessWidget {
   final String title;

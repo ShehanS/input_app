@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:downtime_pro/infrastructure/domain/globle/router/app_router.dart';
 import 'package:flutter/material.dart';
 
-import '../../../infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/domain/global/router/app_router.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {

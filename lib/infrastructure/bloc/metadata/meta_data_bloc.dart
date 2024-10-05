@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
 import 'package:downtime_pro/infrastructure/repository/metadata_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:developer';
 import 'package:injectable/injectable.dart';
+
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
 
 part 'meta_data_event.dart';
 

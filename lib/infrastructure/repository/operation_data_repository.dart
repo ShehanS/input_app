@@ -1,20 +1,20 @@
 import 'dart:developer';
 
-import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
-import 'package:downtime_pro/infrastructure/domain/resource/model/factory_resource_entity.dart';
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
+import 'package:downtime_pro/infrastructure/domain/resource/model/factory_resource.dart';
 import 'package:downtime_pro/infrastructure/graphql/factory_issue_list_query.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
-import '../graphql/factory_resource_query.dart';
-import '../services/graphql_service.dart';
-import '../domain/globle/model/error_response.dart';
+import 'package:downtime_pro/infrastructure/graphql/factory_resource_query.dart';
+import 'package:downtime_pro/infrastructure/services/graphql_service.dart';
+import 'package:downtime_pro/infrastructure/domain/global/model/error_response.dart';
 
 abstract class OperationDataRepository {
-  Future<Either<dynamic, List<FactoryIssueListEntity>>> fetchFactoryIssueList(
+  Future<Either<dynamic, List<FactoryIssueList>>> fetchFactoryIssueList(
       String orgKey, FetchPolicy fetchPolicy);
 
-  Future<Either<dynamic, List<FactoryResourceEntity>>> fetchFactoryResource(
+  Future<Either<dynamic, List<FactoryResource>>> fetchFactoryResource(
       String orgKey, FetchPolicy fetchPolicy);
 }
 
@@ -25,7 +25,7 @@ class OperationDataImpl implements OperationDataRepository {
   OperationDataImpl(this._graphQLService);
 
   @override
-  Future<Either<dynamic, List<FactoryIssueListEntity>>> fetchFactoryIssueList(
+  Future<Either<dynamic, List<FactoryIssueList>>> fetchFactoryIssueList(
       String orgKey, FetchPolicy fetchPolicy) async {
     final client = _graphQLService.client;
     final QueryOptions options = QueryOptions(
@@ -53,9 +53,8 @@ class OperationDataImpl implements OperationDataRepository {
       try {
         final List<dynamic> issuesList =
             data['fetchIssueList'] as List<dynamic>;
-        final List<FactoryIssueListEntity> issueEntities =
-            issuesList.map((issue) {
-          return FactoryIssueListEntity.fromJson(issue as Map<String, dynamic>);
+        final List<FactoryIssueList> issueEntities = issuesList.map((issue) {
+          return FactoryIssueList.fromJson(issue as Map<String, dynamic>);
         }).toList();
         return right(issueEntities);
       } catch (e) {
@@ -67,7 +66,7 @@ class OperationDataImpl implements OperationDataRepository {
   }
 
   @override
-  Future<Either<dynamic, List<FactoryResourceEntity>>> fetchFactoryResource(
+  Future<Either<dynamic, List<FactoryResource>>> fetchFactoryResource(
       String orgKey, FetchPolicy fetchPolicy) async {
     final client = _graphQLService.client;
     final QueryOptions options = QueryOptions(
@@ -95,9 +94,9 @@ class OperationDataImpl implements OperationDataRepository {
       try {
         final List<dynamic> factoryResource =
             data['fetchFactoryResources'] as List<dynamic>;
-        final List<FactoryResourceEntity> issueEntities =
+        final List<FactoryResource> issueEntities =
             factoryResource.map((issue) {
-          return FactoryResourceEntity.fromJson(issue as Map<String, dynamic>);
+          return FactoryResource.fromJson(issue as Map<String, dynamic>);
         }).toList();
         return right(issueEntities);
       } catch (e) {

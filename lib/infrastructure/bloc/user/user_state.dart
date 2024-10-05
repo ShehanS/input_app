@@ -6,7 +6,7 @@ class UserState extends Equatable with _$UserState {
 
   factory UserState.initial() => UserState(user: null);
 
-  factory UserState({UserModel? user}) = _UserState;
+  factory UserState({User? user}) = _UserState;
 
   @override
   List<Object?> get props => [user];

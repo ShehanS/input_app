@@ -1,11 +1,10 @@
-import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list_entity.dart';
+import 'package:downtime_pro/infrastructure/domain/metadata/model/factory_issue_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../infrastructure/const/custom_text.dart';
+import 'package:downtime_pro/infrastructure/const/custom_text.dart';
 
 class ListItemButton extends StatelessWidget {
-  final SubIssueListEntity deptIssue;
+  final SubIssueList deptIssue;
   final String? icon;
   final String? department;
   final Color startColor;
