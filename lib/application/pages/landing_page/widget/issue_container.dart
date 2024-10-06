@@ -17,46 +17,52 @@ class IssueContainer extends StatelessWidget {
       builder: (outerContext, outerState) => Expanded(
         flex: 9,
         child: Container(
-          padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.outlineBorderColor, width: 0.3),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CustomText().dynamicTxt(
-                  txt: "Issues",
-                  color: AppColors.blueGray,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-              const Divider(),
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                child: const IssueSelector(),
+            width: double.infinity,
+            height: double.infinity,
+            padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+            decoration: BoxDecoration(
+              border:
+                  Border.all(color: AppColors.outlineBorderColor, width: 0.3),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CustomText().dynamicTxt(
+                      txt: "Issues",
+                      color: AppColors.blueGray,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                  const Divider(),
+                  Container(
+                    padding: const EdgeInsets.all(16.0),
+                    child: const IssueSelector(),
+                  ),
+                  BlocConsumer<ApplicationBloc, ApplicationState>(
+                    builder: (innerContext, innerState) {
+                      final station = innerState.station;
+                      String stationDisplayName = station != null
+                          ? station.displayName
+                          : 'No Station Selected';
+                      return const Column(
+                        children: [],
+                      );
+                    },
+                    listener: (BuildContext ctx, ApplicationState state) {
+                      outerContext.read<OperationDataBloc>().add(GetIssueList(
+                          orgKey: state.station!.orgKey,
+                          fetchPolicy: FetchPolicy.cacheAndNetwork));
+                      outerContext.read<OperationDataBloc>().add(
+                          GetFactoryResource(
+                              orgKey: state.station!.orgKey,
+                              fetchPolicy: FetchPolicy.cacheAndNetwork));
+                    },
+                  ),
+                ],
               ),
-              BlocConsumer<ApplicationBloc, ApplicationState>(
-                builder: (innerContext, innerState) {
-                  final station = innerState.station;
-                  String stationDisplayName = station != null
-                      ? station.displayName
-                      : 'No Station Selected';
-                  return const Column(
-                    children: [],
-                  );
-                },
-                listener: (BuildContext ctx, ApplicationState state) {
-                  outerContext.read<OperationDataBloc>().add(GetIssueList(
-                      orgKey: state.station!.orgKey,
-                      fetchPolicy: FetchPolicy.cacheAndNetwork));
-                  outerContext.read<OperationDataBloc>().add(GetFactoryResource(
-                      orgKey: state.station!.orgKey,
-                      fetchPolicy: FetchPolicy.cacheAndNetwork));
-                },
-              ),
-            ],
-          ),
-        ),
+            )),
       ),
     );
   }

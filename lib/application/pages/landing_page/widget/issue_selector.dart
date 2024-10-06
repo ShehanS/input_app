@@ -26,6 +26,7 @@ class IssueSelector extends StatelessWidget {
       builder: (innerContext, innerState) {
         return Wrap(
           alignment: WrapAlignment.start,
+
           children: innerState.deptIssueList!.map((issue) {
             return Padding(
                 padding: const EdgeInsets.all(5.0),

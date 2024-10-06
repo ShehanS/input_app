@@ -26,7 +26,6 @@ class LandingPage extends StatelessWidget {
       ),
       body: BlocConsumer<ApplicationBloc, ApplicationState>(
           listener: (outerContext, outerState) {
-            print(outerState.station!.displayName);
           },
           builder: (outerContext, outerState) =>
               BlocConsumer<OperationDataBloc, OperationDataState>(

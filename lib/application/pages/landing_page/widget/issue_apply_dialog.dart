@@ -35,68 +35,69 @@ class ErrorApplyDialog extends StatelessWidget {
                     child: SizedBox(
                       width: width,
                       height: height,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: Container(
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.deepPurple,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: const Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.white,
-                                    size: 50,
-                                  ),
-                                ),
-                              ),
-                              CustomText().grey(txt: issue.displayName ?? ""),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: const BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.white,
-                                    AppColors.blueGray,
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                            width: double.infinity,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                      child:SingleChildScrollView(
+                        child:  Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                CustomText().dynamicTxt(
-                                    txt:
-                                        'Category: ${issue.categoryType ?? "N/A"}',
-                                    color: AppColors.deepPurple,
-                                    fontSize: 14),
-                                if (issue.department != null)
-                                  CustomText().dynamicTxt(
-                                      txt: 'Department: ${issue.department}',
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: Container(
+                                    decoration: const BoxDecoration(
                                       color: AppColors.deepPurple,
-                                      fontSize: 14),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Icon(
+                                      Icons.arrow_back,
+                                      color: Colors.white,
+                                      size: 50,
+                                    ),
+                                  ),
+                                ),
+                                CustomText().grey(txt: issue.displayName ?? ""),
                               ],
                             ),
-                          ),
-                          const Divider(),
-                          const SizedBox(height: 50),
-                          issue.issueList!.isNotEmpty
-                              ? SizedBox(
-                                  child: SizedBox(
+                            const SizedBox(height: 20),
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: const BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.white,
+                                      AppColors.blueGray,
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                              width: double.infinity,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  CustomText().dynamicTxt(
+                                      txt:
+                                      'Category: ${issue.categoryType ?? "N/A"}',
+                                      color: AppColors.deepPurple,
+                                      fontSize: 14),
+                                  if (issue.department != null)
+                                    CustomText().dynamicTxt(
+                                        txt: 'Department: ${issue.department}',
+                                        color: AppColors.deepPurple,
+                                        fontSize: 14),
+                                ],
+                              ),
+                            ),
+                            const Divider(),
+                            const SizedBox(height: 50),
+                            issue.issueList!.isNotEmpty
+                                ? SizedBox(
+                                child: SizedBox(
                                   width: double.infinity,
                                   child: Wrap(
                                     spacing: 10,
@@ -104,144 +105,172 @@ class ErrorApplyDialog extends StatelessWidget {
                                     children: issue.issueList!
                                         .map(
                                           (subIssue) => GestureDetector(
-                                            onTap: () {
-                                              showIssueApplyDialog(
-                                                context: context,
-                                                title:
-                                                    "Add Machine ${subIssue.displayName ?? ""}",
-                                                width: double.infinity,
-                                                height: double.infinity,
-                                                issue: subIssue,
-                                              );
-                                            },
-                                            child: Container(
-                                              padding:
-                                                  const EdgeInsets.fromLTRB(
-                                                      15, 0, 15, 0),
-                                              width: 250,
-                                              height: 70,
-                                              decoration: BoxDecoration(
-                                                color: AppColors.boldRed,
-                                                borderRadius:
-                                                    BorderRadius.circular(35),
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.black
-                                                        .withOpacity(0.2),
-                                                    offset: const Offset(0, 3),
-                                                    blurRadius: 8,
-                                                  ),
-                                                ],
+                                        onTap: () {
+                                          showIssueApplyDialog(
+                                            context: context,
+                                            title:
+                                            "Add Machine ${subIssue.displayName ?? ""}",
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            issue: subIssue,
+                                          );
+                                        },
+                                        child: Container(
+                                          padding:
+                                          const EdgeInsets.fromLTRB(
+                                              15, 0, 15, 0),
+                                          width: 250,
+                                          height: 70,
+                                          decoration: BoxDecoration(
+                                            color: AppColors.boldRed,
+                                            borderRadius:
+                                            BorderRadius.circular(35),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.2),
+                                                offset: const Offset(0, 3),
+                                                blurRadius: 8,
                                               ),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    width: 40,
-                                                    height: 40,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white
-                                                          .withOpacity(0.2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: const Icon(
-                                                      Icons.error,
-                                                      color: Colors.white,
-                                                      size: 24,
-                                                    ),
-                                                  ),
-                                                  const SizedBox(width: 15),
-                                                  Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      CustomText().dynamicTxt(
-                                                        txt: subIssue
-                                                                .displayName ??
-                                                            "Button",
-                                                        color: Colors.white,
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                      CustomText().dynamicTxt(
-                                                        txt:
-                                                            "${subIssue.categoryType} | ${subIssue.issueCode}",
-                                                        color: Colors.white70,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
+                                            ],
                                           ),
-                                        )
+                                          child: Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: 40,
+                                                height: 40,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white
+                                                      .withOpacity(0.2),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: const Icon(
+                                                  Icons.error,
+                                                  color: Colors.white,
+                                                  size: 24,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 15),
+                                              Column(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment
+                                                    .center,
+                                                crossAxisAlignment:
+                                                CrossAxisAlignment
+                                                    .start,
+                                                children: [
+                                                  CustomText().dynamicTxt(
+                                                    txt: subIssue
+                                                        .displayName ??
+                                                        "Button",
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                    FontWeight.bold,
+                                                  ),
+                                                  CustomText().dynamicTxt(
+                                                    txt:
+                                                    "${subIssue.categoryType} | ${subIssue.issueCode}",
+                                                    color: Colors.white70,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                    FontWeight.normal,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    )
                                         .toList(),
                                   ),
                                 ))
-                              : Container(
-                                  decoration: const BoxDecoration(
-                                      // borderRadius: const BorderRadius.all(Radius.circular(10)),
-                                      // border: Border.all(color: AppColors.deepPurple, width: 2),
-                                      ),
-                                  child: Column(
+                                : Container(
+                              decoration: const BoxDecoration(
+                                // borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                // border: Border.all(color: AppColors.deepPurple, width: 2),
+                              ),
+                              child: Column(
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.start,
                                     children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          CustomText().grey(
-                                              txt: "Select machine/ module",
-                                              fontSize: 15),
-                                          DropdownButton<Resource>(
-                                            value: innerState!.resource,
-                                            hint: CustomText().grey(
-                                                txt: "Not select",
-                                                fontSize: 15),
-                                            elevation: 16,
-                                            style: const TextStyle(
-                                                color: Colors.deepPurple),
-                                            underline: const SizedBox(),
-                                            onChanged: (Resource? newValue) {
-                                              innerContext
-                                                  .read<ApplicationBloc>()
-                                                  .add(SelectResource(
-                                                      newValue!));
-                                            },
-                                            items: outerState!.resources!.map<
-                                                    DropdownMenuItem<Resource>>(
-                                                (Resource value) {
-                                              return DropdownMenuItem<Resource>(
-                                                value: value,
-                                                child: CustomText().grey(
-                                                    txt: value.resourceName ??
-                                                        "No resource found",
-                                                    fontSize: 15),
-                                              );
-                                            }).toList(),
-                                          ),
-                                        ],
+                                      Expanded(
+                                        flex: 2,
+                                        child: CustomText().grey(
+                                            txt: "Select machine/ module",
+                                            fontSize: 15),
                                       ),
-                                      ElevatedButton(
-                                          onPressed: () {
-                                            context.router.navigate(
-                                                const AddDowntimeRoute());
+                                      Expanded(
+                                        flex: 3,
+                                        child: DropdownButton<Resource>(
+                                          value: innerState!.resource,
+                                          hint: CustomText().grey(
+                                              txt: "Not select",
+                                              fontSize: 15),
+                                          elevation: 16,
+                                          style: const TextStyle(
+                                              color: Colors.deepPurple),
+                                          underline: const SizedBox(),
+                                          onChanged: (Resource? newValue) {
+                                            innerContext
+                                                .read<ApplicationBloc>()
+                                                .add(SelectResource(
+                                                newValue!));
                                           },
-                                          child: const Text("Goto"))
+                                          items: outerState!.resources!.map<
+                                              DropdownMenuItem<
+                                                  Resource>>(
+                                                  (Resource value) {
+                                                return DropdownMenuItem<
+                                                    Resource>(
+                                                  value: value,
+                                                  child: CustomText().grey(
+                                                      txt: value.resourceName ??
+                                                          "No resource found",
+                                                      fontSize: 15),
+                                                );
+                                              }).toList(),
+                                        ),
+                                      ),
                                     ],
                                   ),
-                                )
-                        ],
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        flex: 2,
+                                        child: CustomText().grey(
+                                            txt: "EPF Number",
+                                            fontSize: 15),
+                                      ),
+                                      const Expanded(
+                                        flex: 3,
+                                        child: SizedBox(
+                                          width: 180, // Set width to 180
+                                          child: TextField(
+                                            decoration: InputDecoration(
+                                              // You can add your desired decoration here
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
