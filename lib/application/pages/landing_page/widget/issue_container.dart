@@ -12,17 +12,36 @@ class IssueContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<OperationDataBloc, OperationDataState>(
-      listener: (outerContext, outerState) {},
-      builder: (outerContext, outerState) => Expanded(
-        flex: 9,
-        child: Container(
+    return BlocListener<ApplicationBloc, ApplicationState>(
+      listenWhen: (previous, current) =>
+      previous.station?.orgKey != current.station?.orgKey,
+      listener: (context, state) {
+        final orgKey = state.station?.orgKey;
+        if (orgKey != null) {
+          // Dispatch the events to OperationDataBloc when station key changes
+          context.read<OperationDataBloc>().add(
+            GetIssueList(
+              orgKey: orgKey,
+              fetchPolicy: FetchPolicy.cacheAndNetwork,
+            ),
+          );
+          context.read<OperationDataBloc>().add(
+            GetFactoryResource(
+              orgKey: orgKey,
+              fetchPolicy: FetchPolicy.cacheAndNetwork,
+            ),
+          );
+        }
+      },
+      child: BlocBuilder<OperationDataBloc, OperationDataState>(
+        builder: (outerContext, outerState) => Expanded(
+          flex: 9,
+          child: Container(
             width: double.infinity,
             height: double.infinity,
             padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
             decoration: BoxDecoration(
-              border:
-                  Border.all(color: AppColors.outlineBorderColor, width: 0.3),
+              border: Border.all(color: AppColors.outlineBorderColor, width: 0.3),
               borderRadius: BorderRadius.circular(12),
             ),
             child: SingleChildScrollView(
@@ -30,39 +49,37 @@ class IssueContainer extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Builder(
+                    builder: (context) {
+                      final station = context.select((ApplicationBloc bloc) => bloc.state.station);
+                      String stationDisplayName = station != null
+                          ? station.displayName
+                          : 'No Station Selected';
+
+                      return CustomText().dynamicTxt(
+                        txt: "Station: $stationDisplayName",
+                        color: AppColors.blueGray,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      );
+                    },
+                  ),
                   CustomText().dynamicTxt(
-                      txt: "Issues",
-                      color: AppColors.blueGray,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
+                    txt: "Issues",
+                    color: AppColors.blueGray,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                   const Divider(),
                   Container(
                     padding: const EdgeInsets.all(16.0),
                     child: const IssueSelector(),
                   ),
-                  BlocConsumer<ApplicationBloc, ApplicationState>(
-                    builder: (innerContext, innerState) {
-                      final station = innerState.station;
-                      String stationDisplayName = station != null
-                          ? station.displayName
-                          : 'No Station Selected';
-                      return const Column(
-                        children: [],
-                      );
-                    },
-                    listener: (BuildContext ctx, ApplicationState state) {
-                      outerContext.read<OperationDataBloc>().add(GetIssueList(
-                          orgKey: state.station!.orgKey,
-                          fetchPolicy: FetchPolicy.cacheAndNetwork));
-                      outerContext.read<OperationDataBloc>().add(
-                          GetFactoryResource(
-                              orgKey: state.station!.orgKey,
-                              fetchPolicy: FetchPolicy.cacheAndNetwork));
-                    },
-                  ),
                 ],
               ),
-            )),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -20,10 +20,14 @@ DowntimeEvent _$DowntimeEventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DowntimeEvent {
-  int get createAt => throw _privateConstructorUsedError;
-  SubIssueList get issue => throw _privateConstructorUsedError;
-  User get user => throw _privateConstructorUsedError;
-  ShiftInfo get shift => throw _privateConstructorUsedError;
+  int? get createAt => throw _privateConstructorUsedError;
+  SubIssueList? get issue => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
+  ShiftInfo? get shift => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
+  bool get isRunning => throw _privateConstructorUsedError;
+  bool get isPaused => throw _privateConstructorUsedError;
+  int? get seconds => throw _privateConstructorUsedError;
 
   /// Serializes this DowntimeEvent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,11 +45,19 @@ abstract class $DowntimeEventCopyWith<$Res> {
           DowntimeEvent value, $Res Function(DowntimeEvent) then) =
       _$DowntimeEventCopyWithImpl<$Res, DowntimeEvent>;
   @useResult
-  $Res call({int createAt, SubIssueList issue, User user, ShiftInfo shift});
+  $Res call(
+      {int? createAt,
+      SubIssueList? issue,
+      User? user,
+      ShiftInfo? shift,
+      String? status,
+      bool isRunning,
+      bool isPaused,
+      int? seconds});
 
-  $SubIssueListCopyWith<$Res> get issue;
-  $UserCopyWith<$Res> get user;
-  $ShiftInfoCopyWith<$Res> get shift;
+  $SubIssueListCopyWith<$Res>? get issue;
+  $UserCopyWith<$Res>? get user;
+  $ShiftInfoCopyWith<$Res>? get shift;
 }
 
 /// @nodoc
@@ -63,28 +75,48 @@ class _$DowntimeEventCopyWithImpl<$Res, $Val extends DowntimeEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? createAt = null,
-    Object? issue = null,
-    Object? user = null,
-    Object? shift = null,
+    Object? createAt = freezed,
+    Object? issue = freezed,
+    Object? user = freezed,
+    Object? shift = freezed,
+    Object? status = freezed,
+    Object? isRunning = null,
+    Object? isPaused = null,
+    Object? seconds = freezed,
   }) {
     return _then(_value.copyWith(
-      createAt: null == createAt
+      createAt: freezed == createAt
           ? _value.createAt
           : createAt // ignore: cast_nullable_to_non_nullable
-              as int,
-      issue: null == issue
+              as int?,
+      issue: freezed == issue
           ? _value.issue
           : issue // ignore: cast_nullable_to_non_nullable
-              as SubIssueList,
-      user: null == user
+              as SubIssueList?,
+      user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
-      shift: null == shift
+              as User?,
+      shift: freezed == shift
           ? _value.shift
           : shift // ignore: cast_nullable_to_non_nullable
-              as ShiftInfo,
+              as ShiftInfo?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isRunning: null == isRunning
+          ? _value.isRunning
+          : isRunning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPaused: null == isPaused
+          ? _value.isPaused
+          : isPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
+      seconds: freezed == seconds
+          ? _value.seconds
+          : seconds // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 
@@ -92,8 +124,12 @@ class _$DowntimeEventCopyWithImpl<$Res, $Val extends DowntimeEvent>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SubIssueListCopyWith<$Res> get issue {
-    return $SubIssueListCopyWith<$Res>(_value.issue, (value) {
+  $SubIssueListCopyWith<$Res>? get issue {
+    if (_value.issue == null) {
+      return null;
+    }
+
+    return $SubIssueListCopyWith<$Res>(_value.issue!, (value) {
       return _then(_value.copyWith(issue: value) as $Val);
     });
   }
@@ -102,8 +138,12 @@ class _$DowntimeEventCopyWithImpl<$Res, $Val extends DowntimeEvent>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value) as $Val);
     });
   }
@@ -112,8 +152,12 @@ class _$DowntimeEventCopyWithImpl<$Res, $Val extends DowntimeEvent>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ShiftInfoCopyWith<$Res> get shift {
-    return $ShiftInfoCopyWith<$Res>(_value.shift, (value) {
+  $ShiftInfoCopyWith<$Res>? get shift {
+    if (_value.shift == null) {
+      return null;
+    }
+
+    return $ShiftInfoCopyWith<$Res>(_value.shift!, (value) {
       return _then(_value.copyWith(shift: value) as $Val);
     });
   }
@@ -127,14 +171,22 @@ abstract class _$$DowntimeEventImplCopyWith<$Res>
       __$$DowntimeEventImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int createAt, SubIssueList issue, User user, ShiftInfo shift});
+  $Res call(
+      {int? createAt,
+      SubIssueList? issue,
+      User? user,
+      ShiftInfo? shift,
+      String? status,
+      bool isRunning,
+      bool isPaused,
+      int? seconds});
 
   @override
-  $SubIssueListCopyWith<$Res> get issue;
+  $SubIssueListCopyWith<$Res>? get issue;
   @override
-  $UserCopyWith<$Res> get user;
+  $UserCopyWith<$Res>? get user;
   @override
-  $ShiftInfoCopyWith<$Res> get shift;
+  $ShiftInfoCopyWith<$Res>? get shift;
 }
 
 /// @nodoc
@@ -150,28 +202,48 @@ class __$$DowntimeEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? createAt = null,
-    Object? issue = null,
-    Object? user = null,
-    Object? shift = null,
+    Object? createAt = freezed,
+    Object? issue = freezed,
+    Object? user = freezed,
+    Object? shift = freezed,
+    Object? status = freezed,
+    Object? isRunning = null,
+    Object? isPaused = null,
+    Object? seconds = freezed,
   }) {
     return _then(_$DowntimeEventImpl(
-      createAt: null == createAt
+      createAt: freezed == createAt
           ? _value.createAt
           : createAt // ignore: cast_nullable_to_non_nullable
-              as int,
-      issue: null == issue
+              as int?,
+      issue: freezed == issue
           ? _value.issue
           : issue // ignore: cast_nullable_to_non_nullable
-              as SubIssueList,
-      user: null == user
+              as SubIssueList?,
+      user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
-      shift: null == shift
+              as User?,
+      shift: freezed == shift
           ? _value.shift
           : shift // ignore: cast_nullable_to_non_nullable
-              as ShiftInfo,
+              as ShiftInfo?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isRunning: null == isRunning
+          ? _value.isRunning
+          : isRunning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPaused: null == isPaused
+          ? _value.isPaused
+          : isPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
+      seconds: freezed == seconds
+          ? _value.seconds
+          : seconds // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -180,26 +252,38 @@ class __$$DowntimeEventImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DowntimeEventImpl implements _DowntimeEvent {
   _$DowntimeEventImpl(
-      {required this.createAt,
-      required this.issue,
-      required this.user,
-      required this.shift});
+      {this.createAt,
+      this.issue,
+      this.user,
+      this.shift,
+      this.status,
+      required this.isRunning,
+      required this.isPaused,
+      this.seconds});
 
   factory _$DowntimeEventImpl.fromJson(Map<String, dynamic> json) =>
       _$$DowntimeEventImplFromJson(json);
 
   @override
-  final int createAt;
+  final int? createAt;
   @override
-  final SubIssueList issue;
+  final SubIssueList? issue;
   @override
-  final User user;
+  final User? user;
   @override
-  final ShiftInfo shift;
+  final ShiftInfo? shift;
+  @override
+  final String? status;
+  @override
+  final bool isRunning;
+  @override
+  final bool isPaused;
+  @override
+  final int? seconds;
 
   @override
   String toString() {
-    return 'DowntimeEvent(createAt: $createAt, issue: $issue, user: $user, shift: $shift)';
+    return 'DowntimeEvent(createAt: $createAt, issue: $issue, user: $user, shift: $shift, status: $status, isRunning: $isRunning, isPaused: $isPaused, seconds: $seconds)';
   }
 
   @override
@@ -211,12 +295,19 @@ class _$DowntimeEventImpl implements _DowntimeEvent {
                 other.createAt == createAt) &&
             (identical(other.issue, issue) || other.issue == issue) &&
             (identical(other.user, user) || other.user == user) &&
-            (identical(other.shift, shift) || other.shift == shift));
+            (identical(other.shift, shift) || other.shift == shift) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isRunning, isRunning) ||
+                other.isRunning == isRunning) &&
+            (identical(other.isPaused, isPaused) ||
+                other.isPaused == isPaused) &&
+            (identical(other.seconds, seconds) || other.seconds == seconds));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, createAt, issue, user, shift);
+  int get hashCode => Object.hash(runtimeType, createAt, issue, user, shift,
+      status, isRunning, isPaused, seconds);
 
   /// Create a copy of DowntimeEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -236,27 +327,223 @@ class _$DowntimeEventImpl implements _DowntimeEvent {
 
 abstract class _DowntimeEvent implements DowntimeEvent {
   factory _DowntimeEvent(
-      {required final int createAt,
-      required final SubIssueList issue,
-      required final User user,
-      required final ShiftInfo shift}) = _$DowntimeEventImpl;
+      {final int? createAt,
+      final SubIssueList? issue,
+      final User? user,
+      final ShiftInfo? shift,
+      final String? status,
+      required final bool isRunning,
+      required final bool isPaused,
+      final int? seconds}) = _$DowntimeEventImpl;
 
   factory _DowntimeEvent.fromJson(Map<String, dynamic> json) =
       _$DowntimeEventImpl.fromJson;
 
   @override
-  int get createAt;
+  int? get createAt;
   @override
-  SubIssueList get issue;
+  SubIssueList? get issue;
   @override
-  User get user;
+  User? get user;
   @override
-  ShiftInfo get shift;
+  ShiftInfo? get shift;
+  @override
+  String? get status;
+  @override
+  bool get isRunning;
+  @override
+  bool get isPaused;
+  @override
+  int? get seconds;
 
   /// Create a copy of DowntimeEvent
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DowntimeEventImplCopyWith<_$DowntimeEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CountDown _$CountDownFromJson(Map<String, dynamic> json) {
+  return _CountDown.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CountDown {
+  String get seconds => throw _privateConstructorUsedError;
+  String get minutes => throw _privateConstructorUsedError;
+  String get hours => throw _privateConstructorUsedError;
+
+  /// Serializes this CountDown to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of CountDown
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CountDownCopyWith<CountDown> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CountDownCopyWith<$Res> {
+  factory $CountDownCopyWith(CountDown value, $Res Function(CountDown) then) =
+      _$CountDownCopyWithImpl<$Res, CountDown>;
+  @useResult
+  $Res call({String seconds, String minutes, String hours});
+}
+
+/// @nodoc
+class _$CountDownCopyWithImpl<$Res, $Val extends CountDown>
+    implements $CountDownCopyWith<$Res> {
+  _$CountDownCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of CountDown
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? seconds = null,
+    Object? minutes = null,
+    Object? hours = null,
+  }) {
+    return _then(_value.copyWith(
+      seconds: null == seconds
+          ? _value.seconds
+          : seconds // ignore: cast_nullable_to_non_nullable
+              as String,
+      minutes: null == minutes
+          ? _value.minutes
+          : minutes // ignore: cast_nullable_to_non_nullable
+              as String,
+      hours: null == hours
+          ? _value.hours
+          : hours // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CountDownImplCopyWith<$Res>
+    implements $CountDownCopyWith<$Res> {
+  factory _$$CountDownImplCopyWith(
+          _$CountDownImpl value, $Res Function(_$CountDownImpl) then) =
+      __$$CountDownImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String seconds, String minutes, String hours});
+}
+
+/// @nodoc
+class __$$CountDownImplCopyWithImpl<$Res>
+    extends _$CountDownCopyWithImpl<$Res, _$CountDownImpl>
+    implements _$$CountDownImplCopyWith<$Res> {
+  __$$CountDownImplCopyWithImpl(
+      _$CountDownImpl _value, $Res Function(_$CountDownImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CountDown
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? seconds = null,
+    Object? minutes = null,
+    Object? hours = null,
+  }) {
+    return _then(_$CountDownImpl(
+      seconds: null == seconds
+          ? _value.seconds
+          : seconds // ignore: cast_nullable_to_non_nullable
+              as String,
+      minutes: null == minutes
+          ? _value.minutes
+          : minutes // ignore: cast_nullable_to_non_nullable
+              as String,
+      hours: null == hours
+          ? _value.hours
+          : hours // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CountDownImpl implements _CountDown {
+  _$CountDownImpl(
+      {required this.seconds, required this.minutes, required this.hours});
+
+  factory _$CountDownImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CountDownImplFromJson(json);
+
+  @override
+  final String seconds;
+  @override
+  final String minutes;
+  @override
+  final String hours;
+
+  @override
+  String toString() {
+    return 'CountDown(seconds: $seconds, minutes: $minutes, hours: $hours)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CountDownImpl &&
+            (identical(other.seconds, seconds) || other.seconds == seconds) &&
+            (identical(other.minutes, minutes) || other.minutes == minutes) &&
+            (identical(other.hours, hours) || other.hours == hours));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, seconds, minutes, hours);
+
+  /// Create a copy of CountDown
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CountDownImplCopyWith<_$CountDownImpl> get copyWith =>
+      __$$CountDownImplCopyWithImpl<_$CountDownImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CountDownImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CountDown implements CountDown {
+  factory _CountDown(
+      {required final String seconds,
+      required final String minutes,
+      required final String hours}) = _$CountDownImpl;
+
+  factory _CountDown.fromJson(Map<String, dynamic> json) =
+      _$CountDownImpl.fromJson;
+
+  @override
+  String get seconds;
+  @override
+  String get minutes;
+  @override
+  String get hours;
+
+  /// Create a copy of CountDown
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CountDownImplCopyWith<_$CountDownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

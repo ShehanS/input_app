@@ -31,7 +31,7 @@ class OperationDataBloc extends Bloc<OperationDataEvent, OperationDataState> {
 
   void _getIssueList(
       GetIssueList event, Emitter<OperationDataState> emit) async {
-    log("Requesting metadata using GraphQL client...");
+    log("Requesting get issue list using GraphQL client...");
     emit(state.copyWith(isLoading: true));
     final result = await operationDataRepository.fetchFactoryIssueList(
         event.orgKey, event.fetchPolicy);

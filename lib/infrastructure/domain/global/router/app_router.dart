@@ -20,6 +20,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(page: TokenRoute.page),
     AutoRoute(page: AddDowntimeRoute.page),
     AutoRoute(page: LandingRoute.page),
+    AutoRoute(page: AddDowntimeRoute.page),
     AutoRoute(page: LoginRoute.page, initial: true, guards: [configRouter]),
   ];
 }

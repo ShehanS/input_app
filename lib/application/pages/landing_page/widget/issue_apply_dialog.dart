@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:downtime_pro/infrastructure/bloc/application/application_bloc.dart';
 import 'package:downtime_pro/infrastructure/bloc/operation_data/operation_data_bloc.dart';
+import 'package:downtime_pro/infrastructure/domain/create_downtime/model/downtime_event.dart';
 import 'package:downtime_pro/infrastructure/domain/global/router/app_router.dart';
 import 'package:downtime_pro/infrastructure/domain/resource/model/factory_resource.dart';
+import 'package:downtime_pro/infrastructure/domain/shift/model/shift_info.dart';
+import 'package:downtime_pro/infrastructure/domain/user/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:downtime_pro/infrastructure/const/custom_text.dart';
@@ -25,8 +28,7 @@ class ErrorApplyDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<OperationDataBloc, OperationDataState>(
-        listener: (outerContext, outerState) {},
+    return BlocBuilder<OperationDataBloc, OperationDataState>(
         builder: (outerContext, outerState) => BlocBuilder<ApplicationBloc,
                 ApplicationState>(
             builder: (innerContext, innerState) => Dialog(
@@ -35,8 +37,8 @@ class ErrorApplyDialog extends StatelessWidget {
                     child: SizedBox(
                       width: width,
                       height: height,
-                      child:SingleChildScrollView(
-                        child:  Column(
+                      child: SingleChildScrollView(
+                        child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Row(
@@ -74,7 +76,7 @@ class ErrorApplyDialog extends StatelessWidget {
                                     end: Alignment.bottomRight,
                                   ),
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                                      BorderRadius.all(Radius.circular(10))),
                               width: double.infinity,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,7 +84,7 @@ class ErrorApplyDialog extends StatelessWidget {
                                 children: [
                                   CustomText().dynamicTxt(
                                       txt:
-                                      'Category: ${issue.categoryType ?? "N/A"}',
+                                          'Category: ${issue.categoryType ?? "N/A"}',
                                       color: AppColors.deepPurple,
                                       fontSize: 14),
                                   if (issue.department != null)
@@ -97,178 +99,204 @@ class ErrorApplyDialog extends StatelessWidget {
                             const SizedBox(height: 50),
                             issue.issueList!.isNotEmpty
                                 ? SizedBox(
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: Wrap(
-                                    spacing: 10,
-                                    alignment: WrapAlignment.center,
-                                    children: issue.issueList!
-                                        .map(
-                                          (subIssue) => GestureDetector(
-                                        onTap: () {
-                                          showIssueApplyDialog(
-                                            context: context,
-                                            title:
-                                            "Add Machine ${subIssue.displayName ?? ""}",
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            issue: subIssue,
-                                          );
-                                        },
-                                        child: Container(
-                                          padding:
-                                          const EdgeInsets.fromLTRB(
-                                              15, 0, 15, 0),
-                                          width: 250,
-                                          height: 70,
-                                          decoration: BoxDecoration(
-                                            color: AppColors.boldRed,
-                                            borderRadius:
-                                            BorderRadius.circular(35),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.black
-                                                    .withOpacity(0.2),
-                                                offset: const Offset(0, 3),
-                                                blurRadius: 8,
-                                              ),
-                                            ],
-                                          ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                width: 40,
-                                                height: 40,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white
-                                                      .withOpacity(0.2),
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: const Icon(
-                                                  Icons.error,
-                                                  color: Colors.white,
-                                                  size: 24,
-                                                ),
-                                              ),
-                                              const SizedBox(width: 15),
-                                              Column(
-                                                mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .center,
-                                                crossAxisAlignment:
-                                                CrossAxisAlignment
-                                                    .start,
-                                                children: [
-                                                  CustomText().dynamicTxt(
-                                                    txt: subIssue
-                                                        .displayName ??
-                                                        "Button",
-                                                    color: Colors.white,
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                  ),
-                                                  CustomText().dynamicTxt(
-                                                    txt:
-                                                    "${subIssue.categoryType} | ${subIssue.issueCode}",
-                                                    color: Colors.white70,
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                    FontWeight.normal,
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                        .toList(),
-                                  ),
-                                ))
-                                : Container(
-                              decoration: const BoxDecoration(
-                                // borderRadius: const BorderRadius.all(Radius.circular(10)),
-                                // border: Border.all(color: AppColors.deepPurple, width: 2),
-                              ),
-                              child: Column(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        flex: 2,
-                                        child: CustomText().grey(
-                                            txt: "Select machine/ module",
-                                            fontSize: 15),
-                                      ),
-                                      Expanded(
-                                        flex: 3,
-                                        child: DropdownButton<Resource>(
-                                          value: innerState!.resource,
-                                          hint: CustomText().grey(
-                                              txt: "Not select",
-                                              fontSize: 15),
-                                          elevation: 16,
-                                          style: const TextStyle(
-                                              color: Colors.deepPurple),
-                                          underline: const SizedBox(),
-                                          onChanged: (Resource? newValue) {
-                                            innerContext
-                                                .read<ApplicationBloc>()
-                                                .add(SelectResource(
-                                                newValue!));
-                                          },
-                                          items: outerState!.resources!.map<
-                                              DropdownMenuItem<
-                                                  Resource>>(
-                                                  (Resource value) {
-                                                return DropdownMenuItem<
-                                                    Resource>(
-                                                  value: value,
-                                                  child: CustomText().grey(
-                                                      txt: value.resourceName ??
-                                                          "No resource found",
-                                                      fontSize: 15),
+                                    child: SizedBox(
+                                    width: double.infinity,
+                                    child: Wrap(
+                                      spacing: 10,
+                                      alignment: WrapAlignment.center,
+                                      children: issue.issueList!
+                                          .map(
+                                            (subIssue) => GestureDetector(
+                                              onTap: () {
+                                                showIssueApplyDialog(
+                                                  context: context,
+                                                  title:
+                                                      "Add Machine ${subIssue.displayName ?? ""}",
+                                                  width: double.infinity,
+                                                  height: double.infinity,
+                                                  issue: subIssue,
                                                 );
-                                              }).toList(),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        flex: 2,
-                                        child: CustomText().grey(
-                                            txt: "EPF Number",
-                                            fontSize: 15),
-                                      ),
-                                      const Expanded(
-                                        flex: 3,
-                                        child: SizedBox(
-                                          width: 180, // Set width to 180
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                              // You can add your desired decoration here
+                                              },
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        15, 0, 15, 0),
+                                                width: 250,
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  color: AppColors.boldRed,
+                                                  borderRadius:
+                                                      BorderRadius.circular(35),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Colors.black
+                                                          .withOpacity(0.2),
+                                                      offset:
+                                                          const Offset(0, 3),
+                                                      blurRadius: 8,
+                                                    ),
+                                                  ],
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Container(
+                                                      width: 40,
+                                                      height: 40,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white
+                                                            .withOpacity(0.2),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: const Icon(
+                                                        Icons.error,
+                                                        color: Colors.white,
+                                                        size: 24,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 15),
+                                                    Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        CustomText().dynamicTxt(
+                                                          txt: subIssue
+                                                                  .displayName ??
+                                                              "Button",
+                                                          color: Colors.white,
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                        CustomText().dynamicTxt(
+                                                          txt:
+                                                              "${subIssue.categoryType} | ${subIssue.issueCode}",
+                                                          color: Colors.white70,
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                          )
+                                          .toList(),
+                                    ),
+                                  ))
+                                : Container(
+                                    width: 600,
+                                    decoration: const BoxDecoration(
+                                        // borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                        // border: Border.all(color: AppColors.deepPurple, width: 2),
                                         ),
+                                    child: Center(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              CustomText().grey(
+                                                  txt: "Select machine/ module",
+                                                  fontSize: 15),
+                                              SizedBox(
+                                                width: 150,
+                                                child: DropdownButton<Resource>(
+                                                  isExpanded: true,
+                                                  value: innerState!.resource,
+                                                  hint: CustomText().grey(
+                                                      txt: "Not select",
+                                                      fontSize: 15),
+                                                  elevation: 16,
+                                                  style: const TextStyle(
+                                                      color: Colors.deepPurple),
+                                                  underline: const SizedBox(),
+                                                  onChanged:
+                                                      (Resource? newValue) {
+                                                    innerContext
+                                                        .read<ApplicationBloc>()
+                                                        .add(SelectResource(
+                                                            newValue!));
+                                                  },
+                                                  items: outerState!.resources!
+                                                      .map<
+                                                              DropdownMenuItem<
+                                                                  Resource>>(
+                                                          (Resource value) {
+                                                    return DropdownMenuItem<
+                                                        Resource>(
+                                                      value: value,
+                                                      child: CustomText().grey(
+                                                          txt: value
+                                                                  .resourceName ??
+                                                              "No resource found",
+                                                          fontSize: 15),
+                                                    );
+                                                  }).toList(),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              CustomText().grey(
+                                                  txt: "EPF Number",
+                                                  fontSize: 15),
+                                              Container(
+                                                constraints:
+                                                    const BoxConstraints(
+                                                        maxWidth: 200),
+                                                // Set the width to 80
+                                                child: const TextField(
+                                                  decoration: InputDecoration(
+                                                      // Add your decoration here if needed
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: () {
+                                                innerContext
+                                                    .read<ApplicationBloc>()
+                                                    .add(AddDowntime(DowntimeEvent(
+                                                        isPaused: false,
+                                                        isRunning: true,
+                                                        createAt: DateTime.now()
+                                                            .millisecondsSinceEpoch,
+                                                        issue: issue,
+                                                        user:
+                                                            User(userId: "001"),
+                                                        shift: ShiftInfo(
+                                                            shiftId: "001",
+                                                            shiftName: "test",
+                                                            shiftStart: "08:00",
+                                                            shiftEnd:
+                                                                "04:30"))));
+                                                context.router.navigate(
+                                                    const AddDowntimeRoute());
+                                              },
+                                              child:
+                                                  const Text("Add Downtime")),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ],
-                              ),
-                            )
                           ],
                         ),
                       ),

@@ -24,9 +24,7 @@ class LandingPage extends StatelessWidget {
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(),
       ),
-      body: BlocConsumer<ApplicationBloc, ApplicationState>(
-          listener: (outerContext, outerState) {
-          },
+      body: BlocBuilder<ApplicationBloc, ApplicationState>(
           builder: (outerContext, outerState) =>
               BlocConsumer<OperationDataBloc, OperationDataState>(
                   listener: (outerContext, outerState) {

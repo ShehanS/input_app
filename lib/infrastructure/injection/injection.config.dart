@@ -30,6 +30,8 @@ import 'package:downtime_pro/infrastructure/repository/metadata_repository.dart'
     as _i722;
 import 'package:downtime_pro/infrastructure/repository/operation_data_repository.dart'
     as _i377;
+import 'package:downtime_pro/infrastructure/repository/timer_repository.dart'
+    as _i932;
 import 'package:downtime_pro/infrastructure/services/counter_service.dart'
     as _i882;
 import 'package:downtime_pro/infrastructure/services/graphql_service.dart'
@@ -53,7 +55,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final localizationModule = _$LocalizationModule();
     gh.factory<_i754.UserBloc>(() => _i754.UserBloc());
-    gh.factory<_i42.ApplicationBloc>(() => _i42.ApplicationBloc());
     gh.factory<_i75.ConfigRouter>(() => _i75.ConfigRouter());
     gh.singleton<_i277.GraphQLService>(() => _i277.GraphQLService());
     gh.singleton<_i598.StorageService>(() => _i598.StorageService());
@@ -71,8 +72,12 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i277.GraphQLService>(),
           gh<_i598.StorageService>(),
         ));
+    gh.lazySingleton<_i932.TimerRepository>(
+        () => _i932.TimerRepositoryImplements());
     gh.lazySingleton<_i722.MetaDataRepository>(
         () => _i722.MetaDataRepositoryImpl(gh<_i277.GraphQLService>()));
+    gh.factory<_i42.ApplicationBloc>(
+        () => _i42.ApplicationBloc(gh<_i932.TimerRepository>()));
     gh.factory<_i503.OperationDataBloc>(
         () => _i503.OperationDataBloc(gh<_i377.OperationDataRepository>()));
     gh.factory<_i213.MetaDataBloc>(

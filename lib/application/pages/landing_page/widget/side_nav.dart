@@ -18,17 +18,13 @@ class SideNav extends StatelessWidget {
       flex: 3,
       child: BlocBuilder<ApplicationBloc, ApplicationState>(
         builder: (outerContext, outerState) {
-          return BlocConsumer<OperationDataBloc, OperationDataState>(
-            listener: (innerContext, innerState) {
-              // Add listener logic here if needed
-            },
+          return BlocBuilder<OperationDataBloc, OperationDataState>(
             builder: (innerContext, innerState) {
               return Container(
                 padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-
                   border: Border.all(
                       color: AppColors.outlineBorderColor, width: 0.3),
                   borderRadius: BorderRadius.circular(12),
